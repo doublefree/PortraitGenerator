@@ -132,8 +132,6 @@
 		B0544AB716E1995F0028DD55 /* vec4.c in Sources */ = {isa = PBXBuildFile; fileRef = B0544AB616E1995F0028DD55 /* vec4.c */; };
 		B0544ABC16E1995F0028DD55 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B0544ABB16E1995F0028DD55 /* main.m */; };
 		B0544ABF16E1995F0028DD55 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B0544ABE16E1995F0028DD55 /* AppDelegate.m */; };
-		B0544AC216E1995F0028DD55 /* HelloWorldLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = B0544AC116E1995F0028DD55 /* HelloWorldLayer.m */; };
-		B0544AC516E1995F0028DD55 /* IntroLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = B0544AC416E1995F0028DD55 /* IntroLayer.m */; };
 		B0544AD216E199AD0028DD55 /* eye.png in Resources */ = {isa = PBXBuildFile; fileRef = B0544ACC16E199AD0028DD55 /* eye.png */; };
 		B0544AD316E199AD0028DD55 /* face.png in Resources */ = {isa = PBXBuildFile; fileRef = B0544ACD16E199AD0028DD55 /* face.png */; };
 		B0544AD416E199AD0028DD55 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B0544ACF16E199AD0028DD55 /* Default-568h@2x.png */; };
@@ -405,10 +403,6 @@
 		B0544ABB16E1995F0028DD55 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B0544ABD16E1995F0028DD55 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		B0544ABE16E1995F0028DD55 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		B0544AC016E1995F0028DD55 /* HelloWorldLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HelloWorldLayer.h; sourceTree = "<group>"; };
-		B0544AC116E1995F0028DD55 /* HelloWorldLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HelloWorldLayer.m; sourceTree = "<group>"; };
-		B0544AC316E1995F0028DD55 /* IntroLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IntroLayer.h; sourceTree = "<group>"; };
-		B0544AC416E1995F0028DD55 /* IntroLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IntroLayer.m; sourceTree = "<group>"; };
 		B0544ACC16E199AD0028DD55 /* eye.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = eye.png; sourceTree = "<group>"; };
 		B0544ACD16E199AD0028DD55 /* face.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = face.png; sourceTree = "<group>"; };
 		B0544ACF16E199AD0028DD55 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
@@ -491,10 +485,6 @@
 				B027544D16E1AF9B00B453E9 /* Core */,
 				B0544ABD16E1995F0028DD55 /* AppDelegate.h */,
 				B0544ABE16E1995F0028DD55 /* AppDelegate.m */,
-				B0544AC016E1995F0028DD55 /* HelloWorldLayer.h */,
-				B0544AC116E1995F0028DD55 /* HelloWorldLayer.m */,
-				B0544AC316E1995F0028DD55 /* IntroLayer.h */,
-				B0544AC416E1995F0028DD55 /* IntroLayer.m */,
 				B0544AD716E199FF0028DD55 /* PortraitLayer.h */,
 				B0544AD816E199FF0028DD55 /* PortraitLayer.m */,
 				B054494616E1995D0028DD55 /* Resources */,
@@ -1064,8 +1054,6 @@
 				B0544AB716E1995F0028DD55 /* vec4.c in Sources */,
 				B0544ABC16E1995F0028DD55 /* main.m in Sources */,
 				B0544ABF16E1995F0028DD55 /* AppDelegate.m in Sources */,
-				B0544AC216E1995F0028DD55 /* HelloWorldLayer.m in Sources */,
-				B0544AC516E1995F0028DD55 /* IntroLayer.m in Sources */,
 				B0544AD916E199FF0028DD55 /* PortraitLayer.m in Sources */,
 				B027544C16E1AEFA00B453E9 /* Figure.m in Sources */,
 				B027545016E1AFE800B453E9 /* FigureSet.m in Sources */,
