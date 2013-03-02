@@ -10,6 +10,10 @@
 		B027544C16E1AEFA00B453E9 /* Figure.m in Sources */ = {isa = PBXBuildFile; fileRef = B027544B16E1AEFA00B453E9 /* Figure.m */; };
 		B027545016E1AFE800B453E9 /* FigureSet.m in Sources */ = {isa = PBXBuildFile; fileRef = B027544F16E1AFE800B453E9 /* FigureSet.m */; };
 		B027545316E1E91400B453E9 /* Portrait.m in Sources */ = {isa = PBXBuildFile; fileRef = B027545216E1E91400B453E9 /* Portrait.m */; };
+		B027545616E22DE200B453E9 /* LoadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B027545516E22DE200B453E9 /* LoadViewController.m */; };
+		B027545816E22E8B00B453E9 /* LoadViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B027545716E22E8B00B453E9 /* LoadViewController.xib */; };
+		B027545B16E2363E00B453E9 /* PortraitCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B027545A16E2363E00B453E9 /* PortraitCellView.xib */; };
+		B027545E16E236F700B453E9 /* PortraitCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = B027545D16E236F700B453E9 /* PortraitCellView.m */; };
 		B054493416E1995D0028DD55 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B054493316E1995D0028DD55 /* QuartzCore.framework */; };
 		B054493616E1995D0028DD55 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B054493516E1995D0028DD55 /* OpenGLES.framework */; };
 		B054493816E1995D0028DD55 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B054493716E1995D0028DD55 /* OpenAL.framework */; };
@@ -147,6 +151,12 @@
 		B027544F16E1AFE800B453E9 /* FigureSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FigureSet.m; sourceTree = "<group>"; };
 		B027545116E1E91400B453E9 /* Portrait.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Portrait.h; sourceTree = "<group>"; };
 		B027545216E1E91400B453E9 /* Portrait.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Portrait.m; sourceTree = "<group>"; };
+		B027545416E22DE200B453E9 /* LoadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadViewController.h; sourceTree = "<group>"; };
+		B027545516E22DE200B453E9 /* LoadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadViewController.m; sourceTree = "<group>"; };
+		B027545716E22E8B00B453E9 /* LoadViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoadViewController.xib; sourceTree = "<group>"; };
+		B027545A16E2363E00B453E9 /* PortraitCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PortraitCellView.xib; sourceTree = "<group>"; };
+		B027545C16E236F700B453E9 /* PortraitCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PortraitCellView.h; sourceTree = "<group>"; };
+		B027545D16E236F700B453E9 /* PortraitCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PortraitCellView.m; sourceTree = "<group>"; };
 		B054493016E1995D0028DD55 /* PortraitGenerator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PortraitGenerator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B054493316E1995D0028DD55 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		B054493516E1995D0028DD55 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -445,6 +455,19 @@
 			name = Core;
 			sourceTree = "<group>";
 		};
+		B027545916E22E9E00B453E9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B027545416E22DE200B453E9 /* LoadViewController.h */,
+				B027545516E22DE200B453E9 /* LoadViewController.m */,
+				B027545716E22E8B00B453E9 /* LoadViewController.xib */,
+				B027545C16E236F700B453E9 /* PortraitCellView.h */,
+				B027545D16E236F700B453E9 /* PortraitCellView.m */,
+				B027545A16E2363E00B453E9 /* PortraitCellView.xib */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
 		B054492716E1995D0028DD55 = {
 			isa = PBXGroup;
 			children = (
@@ -483,6 +506,7 @@
 			isa = PBXGroup;
 			children = (
 				B027544D16E1AF9B00B453E9 /* Core */,
+				B027545916E22E9E00B453E9 /* View */,
 				B0544ABD16E1995F0028DD55 /* AppDelegate.h */,
 				B0544ABE16E1995F0028DD55 /* AppDelegate.m */,
 				B0544AD716E199FF0028DD55 /* PortraitLayer.h */,
@@ -942,6 +966,8 @@
 				B0544AD416E199AD0028DD55 /* Default-568h@2x.png in Resources */,
 				B0544AD516E199AD0028DD55 /* Default.png in Resources */,
 				B0544AD616E199AD0028DD55 /* Default@2x.png in Resources */,
+				B027545816E22E8B00B453E9 /* LoadViewController.xib in Resources */,
+				B027545B16E2363E00B453E9 /* PortraitCellView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1058,6 +1084,8 @@
 				B027544C16E1AEFA00B453E9 /* Figure.m in Sources */,
 				B027545016E1AFE800B453E9 /* FigureSet.m in Sources */,
 				B027545316E1E91400B453E9 /* Portrait.m in Sources */,
+				B027545616E22DE200B453E9 /* LoadViewController.m in Sources */,
+				B027545E16E236F700B453E9 /* PortraitCellView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

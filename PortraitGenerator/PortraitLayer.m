@@ -7,7 +7,9 @@
 //
 
 #import "PortraitLayer.h"
+#import "Portrait.h"
 #import "FigureSet.h"
+#import "LoadViewController.h"
 
 NSString *const FACE_PATH_DEFAULT = @"face.png";
 NSString *const EYE_PATH_DEFAULT = @"eye.png";
@@ -50,12 +52,19 @@ int const TAG_MENU = 3;
 		}];
         
         self.loadMenu = [CCMenuItemFont itemWithString:@"load" block:^(id sender) {
+            LoadViewController* loadViewController = [[LoadViewController alloc] initWithNibName:@"LoadViewController" bundle:nil];
+            AppController *app = (AppController*) [[UIApplication sharedApplication] delegate];
+            
+            [app.navController presentModalViewController: loadViewController animated:YES];
             self.figureSet = [FigureSet figureSetFromName:DEFAULT_NAME];
             [self drawPortrait];
 		}];
         
         self.saveMenu = [CCMenuItemFont itemWithString:@"save" block:^(id sender) {
-            [self.figureSet saveWithName:DEFAULT_NAME];
+            //[self.figureSet saveWithName:DEFAULT_NAME];
+            UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"save" message:@"input the name of portratit" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
+            [alert setAlertViewStyle:UIAlertViewStylePlainTextInput];
+            [alert show];
 		}];
 		
 		[self drawMenu];
@@ -63,6 +72,13 @@ int const TAG_MENU = 3;
         [[[CCDirector sharedDirector] touchDispatcher] addTargetedDelegate:self priority:0 swallowsTouches:YES];
 	}
 	return self;
+}
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (buttonIndex==1) {
+        NSString* name = [[alertView textFieldAtIndex:0] text];
+        [Portrait add:self.figureSet withName:name];
+    }
 }
 
 -(BOOL) ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event

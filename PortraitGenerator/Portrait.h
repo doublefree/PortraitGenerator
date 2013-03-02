@@ -7,7 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "FigureSet.h"
 
 @interface Portrait : NSObject
-@property (retain, nonatomic) NSString* name;
++(void)add:(FigureSet*)figureSet withName:(NSString*)name;
++(void)removeWithName:(NSString*)name;
++(NSMutableArray*) nameList;
++(int) count;
 @end
