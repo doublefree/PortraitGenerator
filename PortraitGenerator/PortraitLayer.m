@@ -53,16 +53,15 @@ int const TAG_MENU = 3;
             [self drawPortrait];
 		}];
         
-        self.loadMenu = [CCMenuItemFont itemWithString:@"load" block:^(id sender) {
+        self.loadMenu = [CCMenuItemFont itemWithString:NSLocalizedString(@"list", "label for list") block:^(id sender) {
             LoadViewController* loadViewController = [[LoadViewController alloc] initWithNibName:@"LoadViewController" bundle:nil];
             AppController *app = (AppController*) [[UIApplication sharedApplication] delegate];
             
             [app.navController presentModalViewController: loadViewController animated:YES];
 		}];
         
-        self.saveMenu = [CCMenuItemFont itemWithString:@"save" block:^(id sender) {
-            //[self.figureSet saveWithName:DEFAULT_NAME];
-            UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"save" message:@"input the name of portratit" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
+        self.saveMenu = [CCMenuItemFont itemWithString:NSLocalizedString(@"save", "label for save") block:^(id sender) {
+            UIAlertView* alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"save", "label for save") message:NSLocalizedString(@"save_message", "label for save") delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
             [alert setAlertViewStyle:UIAlertViewStylePlainTextInput];
             UITextField *textField = [alert textFieldAtIndex:0];
             textField.text = self.loadedName;

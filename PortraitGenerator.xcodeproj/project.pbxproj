@@ -142,6 +142,7 @@
 		B0544AD516E199AD0028DD55 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = B0544AD016E199AD0028DD55 /* Default.png */; };
 		B0544AD616E199AD0028DD55 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B0544AD116E199AD0028DD55 /* Default@2x.png */; };
 		B0544AD916E199FF0028DD55 /* PortraitLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = B0544AD816E199FF0028DD55 /* PortraitLayer.m */; };
+		B0B3C50316E2F7C30053512D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B0B3C50516E2F7C30053512D /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -420,6 +421,8 @@
 		B0544AD116E199AD0028DD55 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		B0544AD716E199FF0028DD55 /* PortraitLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PortraitLayer.h; sourceTree = "<group>"; };
 		B0544AD816E199FF0028DD55 /* PortraitLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PortraitLayer.m; sourceTree = "<group>"; };
+		B0B3C50416E2F7C30053512D /* en */ = {isa = PBXFileReference; lastKnownFileType = file; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		B0B3C50616E2F83A0053512D /* ja */ = {isa = PBXFileReference; lastKnownFileType = file; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -873,6 +876,7 @@
 		B0544AB916E1995F0028DD55 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				B0B3C50516E2F7C30053512D /* Localizable.strings */,
 				B0544ABA16E1995F0028DD55 /* Prefix.pch */,
 				B0544ABB16E1995F0028DD55 /* main.m */,
 			);
@@ -934,6 +938,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				ja,
 			);
 			mainGroup = B054492716E1995D0028DD55;
 			productRefGroup = B054493116E1995D0028DD55 /* Products */;
@@ -968,6 +973,7 @@
 				B0544AD616E199AD0028DD55 /* Default@2x.png in Resources */,
 				B027545816E22E8B00B453E9 /* LoadViewController.xib in Resources */,
 				B027545B16E2363E00B453E9 /* PortraitCellView.xib in Resources */,
+				B0B3C50316E2F7C30053512D /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1090,6 +1096,18 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		B0B3C50516E2F7C30053512D /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B0B3C50416E2F7C30053512D /* en */,
+				B0B3C50616E2F83A0053512D /* ja */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		B0544AC616E1995F0028DD55 /* Debug */ = {
