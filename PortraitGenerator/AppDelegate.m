@@ -11,6 +11,10 @@
 #import "AppDelegate.h"
 #import "PortraitLayer.h"
 
+NSString* const NOTIFICATION_LOAD_BUTTON_PUSHED = @"notification_load_button_pushed";
+NSString* const NOTIFICATION_DELETE_BUTTON_PUSHED = @"notification_delete_button_pushed";
+NSString* const NOTIFICATION_LOAD_WITH_NAME = @"notification_load_with_name";
+
 @implementation AppController
 
 @synthesize window=window_, navController=navController_, director=director_;

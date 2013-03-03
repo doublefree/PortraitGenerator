@@ -13,8 +13,11 @@
 @interface LoadViewController ()
 - (IBAction)closeButtonPushed:(id)sender;
 @property (retain, nonatomic) IBOutlet UITableView *tableView;
+@property (retain, nonatomic) NSString* selectedName;
 
 @end
+
+int const AlertTagDeletePortrait = 1;
 
 @implementation LoadViewController
 
@@ -22,7 +25,9 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+        NSNotificationCenter* nc = [NSNotificationCenter defaultCenter];
+        [nc addObserver:self selector:@selector(loadButtonPushed:) name:NOTIFICATION_LOAD_BUTTON_PUSHED object:nil];
+        [nc addObserver:self selector:@selector(deleteButtonPushed:) name:NOTIFICATION_DELETE_BUTTON_PUSHED object:nil];
     }
     return self;
 }
@@ -55,7 +60,8 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSMutableArray* nameList = [Portrait nameList];
+    NSMutableDictionary* portraitList = [Portrait list];
+    NSArray* nameList = [portraitList allKeys];
     PortraitCellView *cell = [self.tableView dequeueReusableCellWithIdentifier:@"PortraitCell"];
     if (cell == nil) {
         UIViewController* controller;
@@ -63,7 +69,6 @@
         cell = (PortraitCellView*)controller.view;
         NSString* name = [nameList objectAtIndex:indexPath.row];
         cell.nameLabel.text = name;
-        //cell.nameLabel.text = @"hogehoge";
     }
     return cell;
 }
@@ -76,6 +81,45 @@
 - (IBAction)closeButtonPushed:(id)sender {
     [self dismissModalViewControllerAnimated:YES];
 }
+
+-(void)loadButtonPushed:(NSNotification*)center{
+    NSString* name = [[center userInfo] objectForKey:@"name"];
+    self.selectedName = name;
+    if ([name length] != 0) {
+        NSDictionary* dictionary = [NSDictionary dictionaryWithObject:name forKey:@"name"];
+        NSNotification* nc = [NSNotification notificationWithName:NOTIFICATION_LOAD_WITH_NAME object:self userInfo:dictionary];
+        [[NSNotificationCenter defaultCenter] postNotification:nc];
+    }
+    [self dismissModalViewControllerAnimated:YES];
+}
+
+-(void)deleteButtonPushed:(NSNotification*)center{
+    NSString* name = [[center userInfo] objectForKey:@"name"];
+    self.selectedName = name;
+    if ([name length] != 0) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Delete Confirm" message:[NSString stringWithFormat:@"Really remove %@?", name] delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
+        alert.tag = AlertTagDeletePortrait;
+        [alert show];
+    } else {
+        [self dismissModalViewControllerAnimated:YES];
+    }
+}
+
+-(void)alertView:(UIAlertView*)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (alertView.tag == AlertTagDeletePortrait) {
+        switch (buttonIndex) {
+            case 0:
+                break;
+            case 1:
+                [Portrait removeWithName:self.selectedName];
+                break;
+            default:
+                break;
+        }
+        [self dismissModalViewControllerAnimated:YES];
+    }
+}
+
 - (void)dealloc {
     [_tableView release];
     [super dealloc];

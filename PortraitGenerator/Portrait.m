@@ -14,13 +14,13 @@ NSString *const PortraitPrefix = @"com.wiz-r.portrait.portrait";
 +(void) add:(FigureSet *)figureSet withName:(NSString *)name
 {
     NSUserDefaults* ud = [NSUserDefaults standardUserDefaults];
-    NSMutableArray* array = [Portrait nameList];
-    if (!array) {
-        array = [NSMutableArray array];
+    NSMutableDictionary* dictionary = [Portrait list];
+    if (!dictionary) {
+        dictionary = [NSMutableDictionary dictionary];
     }
-    [array addObject:name];
+    [dictionary setObject:name forKey:name];
     
-    [ud setObject:array forKey:PortraitPrefix];
+    [ud setObject:dictionary forKey:PortraitPrefix];
     [ud synchronize];
     [figureSet saveWithName:name];
 }
@@ -28,31 +28,31 @@ NSString *const PortraitPrefix = @"com.wiz-r.portrait.portrait";
 +(void) removeWithName:(NSString *)name
 {
     NSUserDefaults* ud = [NSUserDefaults standardUserDefaults];
-    NSMutableArray* array = [Portrait nameList];
-    if (!array) {
+    NSMutableDictionary* dictionary = [Portrait list];
+    if (!dictionary) {
         return;
     }
-    [array removeObject:name];
+    [dictionary removeObjectForKey:name];
     
-    [ud setObject:array forKey:PortraitPrefix];
+    [ud setObject:dictionary forKey:PortraitPrefix];
     [ud synchronize];
 }
 
-+(NSMutableArray*) nameList
++(NSMutableDictionary*) list
 {
     NSUserDefaults* ud = [NSUserDefaults standardUserDefaults];
-    NSArray* savedArray = [ud arrayForKey:PortraitPrefix];
+    NSDictionary* dictionary = [ud dictionaryForKey:PortraitPrefix];
     
-    return [savedArray mutableCopy];
+    return [dictionary mutableCopy];
 }
 
 +(int) count
 {
-    NSMutableArray* array = [Portrait nameList];
-    if (!array) {
+    NSMutableDictionary* dictionary = [Portrait list];
+    if (!dictionary) {
         return 0;
     }
     
-    return [array count];
+    return [dictionary count];
 }
 @end

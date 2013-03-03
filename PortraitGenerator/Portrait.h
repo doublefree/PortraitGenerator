@@ -12,6 +12,6 @@
 @interface Portrait : NSObject
 +(void)add:(FigureSet*)figureSet withName:(NSString*)name;
 +(void)removeWithName:(NSString*)name;
-+(NSMutableArray*) nameList;
++(NSMutableDictionary*) list;
 +(int) count;
 @end
