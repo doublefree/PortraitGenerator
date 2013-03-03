@@ -25,9 +25,7 @@ int const AlertTagDeletePortrait = 1;
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        NSNotificationCenter* nc = [NSNotificationCenter defaultCenter];
-        [nc addObserver:self selector:@selector(loadButtonPushed:) name:NOTIFICATION_LOAD_BUTTON_PUSHED object:nil];
-        [nc addObserver:self selector:@selector(deleteButtonPushed:) name:NOTIFICATION_DELETE_BUTTON_PUSHED object:nil];
+        ;
     }
     return self;
 }
@@ -35,7 +33,9 @@ int const AlertTagDeletePortrait = 1;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+	NSNotificationCenter* nc = [NSNotificationCenter defaultCenter];
+    [nc addObserver:self selector:@selector(loadButtonPushed:) name:NOTIFICATION_LOAD_BUTTON_PUSHED object:nil];
+    [nc addObserver:self selector:@selector(deleteButtonPushed:) name:NOTIFICATION_DELETE_BUTTON_PUSHED object:nil];
 }
 
 - (void)didReceiveMemoryWarning
@@ -112,17 +112,23 @@ int const AlertTagDeletePortrait = 1;
                 break;
             case 1:
                 [Portrait removeWithName:self.selectedName];
+                [self.tableView reloadData];
                 break;
             default:
                 break;
         }
-        [self dismissModalViewControllerAnimated:YES];
     }
 }
 
 - (void)dealloc {
     [_tableView release];
     [super dealloc];
+}
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    NSNotificationCenter* nc = [NSNotificationCenter defaultCenter];
+    [nc removeObserver:self];
 }
 - (void)viewDidUnload {
     [self setTableView:nil];

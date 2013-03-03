@@ -176,6 +176,13 @@ int const TAG_MENU = 3;
     [self drawPortrait];
 }
 
+- (void) loadEventReceived:(NSNotification*)center{
+    NSString* name = [[center userInfo] objectForKey:@"name"];
+    if ([name length] != 0) {
+        [self loadWithName:name];
+    }
+}
+
 - (void) drawMenu
 {
     CGSize size = [[CCDirector sharedDirector] winSize];
@@ -183,13 +190,6 @@ int const TAG_MENU = 3;
     [menu alignItemsHorizontallyWithPadding:20];
     [menu setPosition:ccp(size.width/2, self.saveMenu.contentSize.height)];
     [self addChild:menu z:0 tag:TAG_MENU];
-}
-
-- (void) loadEventReceived:(NSNotification*)center{
-    NSString* name = [[center userInfo] objectForKey:@"name"];
-    if ([name length] != 0) {
-        [self loadWithName:name];
-    }
 }
 
 // on "dealloc" you need to release all your retained objects
