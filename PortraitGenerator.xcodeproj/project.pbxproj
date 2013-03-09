@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B002CB6F16EB1F39005E3B01 /* base.png in Resources */ = {isa = PBXBuildFile; fileRef = B002CB6D16EB1F39005E3B01 /* base.png */; };
+		B002CB7016EB1F39005E3B01 /* waku.png in Resources */ = {isa = PBXBuildFile; fileRef = B002CB6E16EB1F39005E3B01 /* waku.png */; };
 		B027544C16E1AEFA00B453E9 /* Figure.m in Sources */ = {isa = PBXBuildFile; fileRef = B027544B16E1AEFA00B453E9 /* Figure.m */; };
 		B027545016E1AFE800B453E9 /* FigureSet.m in Sources */ = {isa = PBXBuildFile; fileRef = B027544F16E1AFE800B453E9 /* FigureSet.m */; };
 		B027545316E1E91400B453E9 /* Portrait.m in Sources */ = {isa = PBXBuildFile; fileRef = B027545216E1E91400B453E9 /* Portrait.m */; };
@@ -146,6 +148,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B002CB6D16EB1F39005E3B01 /* base.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = base.png; sourceTree = "<group>"; };
+		B002CB6E16EB1F39005E3B01 /* waku.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = waku.png; sourceTree = "<group>"; };
 		B027544A16E1AEFA00B453E9 /* Figure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Figure.h; sourceTree = "<group>"; };
 		B027544B16E1AEFA00B453E9 /* Figure.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Figure.m; sourceTree = "<group>"; };
 		B027544E16E1AFE800B453E9 /* FigureSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FigureSet.h; sourceTree = "<group>"; };
@@ -421,8 +425,8 @@
 		B0544AD116E199AD0028DD55 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		B0544AD716E199FF0028DD55 /* PortraitLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PortraitLayer.h; sourceTree = "<group>"; };
 		B0544AD816E199FF0028DD55 /* PortraitLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PortraitLayer.m; sourceTree = "<group>"; };
-		B0B3C50416E2F7C30053512D /* en */ = {isa = PBXFileReference; lastKnownFileType = file; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		B0B3C50616E2F83A0053512D /* ja */ = {isa = PBXFileReference; lastKnownFileType = file; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
+		B0B3C50416E2F7C30053512D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		B0B3C50616E2F83A0053512D /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -474,7 +478,6 @@
 		B054492716E1995D0028DD55 = {
 			isa = PBXGroup;
 			children = (
-				B0544ACB16E199AD0028DD55 /* images */,
 				B054494516E1995D0028DD55 /* PortraitGenerator */,
 				B054493216E1995D0028DD55 /* Frameworks */,
 				B054493116E1995D0028DD55 /* Products */,
@@ -508,6 +511,7 @@
 		B054494516E1995D0028DD55 /* PortraitGenerator */ = {
 			isa = PBXGroup;
 			children = (
+				B0544ACB16E199AD0028DD55 /* images */,
 				B027544D16E1AF9B00B453E9 /* Core */,
 				B027545916E22E9E00B453E9 /* View */,
 				B0544ABD16E1995F0028DD55 /* AppDelegate.h */,
@@ -886,12 +890,13 @@
 		B0544ACB16E199AD0028DD55 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				B002CB6D16EB1F39005E3B01 /* base.png */,
+				B002CB6E16EB1F39005E3B01 /* waku.png */,
 				B0544ACC16E199AD0028DD55 /* eye.png */,
 				B0544ACD16E199AD0028DD55 /* face.png */,
 				B0544ACE16E199AD0028DD55 /* general */,
 			);
-			name = images;
-			path = PortraitGenerator/images;
+			path = images;
 			sourceTree = "<group>";
 		};
 		B0544ACE16E199AD0028DD55 /* general */ = {
@@ -974,6 +979,8 @@
 				B027545816E22E8B00B453E9 /* LoadViewController.xib in Resources */,
 				B027545B16E2363E00B453E9 /* PortraitCellView.xib in Resources */,
 				B0B3C50316E2F7C30053512D /* Localizable.strings in Resources */,
+				B002CB6F16EB1F39005E3B01 /* base.png in Resources */,
+				B002CB7016EB1F39005E3B01 /* waku.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

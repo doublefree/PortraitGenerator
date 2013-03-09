@@ -13,6 +13,8 @@
 
 NSString *const FACE_PATH_DEFAULT = @"face.png";
 NSString *const EYE_PATH_DEFAULT = @"eye.png";
+//NSString *const FACE_PATH_DEFAULT = @"base.png";
+//NSString *const EYE_PATH_DEFAULT = @"waku.png";
 NSString *const DEFAULT_NAME = @"default";
 int const TAG_PORTRAIT_FACE = 1;
 int const TAG_PORTRAIT_EYE = 2;
@@ -42,6 +44,9 @@ int const TAG_MENU = 3;
 -(id) init
 {
 	if( (self=[super init]) ) {
+        CCLayerColor *background = [CCLayerColor layerWithColor:ccc4(204, 0, 102, 255)];
+        [self addChild:background z:-1];
+        
         self.spriteList = [[[NSMutableArray alloc] init] autorelease];
         self.figureSet = [FigureSet figureSetFromName:DEFAULT_NAME];
         
@@ -148,6 +153,7 @@ int const TAG_MENU = 3;
     CCSprite *faceSprite = [CCSprite spriteWithFile:self.face.path];
     faceSprite.position = self.face.position;
     faceSprite.userData = self.face;
+    faceSprite.color = ccc3(100, 100, 100);
     [self addChild:faceSprite z:0 tag:TAG_PORTRAIT_FACE];
     [self.spriteList addObject:faceSprite];
     
