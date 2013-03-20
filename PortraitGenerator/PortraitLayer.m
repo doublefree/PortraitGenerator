@@ -21,8 +21,8 @@ int const TAG_PORTRAIT_EYE = 2;
 int const TAG_MENU = 3;
 
 @interface PortraitLayer()
-@property (retain, nonatomic) NSMutableArray* spriteList;
-@property (retain, nonatomic) CCSprite* selSprite;
+@property (retain, nonatomic) NSMutableArray* nodeList;
+@property (retain, nonatomic) CCNode* selNode;
 @property (retain, nonatomic) FigureSet* figureSet;
 @property (retain, nonatomic) Figure* face;
 @property (retain, nonatomic) Figure* eye;
@@ -47,7 +47,7 @@ int const TAG_MENU = 3;
         CCLayerColor *background = [CCLayerColor layerWithColor:ccc4(204, 0, 102, 255)];
         [self addChild:background z:-1];
         
-        self.spriteList = [[[NSMutableArray alloc] init] autorelease];
+        self.nodeList = [[[NSMutableArray alloc] init] autorelease];
         self.figureSet = [FigureSet figureSetFromName:DEFAULT_NAME];
         
         [self drawPortrait];
@@ -106,38 +106,43 @@ int const TAG_MENU = 3;
     oldTouchLocation = [self convertToNodeSpace:oldTouchLocation];
     
     CGPoint translation = ccpSub(touchLocation, oldTouchLocation);
-    if (self.selSprite) {
-        CGPoint newPos = ccpAdd(self.selSprite.position, translation);
-        self.selSprite.position = newPos;
-        Figure* figure = self.selSprite.userData;
-        figure.position = self.selSprite.position;
+    if (self.selNode) {
+        CGPoint newPos = ccpAdd(self.selNode.position, translation);
+        self.selNode.position = newPos;
+        //Figure* figure = self.selNode.userData;
+        //figure.position = self.selNode.position;
     }
 }
 
 - (void)ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event
 {
-    self.selSprite = nil;
+    self.selNode = nil;
 }
 
 -(void) selectSpriteForTouch:(CGPoint)touchLoation
 {
-    CCSprite* newSprite = nil;
-    for (CCSprite* sprite in self.spriteList) {
-        if (CGRectContainsPoint(sprite.boundingBox, touchLoation)) {
-            newSprite = sprite;
+    CCNode* newNode = nil;
+    for (CCNode* node in self.nodeList) {
+        for (CCSprite* sprite in [node children]) {
+            if (CGRectContainsPoint(sprite.boundingBox, touchLoation)) {
+                newNode = node;
+                break;
+            }
         }
     }
     
-    if (newSprite != self.selSprite) {
-        [self.selSprite stopAllActions];
-        self.selSprite = newSprite;
+    if (newNode != self.selNode) {
+        [self.selNode stopAllActions];
+        self.selNode = newNode;
     }
 }
 
 - (void) drawPortrait
 {
-    [self removeChildByTag:TAG_PORTRAIT_FACE cleanup:YES];
-    [self removeChildByTag:TAG_PORTRAIT_EYE cleanup:YES];
+    //[self removeChildByTag:TAG_PORTRAIT_FACE cleanup:YES];
+    //[self removeChildByTag:TAG_PORTRAIT_EYE cleanup:YES];
+    
+    CCNode* node = [CCNode node];
     
     CGSize size = [[CCDirector sharedDirector] winSize];
     // face
@@ -154,8 +159,8 @@ int const TAG_MENU = 3;
     faceSprite.position = self.face.position;
     faceSprite.userData = self.face;
     faceSprite.color = ccc3(100, 100, 100);
-    [self addChild:faceSprite z:0 tag:TAG_PORTRAIT_FACE];
-    [self.spriteList addObject:faceSprite];
+    [node addChild:faceSprite];
+    //[self.nodeList addObject:faceSprite];
     
     // eye
     self.eye = [self.figureSet figureWithType:FigureTypeEye];
@@ -170,8 +175,9 @@ int const TAG_MENU = 3;
     CCSprite *eyeSprite = [CCSprite spriteWithFile:self.eye.path];
     eyeSprite.position = self.eye.position;
     eyeSprite.userData = self.eye;
-    [self addChild:eyeSprite z:0 tag:TAG_PORTRAIT_EYE];
-    [self.spriteList addObject:eyeSprite];
+    [node addChild:eyeSprite];
+    [self addChild:node];
+    [self.nodeList addObject:node];
 }
 
 - (void) loadWithName:(NSString*)name
