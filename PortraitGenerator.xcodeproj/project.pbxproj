@@ -145,6 +145,9 @@
 		B0544AD616E199AD0028DD55 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B0544AD116E199AD0028DD55 /* Default@2x.png */; };
 		B0544AD916E199FF0028DD55 /* PortraitLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = B0544AD816E199FF0028DD55 /* PortraitLayer.m */; };
 		B0B3C50316E2F7C30053512D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B0B3C50516E2F7C30053512D /* Localizable.strings */; };
+		B0BC3F9B16FDF1DD00F86D79 /* PartsCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = B0BC3F9A16FDF1DD00F86D79 /* PartsCellView.m */; };
+		B0BC3F9F16FDF22A00F86D79 /* PartsCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0BC3F9E16FDF22A00F86D79 /* PartsCellView.xib */; };
+		B0BC3FA216FDF36100F86D79 /* PartsTableDataDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B0BC3FA116FDF36100F86D79 /* PartsTableDataDelegate.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -427,6 +430,11 @@
 		B0544AD816E199FF0028DD55 /* PortraitLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PortraitLayer.m; sourceTree = "<group>"; };
 		B0B3C50416E2F7C30053512D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		B0B3C50616E2F83A0053512D /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
+		B0BC3F9916FDF1DD00F86D79 /* PartsCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PartsCellView.h; path = View/PartsCellView.h; sourceTree = "<group>"; };
+		B0BC3F9A16FDF1DD00F86D79 /* PartsCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PartsCellView.m; path = View/PartsCellView.m; sourceTree = "<group>"; };
+		B0BC3F9E16FDF22A00F86D79 /* PartsCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PartsCellView.xib; path = View/PartsCellView.xib; sourceTree = "<group>"; };
+		B0BC3FA016FDF36100F86D79 /* PartsTableDataDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PartsTableDataDelegate.h; path = View/PartsTableDataDelegate.h; sourceTree = "<group>"; };
+		B0BC3FA116FDF36100F86D79 /* PartsTableDataDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PartsTableDataDelegate.m; path = View/PartsTableDataDelegate.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -471,6 +479,11 @@
 				B027545C16E236F700B453E9 /* PortraitCellView.h */,
 				B027545D16E236F700B453E9 /* PortraitCellView.m */,
 				B027545A16E2363E00B453E9 /* PortraitCellView.xib */,
+				B0BC3F9916FDF1DD00F86D79 /* PartsCellView.h */,
+				B0BC3F9A16FDF1DD00F86D79 /* PartsCellView.m */,
+				B0BC3F9E16FDF22A00F86D79 /* PartsCellView.xib */,
+				B0BC3FA016FDF36100F86D79 /* PartsTableDataDelegate.h */,
+				B0BC3FA116FDF36100F86D79 /* PartsTableDataDelegate.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -981,6 +994,7 @@
 				B0B3C50316E2F7C30053512D /* Localizable.strings in Resources */,
 				B002CB6F16EB1F39005E3B01 /* base.png in Resources */,
 				B002CB7016EB1F39005E3B01 /* waku.png in Resources */,
+				B0BC3F9F16FDF22A00F86D79 /* PartsCellView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1099,6 +1113,8 @@
 				B027545316E1E91400B453E9 /* Portrait.m in Sources */,
 				B027545616E22DE200B453E9 /* LoadViewController.m in Sources */,
 				B027545E16E236F700B453E9 /* PortraitCellView.m in Sources */,
+				B0BC3F9B16FDF1DD00F86D79 /* PartsCellView.m in Sources */,
+				B0BC3FA216FDF36100F86D79 /* PartsTableDataDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

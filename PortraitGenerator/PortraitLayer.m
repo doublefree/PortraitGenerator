@@ -10,6 +10,7 @@
 #import "Portrait.h"
 #import "FigureSet.h"
 #import "LoadViewController.h"
+#import "PartsTableDataDelegate.h"
 
 NSString *const FACE_PATH_DEFAULT = @"face.png";
 NSString *const EYE_PATH_DEFAULT = @"eye.png";
@@ -44,6 +45,8 @@ int const TAG_MENU = 3;
 -(id) init
 {
 	if( (self=[super init]) ) {
+        CGSize size = [[CCDirector sharedDirector] winSize];
+        
         CCLayerColor *background = [CCLayerColor layerWithColor:ccc4(204, 0, 102, 255)];
         [self addChild:background z:-1];
         
@@ -52,6 +55,7 @@ int const TAG_MENU = 3;
         
         [self drawPortrait];
         
+        /*
         self.newMenu = [CCMenuItemFont itemWithString:@"new" block:^(id sender) {
             self.figureSet = [[FigureSet alloc] init];
             self.loadedName = @"";
@@ -74,6 +78,16 @@ int const TAG_MENU = 3;
 		}];
 		
 		[self drawMenu];
+        */
+        
+        UITableView* partsView = [[UITableView alloc] init];
+        partsView.transform = CGAffineTransformMakeRotation(-M_PI / 2);
+        partsView.backgroundColor = [UIColor redColor];
+        partsView.frame = CGRectMake(0, size.height - 45, size.width, 45);
+        PartsTableDataDelegate* partsDelegate = [[PartsTableDataDelegate alloc] init];
+        partsView.delegate = partsDelegate;
+        partsView.dataSource = partsDelegate;
+        [[[CCDirector sharedDirector] view] addSubview:partsView];
         
         [[[CCDirector sharedDirector] touchDispatcher] addTargetedDelegate:self priority:0 swallowsTouches:YES];
         
