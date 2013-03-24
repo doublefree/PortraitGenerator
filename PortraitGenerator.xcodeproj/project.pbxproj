@@ -153,6 +153,7 @@
 		B0BC3FAA16FEE18100F86D79 /* PartsListView.m in Sources */ = {isa = PBXBuildFile; fileRef = B0BC3FA916FEE18000F86D79 /* PartsListView.m */; };
 		B0BC3FAD16FEF3DB00F86D79 /* PartsCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = B0BC3FAC16FEF3DA00F86D79 /* PartsCellView.m */; };
 		B0BC3FAF16FEF40100F86D79 /* PartsCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0BC3FAE16FEF40100F86D79 /* PartsCellView.xib */; };
+		B0BC3FB216FF2A3600F86D79 /* cell.png in Resources */ = {isa = PBXBuildFile; fileRef = B0BC3FB116FF2A3600F86D79 /* cell.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -448,6 +449,7 @@
 		B0BC3FAB16FEF3DA00F86D79 /* PartsCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PartsCellView.h; path = View/PartsCellView.h; sourceTree = "<group>"; };
 		B0BC3FAC16FEF3DA00F86D79 /* PartsCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PartsCellView.m; path = View/PartsCellView.m; sourceTree = "<group>"; };
 		B0BC3FAE16FEF40100F86D79 /* PartsCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PartsCellView.xib; path = View/PartsCellView.xib; sourceTree = "<group>"; };
+		B0BC3FB116FF2A3600F86D79 /* cell.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cell.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -924,6 +926,7 @@
 		B0544ACB16E199AD0028DD55 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				B0BC3FB016FF2A3600F86D79 /* button */,
 				B002CB6D16EB1F39005E3B01 /* base.png */,
 				B002CB6E16EB1F39005E3B01 /* waku.png */,
 				B0544ACC16E199AD0028DD55 /* eye.png */,
@@ -941,6 +944,14 @@
 				B0544AD116E199AD0028DD55 /* Default@2x.png */,
 			);
 			path = general;
+			sourceTree = "<group>";
+		};
+		B0BC3FB016FF2A3600F86D79 /* button */ = {
+			isa = PBXGroup;
+			children = (
+				B0BC3FB116FF2A3600F86D79 /* cell.png */,
+			);
+			path = button;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1018,6 +1029,7 @@
 				B0BC3F9F16FDF22A00F86D79 /* PartsCategoryCellView.xib in Resources */,
 				B0BC3FA716FEDE3700F86D79 /* PartsListView.xib in Resources */,
 				B0BC3FAF16FEF40100F86D79 /* PartsCellView.xib in Resources */,
+				B0BC3FB216FF2A3600F86D79 /* cell.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

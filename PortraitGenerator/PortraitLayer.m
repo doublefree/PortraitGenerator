@@ -20,6 +20,7 @@ NSString *const DEFAULT_NAME = @"default";
 int const TAG_PORTRAIT_FACE = 1;
 int const TAG_PORTRAIT_EYE = 2;
 int const TAG_MENU = 3;
+int const TAG_IMAGE_CONTROL = 4;
 
 @interface PortraitLayer()
 @property (retain, nonatomic) NSMutableArray* spriteList;
@@ -48,6 +49,8 @@ int const TAG_MENU = 3;
 {
 	if( (self=[super init]) ) {
         CGSize size = [[CCDirector sharedDirector] winSize];
+        [[[CCDirector sharedDirector] touchDispatcher] addTargetedDelegate:self priority:0 swallowsTouches:YES];
+        [self registerNotification];
         
         CCLayerColor *background = [CCLayerColor layerWithColor:ccc4(204, 0, 102, 255)];
         [self addChild:background z:-1];
@@ -93,9 +96,7 @@ int const TAG_MENU = 3;
         partsCategoryView.separatorColor = [UIColor clearColor];
         [[[CCDirector sharedDirector] view] addSubview:partsCategoryView];
         
-        [[[CCDirector sharedDirector] touchDispatcher] addTargetedDelegate:self priority:0 swallowsTouches:YES];
-        
-        [self registerNotification];
+        [self showImageControl];
     }
 	return self;
 }
@@ -261,6 +262,36 @@ int const TAG_MENU = 3;
     [nc addObserver:self selector:@selector(loadEventReceived:) name:NOTIFICATION_LOAD_WITH_NAME object:nil];
     [nc addObserver:self selector:@selector(partsCategorySelected:) name:NOTIFICATION_PARTS_CATEGORY_BUTTON_PUSHED object:nil];
     [nc addObserver:self selector:@selector(partsSelected:) name:NOTIFICATION_PARTS_BUTTON_PUSHED object:nil];
+}
+
+- (void) showImageControl
+{
+    // image control
+    CCSprite *normalRotateRight = [CCSprite spriteWithFile:@"cell.png"];
+    CCSprite *selectedRotateRight = [CCSprite spriteWithFile:@"cell.png"];
+    selectedRotateRight.opacity = 0x7f;
+    CCSprite *normalRotateLeft = [CCSprite spriteWithFile:@"cell.png"];
+    CCSprite *selectedRotateLeft = [CCSprite spriteWithFile:@"cell.png"];
+    selectedRotateLeft.opacity = 0x7f;
+    CCSprite *normalMoveClose = [CCSprite spriteWithFile:@"cell.png"];
+    CCSprite *selectedMoveClose = [CCSprite spriteWithFile:@"cell.png"];
+    selectedMoveClose.opacity = 0x7f;
+    CCSprite *normalMoveApart = [CCSprite spriteWithFile:@"cell.png"];
+    CCSprite *selectedMoveApart = [CCSprite spriteWithFile:@"cell.png"];
+    selectedMoveApart.opacity = 0x7f;
+    
+    CCMenuItemSprite *menuRotateRight = [CCMenuItemSprite itemWithNormalSprite:normalRotateRight selectedSprite:selectedRotateRight block:^(id sender) {;}];
+    CCMenuItemSprite *menuRotateLeft = [CCMenuItemSprite itemWithNormalSprite:normalRotateLeft selectedSprite:selectedRotateLeft block:^(id sender) {;}];
+    CCMenuItemSprite *menuMoveClose = [CCMenuItemSprite itemWithNormalSprite:normalMoveClose selectedSprite:selectedMoveClose block:^(id sender) {;}];
+    CCMenuItemSprite *menuMoveApart = [CCMenuItemSprite itemWithNormalSprite:normalMoveApart selectedSprite:selectedMoveApart block:^(id sender) {;}];
+    CCMenu *menu = [CCMenu menuWithItems:menuRotateRight, menuRotateLeft, menuMoveClose, menuMoveApart, nil];
+    [menu alignItemsVerticallyWithPadding:10.0f];
+    
+    CGSize size = [[CCDirector sharedDirector] winSize];
+    menu.position = ccp(size.width - normalRotateRight.contentSize.width * 0.7, size.height / 2);
+    
+    
+    [self addChild:menu z:0 tag:TAG_IMAGE_CONTROL];
 }
 
 // on "dealloc" you need to release all your retained objects
