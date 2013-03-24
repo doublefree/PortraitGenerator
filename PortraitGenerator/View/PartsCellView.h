@@ -9,6 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface PartsCellView : UITableViewCell
-@property (retain, nonatomic) IBOutlet UIButton *button;
-
+- (void)setData:(NSString*)parts;
 @end

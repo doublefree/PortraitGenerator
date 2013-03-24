@@ -44,7 +44,7 @@
         UIViewController* controller;
         controller = [[UIViewController alloc] initWithNibName:@"PartsCellView" bundle:nil];
         cell = (PartsCellView*)controller.view;
-        [cell.button setTitle:[self.partsList objectAtIndex:indexPath.row] forState:UIControlStateNormal];
+        [cell setData:[self.partsList objectAtIndex:indexPath.row]];
         cell.contentView.transform = CGAffineTransformMakeRotation(M_PI / 2);
     }
     return cell;

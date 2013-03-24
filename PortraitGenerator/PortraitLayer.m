@@ -31,6 +31,7 @@ int const TAG_MENU = 3;
 @property (retain, nonatomic) CCMenuItem* loadMenu;
 @property (retain, nonatomic) CCMenuItem* saveMenu;
 @property (retain, nonatomic) NSString* loadedName;
+@property (retain, nonatomic) PartsListView* selectedPartsListView;
 @end
 
 @implementation PortraitLayer
@@ -206,32 +207,48 @@ int const TAG_MENU = 3;
 - (void) partsCategorySelected:(NSNotification*)center{
     NSString* category = [[center userInfo] objectForKey:@"category"];
     if ([category length] != 0) {
+        [self removePartsListView];
         NSArray* partsList = [Parts listWithCategory:category];
-        CGSize size = [[CCDirector sharedDirector] winSize];
-        
-        UIViewController* controller;
-        controller = [[UIViewController alloc] initWithNibName:@"PartsListView" bundle:nil];
-        PartsListView* partsListView  = (PartsListView*)controller.view;
-        partsListView.partsList = partsList;
-        partsListView.frame = CGRectMake(0, size.height - 80, size.width, 50);
-        partsListView.tableView.transform = CGAffineTransformMakeRotation(-M_PI / 2);
-        partsListView.tableView.frame = CGRectMake(0,0,size.width, 46);
-        partsListView.tableView.bounces = NO;
-        partsListView.tableView.separatorColor = [UIColor clearColor];
-        partsListView.tableView.delegate = partsListView;
-        partsListView.tableView.dataSource = partsListView;
-        [[[CCDirector sharedDirector] view] addSubview:partsListView];
-        [partsListView.tableView reloadData];
+        [self showPartsListView:partsList];
     }
 }
 
-- (void) drawMenu
+- (void) partsSelected:(NSNotification*)center{
+    NSString* parts = [[center userInfo] objectForKey:@"parts"];
+    if ([parts length] != 0) {
+        NSLog(@"parts:%@", parts);
+        [self removePartsListView];
+    }
+}
+
+- (void) removePartsListView
+{
+    if (self.selectedPartsListView) {
+        [self.selectedPartsListView removeFromSuperview];
+        self.selectedPartsListView = nil;
+    }
+}
+
+- (void) showPartsListView:(NSArray*) partsList
 {
     CGSize size = [[CCDirector sharedDirector] winSize];
-    CCMenu *menu = [CCMenu menuWithItems:self.newMenu, self.loadMenu, self.saveMenu, nil];
-    [menu alignItemsHorizontallyWithPadding:20];
-    [menu setPosition:ccp(size.width/2, self.saveMenu.contentSize.height)];
-    [self addChild:menu z:0 tag:TAG_MENU];
+    
+    UIViewController* controller;
+    controller = [[UIViewController alloc] initWithNibName:@"PartsListView" bundle:nil];
+    PartsListView* partsListView  = (PartsListView*)controller.view;
+    partsListView.partsList = partsList;
+    partsListView.frame = CGRectMake(0, size.height - 80, size.width, 50);
+    partsListView.tableView.transform = CGAffineTransformMakeRotation(-M_PI / 2);
+    partsListView.tableView.frame = CGRectMake(0,0,size.width, 46);
+    partsListView.tableView.bounces = NO;
+    partsListView.tableView.separatorColor = [UIColor clearColor];
+    partsListView.tableView.delegate = partsListView;
+    partsListView.tableView.dataSource = partsListView;
+    
+    [[[CCDirector sharedDirector] view] addSubview:partsListView];
+    [partsListView.tableView reloadData];
+    
+    self.selectedPartsListView = partsListView;
 }
 
 - (void) registerNotification
@@ -239,6 +256,7 @@ int const TAG_MENU = 3;
     NSNotificationCenter* nc = [NSNotificationCenter defaultCenter];
     [nc addObserver:self selector:@selector(loadEventReceived:) name:NOTIFICATION_LOAD_WITH_NAME object:nil];
     [nc addObserver:self selector:@selector(partsCategorySelected:) name:NOTIFICATION_PARTS_CATEGORY_BUTTON_PUSHED object:nil];
+    [nc addObserver:self selector:@selector(partsSelected:) name:NOTIFICATION_PARTS_BUTTON_PUSHED object:nil];
 }
 
 // on "dealloc" you need to release all your retained objects
@@ -246,4 +264,15 @@ int const TAG_MENU = 3;
 {
 	[super dealloc];
 }
+
+/*
+ - (void) drawMenu
+ {
+ CGSize size = [[CCDirector sharedDirector] winSize];
+ CCMenu *menu = [CCMenu menuWithItems:self.newMenu, self.loadMenu, self.saveMenu, nil];
+ [menu alignItemsHorizontallyWithPadding:20];
+ [menu setPosition:ccp(size.width/2, self.saveMenu.contentSize.height)];
+ [self addChild:menu z:0 tag:TAG_MENU];
+ }
+ */
 @end

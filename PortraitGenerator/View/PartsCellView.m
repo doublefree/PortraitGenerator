@@ -6,7 +6,13 @@
 //
 //
 
+#import "AppDelegate.h"
 #import "PartsCellView.h"
+
+@interface PartsCellView()
+@property (retain, nonatomic) IBOutlet UIButton *button;
+@property (retain, nonatomic) NSString* parts;
+@end
 
 @implementation PartsCellView
 
@@ -27,6 +33,16 @@
     // Drawing code
 }
 */
+- (IBAction)buttonPushed:(id)sender {
+    NSDictionary* dictionary = [NSDictionary dictionaryWithObject:self.parts forKey:@"parts"];
+    NSNotification* nc = [NSNotification notificationWithName:NOTIFICATION_PARTS_BUTTON_PUSHED object:self userInfo:dictionary];
+    [[NSNotificationCenter defaultCenter] postNotification:nc];
+}
+
+- (void)setData:(NSString*)parts {
+    self.parts = parts;
+    [self.button setTitle:parts forState:UIControlStateNormal];
+}
 
 - (void)dealloc {
     [_button release];
