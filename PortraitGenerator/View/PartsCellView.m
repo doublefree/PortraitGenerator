@@ -2,7 +2,7 @@
 //  PartsCellView.m
 //  PortraitGenerator
 //
-//  Created by Watabe Takuya on 3/23/13.
+//  Created by Watabe Takuya on 3/24/13.
 //
 //
 
@@ -10,20 +10,26 @@
 
 @implementation PartsCellView
 
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
+- (id)initWithFrame:(CGRect)frame
 {
-    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
+    self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
     }
     return self;
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated
+/*
+// Only override drawRect: if you perform custom drawing.
+// An empty implementation adversely affects performance during animation.
+- (void)drawRect:(CGRect)rect
 {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
+    // Drawing code
 }
+*/
 
+- (void)dealloc {
+    [_button release];
+    [super dealloc];
+}
 @end

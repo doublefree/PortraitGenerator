@@ -13,6 +13,7 @@
 extern NSString* const NOTIFICATION_LOAD_BUTTON_PUSHED;
 extern NSString* const NOTIFICATION_DELETE_BUTTON_PUSHED;
 extern NSString* const NOTIFICATION_LOAD_WITH_NAME;
+extern NSString* const NOTIFICATION_PARTS_CATEGORY_BUTTON_PUSHED;
 
 @interface AppController : NSObject <UIApplicationDelegate, CCDirectorDelegate>
 {

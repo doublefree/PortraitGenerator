@@ -11,11 +11,11 @@
 #import "FigureSet.h"
 #import "LoadViewController.h"
 #import "PartsTableDataDelegate.h"
+#import "Parts.h"
+#import "PartsListView.h"
 
 NSString *const FACE_PATH_DEFAULT = @"face.png";
 NSString *const EYE_PATH_DEFAULT = @"eye.png";
-//NSString *const FACE_PATH_DEFAULT = @"base.png";
-//NSString *const EYE_PATH_DEFAULT = @"waku.png";
 NSString *const DEFAULT_NAME = @"default";
 int const TAG_PORTRAIT_FACE = 1;
 int const TAG_PORTRAIT_EYE = 2;
@@ -80,20 +80,21 @@ int const TAG_MENU = 3;
 		[self drawMenu];
         */
         
-        UITableView* partsView = [[UITableView alloc] init];
-        partsView.transform = CGAffineTransformMakeRotation(-M_PI / 2);
-        partsView.backgroundColor = [UIColor redColor];
-        partsView.frame = CGRectMake(0, size.height - 45, size.width, 45);
+        UITableView* partsCategoryView = [[UITableView alloc] init];
+        partsCategoryView.transform = CGAffineTransformMakeRotation(-M_PI / 2);
+        partsCategoryView.backgroundColor = [UIColor clearColor];
+        partsCategoryView.frame = CGRectMake(0, size.height - 45, size.width, 45);
         PartsTableDataDelegate* partsDelegate = [[PartsTableDataDelegate alloc] init];
-        partsView.delegate = partsDelegate;
-        partsView.dataSource = partsDelegate;
-        [[[CCDirector sharedDirector] view] addSubview:partsView];
+        partsCategoryView.delegate = partsDelegate;
+        partsCategoryView.dataSource = partsDelegate;
+        partsCategoryView.bounces = NO;
+        partsCategoryView.separatorColor = [UIColor clearColor];
+        [[[CCDirector sharedDirector] view] addSubview:partsCategoryView];
         
         [[[CCDirector sharedDirector] touchDispatcher] addTargetedDelegate:self priority:0 swallowsTouches:YES];
         
-        NSNotificationCenter* nc = [NSNotificationCenter defaultCenter];
-        [nc addObserver:self selector:@selector(loadEventReceived:) name:NOTIFICATION_LOAD_WITH_NAME object:nil];
-	}
+        [self registerNotification];
+    }
 	return self;
 }
 
@@ -202,6 +203,28 @@ int const TAG_MENU = 3;
     }
 }
 
+- (void) partsCategorySelected:(NSNotification*)center{
+    NSString* category = [[center userInfo] objectForKey:@"category"];
+    if ([category length] != 0) {
+        NSArray* partsList = [Parts listWithCategory:category];
+        CGSize size = [[CCDirector sharedDirector] winSize];
+        
+        UIViewController* controller;
+        controller = [[UIViewController alloc] initWithNibName:@"PartsListView" bundle:nil];
+        PartsListView* partsListView  = (PartsListView*)controller.view;
+        partsListView.partsList = partsList;
+        partsListView.frame = CGRectMake(0, size.height - 80, size.width, 50);
+        partsListView.tableView.transform = CGAffineTransformMakeRotation(-M_PI / 2);
+        partsListView.tableView.frame = CGRectMake(0,0,size.width, 46);
+        partsListView.tableView.bounces = NO;
+        partsListView.tableView.separatorColor = [UIColor clearColor];
+        partsListView.tableView.delegate = partsListView;
+        partsListView.tableView.dataSource = partsListView;
+        [[[CCDirector sharedDirector] view] addSubview:partsListView];
+        [partsListView.tableView reloadData];
+    }
+}
+
 - (void) drawMenu
 {
     CGSize size = [[CCDirector sharedDirector] winSize];
@@ -209,6 +232,13 @@ int const TAG_MENU = 3;
     [menu alignItemsHorizontallyWithPadding:20];
     [menu setPosition:ccp(size.width/2, self.saveMenu.contentSize.height)];
     [self addChild:menu z:0 tag:TAG_MENU];
+}
+
+- (void) registerNotification
+{
+    NSNotificationCenter* nc = [NSNotificationCenter defaultCenter];
+    [nc addObserver:self selector:@selector(loadEventReceived:) name:NOTIFICATION_LOAD_WITH_NAME object:nil];
+    [nc addObserver:self selector:@selector(partsCategorySelected:) name:NOTIFICATION_PARTS_CATEGORY_BUTTON_PUSHED object:nil];
 }
 
 // on "dealloc" you need to release all your retained objects

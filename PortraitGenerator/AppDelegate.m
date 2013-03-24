@@ -14,6 +14,7 @@
 NSString* const NOTIFICATION_LOAD_BUTTON_PUSHED = @"notification_load_button_pushed";
 NSString* const NOTIFICATION_DELETE_BUTTON_PUSHED = @"notification_delete_button_pushed";
 NSString* const NOTIFICATION_LOAD_WITH_NAME = @"notification_load_with_name";
+NSString* const NOTIFICATION_PARTS_CATEGORY_BUTTON_PUSHED = @"notification_parts_category_button_pushed";
 
 @implementation AppController
 

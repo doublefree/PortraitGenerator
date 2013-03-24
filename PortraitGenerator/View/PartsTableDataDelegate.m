@@ -7,7 +7,8 @@
 //
 
 #import "PartsTableDataDelegate.h"
-#import "PartsCellView.h"
+#import "PartsCategoryCellView.h"
+#import "Parts.h"
 
 @implementation PartsTableDataDelegate
 - (NSInteger)numberOfSections
@@ -22,16 +23,18 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 10;
+    return [[Parts category] count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    PartsCellView *cell = [tableView dequeueReusableCellWithIdentifier:@"PartsCell"];
+    PartsCategoryCellView *cell = [tableView dequeueReusableCellWithIdentifier:@"PartsCategoryCell"];
     if (cell == nil) {
         UIViewController* controller;
-        controller = [[UIViewController alloc] initWithNibName:@"PartsCellView" bundle:nil];
-        cell = (PartsCellView*)controller.view;
+        controller = [[UIViewController alloc] initWithNibName:@"PartsCategoryCellView" bundle:nil];
+        cell = (PartsCategoryCellView*)controller.view;
         cell.contentView.transform = CGAffineTransformMakeRotation(M_PI / 2);
+        NSString* category = [[Parts category] objectAtIndex:indexPath.row];
+        [cell set:category];
     }
     return cell;
 }

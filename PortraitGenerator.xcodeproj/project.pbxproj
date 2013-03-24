@@ -145,9 +145,14 @@
 		B0544AD616E199AD0028DD55 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B0544AD116E199AD0028DD55 /* Default@2x.png */; };
 		B0544AD916E199FF0028DD55 /* PortraitLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = B0544AD816E199FF0028DD55 /* PortraitLayer.m */; };
 		B0B3C50316E2F7C30053512D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B0B3C50516E2F7C30053512D /* Localizable.strings */; };
-		B0BC3F9B16FDF1DD00F86D79 /* PartsCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = B0BC3F9A16FDF1DD00F86D79 /* PartsCellView.m */; };
-		B0BC3F9F16FDF22A00F86D79 /* PartsCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0BC3F9E16FDF22A00F86D79 /* PartsCellView.xib */; };
+		B0BC3F9B16FDF1DD00F86D79 /* PartsCategoryCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = B0BC3F9A16FDF1DD00F86D79 /* PartsCategoryCellView.m */; };
+		B0BC3F9F16FDF22A00F86D79 /* PartsCategoryCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0BC3F9E16FDF22A00F86D79 /* PartsCategoryCellView.xib */; };
 		B0BC3FA216FDF36100F86D79 /* PartsTableDataDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B0BC3FA116FDF36100F86D79 /* PartsTableDataDelegate.m */; };
+		B0BC3FA516FEB31000F86D79 /* Parts.m in Sources */ = {isa = PBXBuildFile; fileRef = B0BC3FA416FEB31000F86D79 /* Parts.m */; };
+		B0BC3FA716FEDE3700F86D79 /* PartsListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0BC3FA616FEDE3600F86D79 /* PartsListView.xib */; };
+		B0BC3FAA16FEE18100F86D79 /* PartsListView.m in Sources */ = {isa = PBXBuildFile; fileRef = B0BC3FA916FEE18000F86D79 /* PartsListView.m */; };
+		B0BC3FAD16FEF3DB00F86D79 /* PartsCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = B0BC3FAC16FEF3DA00F86D79 /* PartsCellView.m */; };
+		B0BC3FAF16FEF40100F86D79 /* PartsCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0BC3FAE16FEF40100F86D79 /* PartsCellView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -430,11 +435,19 @@
 		B0544AD816E199FF0028DD55 /* PortraitLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PortraitLayer.m; sourceTree = "<group>"; };
 		B0B3C50416E2F7C30053512D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		B0B3C50616E2F83A0053512D /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
-		B0BC3F9916FDF1DD00F86D79 /* PartsCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PartsCellView.h; path = View/PartsCellView.h; sourceTree = "<group>"; };
-		B0BC3F9A16FDF1DD00F86D79 /* PartsCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PartsCellView.m; path = View/PartsCellView.m; sourceTree = "<group>"; };
-		B0BC3F9E16FDF22A00F86D79 /* PartsCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PartsCellView.xib; path = View/PartsCellView.xib; sourceTree = "<group>"; };
+		B0BC3F9916FDF1DD00F86D79 /* PartsCategoryCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PartsCategoryCellView.h; path = View/PartsCategoryCellView.h; sourceTree = "<group>"; };
+		B0BC3F9A16FDF1DD00F86D79 /* PartsCategoryCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PartsCategoryCellView.m; path = View/PartsCategoryCellView.m; sourceTree = "<group>"; };
+		B0BC3F9E16FDF22A00F86D79 /* PartsCategoryCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PartsCategoryCellView.xib; path = View/PartsCategoryCellView.xib; sourceTree = "<group>"; };
 		B0BC3FA016FDF36100F86D79 /* PartsTableDataDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PartsTableDataDelegate.h; path = View/PartsTableDataDelegate.h; sourceTree = "<group>"; };
 		B0BC3FA116FDF36100F86D79 /* PartsTableDataDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PartsTableDataDelegate.m; path = View/PartsTableDataDelegate.m; sourceTree = "<group>"; };
+		B0BC3FA316FEB31000F86D79 /* Parts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Parts.h; path = Core/Parts.h; sourceTree = "<group>"; };
+		B0BC3FA416FEB31000F86D79 /* Parts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Parts.m; path = Core/Parts.m; sourceTree = "<group>"; };
+		B0BC3FA616FEDE3600F86D79 /* PartsListView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PartsListView.xib; sourceTree = "<group>"; };
+		B0BC3FA816FEE18000F86D79 /* PartsListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PartsListView.h; path = View/PartsListView.h; sourceTree = "<group>"; };
+		B0BC3FA916FEE18000F86D79 /* PartsListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PartsListView.m; path = View/PartsListView.m; sourceTree = "<group>"; };
+		B0BC3FAB16FEF3DA00F86D79 /* PartsCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PartsCellView.h; path = View/PartsCellView.h; sourceTree = "<group>"; };
+		B0BC3FAC16FEF3DA00F86D79 /* PartsCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PartsCellView.m; path = View/PartsCellView.m; sourceTree = "<group>"; };
+		B0BC3FAE16FEF40100F86D79 /* PartsCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PartsCellView.xib; path = View/PartsCellView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -466,6 +479,8 @@
 				B027544F16E1AFE800B453E9 /* FigureSet.m */,
 				B027545116E1E91400B453E9 /* Portrait.h */,
 				B027545216E1E91400B453E9 /* Portrait.m */,
+				B0BC3FA316FEB31000F86D79 /* Parts.h */,
+				B0BC3FA416FEB31000F86D79 /* Parts.m */,
 			);
 			name = Core;
 			sourceTree = "<group>";
@@ -479,11 +494,17 @@
 				B027545C16E236F700B453E9 /* PortraitCellView.h */,
 				B027545D16E236F700B453E9 /* PortraitCellView.m */,
 				B027545A16E2363E00B453E9 /* PortraitCellView.xib */,
-				B0BC3F9916FDF1DD00F86D79 /* PartsCellView.h */,
-				B0BC3F9A16FDF1DD00F86D79 /* PartsCellView.m */,
-				B0BC3F9E16FDF22A00F86D79 /* PartsCellView.xib */,
+				B0BC3F9916FDF1DD00F86D79 /* PartsCategoryCellView.h */,
+				B0BC3F9A16FDF1DD00F86D79 /* PartsCategoryCellView.m */,
+				B0BC3F9E16FDF22A00F86D79 /* PartsCategoryCellView.xib */,
 				B0BC3FA016FDF36100F86D79 /* PartsTableDataDelegate.h */,
 				B0BC3FA116FDF36100F86D79 /* PartsTableDataDelegate.m */,
+				B0BC3FA816FEE18000F86D79 /* PartsListView.h */,
+				B0BC3FA916FEE18000F86D79 /* PartsListView.m */,
+				B0BC3FA616FEDE3600F86D79 /* PartsListView.xib */,
+				B0BC3FAB16FEF3DA00F86D79 /* PartsCellView.h */,
+				B0BC3FAC16FEF3DA00F86D79 /* PartsCellView.m */,
+				B0BC3FAE16FEF40100F86D79 /* PartsCellView.xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -994,7 +1015,9 @@
 				B0B3C50316E2F7C30053512D /* Localizable.strings in Resources */,
 				B002CB6F16EB1F39005E3B01 /* base.png in Resources */,
 				B002CB7016EB1F39005E3B01 /* waku.png in Resources */,
-				B0BC3F9F16FDF22A00F86D79 /* PartsCellView.xib in Resources */,
+				B0BC3F9F16FDF22A00F86D79 /* PartsCategoryCellView.xib in Resources */,
+				B0BC3FA716FEDE3700F86D79 /* PartsListView.xib in Resources */,
+				B0BC3FAF16FEF40100F86D79 /* PartsCellView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1113,8 +1136,11 @@
 				B027545316E1E91400B453E9 /* Portrait.m in Sources */,
 				B027545616E22DE200B453E9 /* LoadViewController.m in Sources */,
 				B027545E16E236F700B453E9 /* PortraitCellView.m in Sources */,
-				B0BC3F9B16FDF1DD00F86D79 /* PartsCellView.m in Sources */,
+				B0BC3F9B16FDF1DD00F86D79 /* PartsCategoryCellView.m in Sources */,
 				B0BC3FA216FDF36100F86D79 /* PartsTableDataDelegate.m in Sources */,
+				B0BC3FA516FEB31000F86D79 /* Parts.m in Sources */,
+				B0BC3FAA16FEE18100F86D79 /* PartsListView.m in Sources */,
+				B0BC3FAD16FEF3DB00F86D79 /* PartsCellView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
