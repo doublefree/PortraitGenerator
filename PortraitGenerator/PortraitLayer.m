@@ -294,6 +294,11 @@ int const TAG_IMAGE_CONTROL = 4;
     [self addChild:menu z:0 tag:TAG_IMAGE_CONTROL];
 }
 
+- (void) removeImageControl
+{
+    [self removeChildByTag:TAG_IMAGE_CONTROL cleanup:YES];
+}
+
 // on "dealloc" you need to release all your retained objects
 - (void) dealloc
 {
