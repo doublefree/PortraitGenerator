@@ -19,9 +19,14 @@
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        // Initialization code
+        ;
     }
     return self;
+}
+
+- (void)registerNotification {
+    NSNotificationCenter* nc = [NSNotificationCenter defaultCenter];
+    [nc addObserver:self selector:@selector(partsCategorySelected:) name:NOTIFICATION_PARTS_CATEGORY_BUTTON_PUSHED object:nil];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
@@ -37,9 +42,18 @@
     [self.button setTitle:category forState:UIControlStateNormal];
 }
 - (IBAction)buttonPushed:(id)sender {
+    [[self.button layer] setBorderColor:[[UIColor blackColor] CGColor]];
+    [[self.button layer] setBorderWidth:3.0f];
     NSDictionary* dictionary = [NSDictionary dictionaryWithObject:self.category forKey:@"category"];
     NSNotification* nc = [NSNotification notificationWithName:NOTIFICATION_PARTS_CATEGORY_BUTTON_PUSHED object:self userInfo:dictionary];
     [[NSNotificationCenter defaultCenter] postNotification:nc];
+}
+
+- (void) partsCategorySelected:(NSNotification*)center{
+    NSString* category = [[center userInfo] objectForKey:@"category"];
+    if ([category length] != 0 && ![self.category isEqualToString:category]) {
+        [[self.button layer] setBorderWidth:0.0f];
+    }
 }
 
 - (void)dealloc {

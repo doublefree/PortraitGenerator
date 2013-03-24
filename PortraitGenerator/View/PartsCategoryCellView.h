@@ -11,4 +11,5 @@
 @interface PartsCategoryCellView : UITableViewCell
 @property (retain, nonatomic) IBOutlet UIButton *button;
 -(void)set:(NSString*)category;
+-(void)registerNotification;
 @end

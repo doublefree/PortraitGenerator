@@ -35,6 +35,7 @@
         cell.contentView.transform = CGAffineTransformMakeRotation(M_PI / 2);
         NSString* category = [[Parts category] objectAtIndex:indexPath.row];
         [cell set:category];
+        [cell registerNotification];
     }
     return cell;
 }

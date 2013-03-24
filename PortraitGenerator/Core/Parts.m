@@ -17,7 +17,7 @@ NSString* const CategoryEye = @"eye";
 }
 +(NSArray*) listWithCategory:(NSString*) category {
     NSDictionary* list = [NSDictionary dictionaryWithObjectsAndKeys:
-                          [NSArray arrayWithObjects:@"f1",@"f2", @"f3", nil], CategoryFace,
+                          [NSArray arrayWithObjects:@"f1",@"f2", @"f3", @"f4", @"f5", @"f6", @"f7", @"f8", @"f9", @"f10", nil], CategoryFace,
                           [NSArray arrayWithObjects:@"e1",@"e2", @"e3", nil], CategoryEye,
                           nil];
     return [list objectForKey:category];

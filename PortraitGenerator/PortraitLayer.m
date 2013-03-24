@@ -24,6 +24,7 @@ int const TAG_MENU = 3;
 @interface PortraitLayer()
 @property (retain, nonatomic) NSMutableArray* spriteList;
 @property (retain, nonatomic) CCSprite* selSprite;
+@property (retain, nonatomic) NSString* selectedCategory;
 @property (retain, nonatomic) FigureSet* figureSet;
 @property (retain, nonatomic) Figure* face;
 @property (retain, nonatomic) Figure* eye;
@@ -207,6 +208,7 @@ int const TAG_MENU = 3;
 - (void) partsCategorySelected:(NSNotification*)center{
     NSString* category = [[center userInfo] objectForKey:@"category"];
     if ([category length] != 0) {
+        self.selectedCategory = category;
         [self removePartsListView];
         NSArray* partsList = [Parts listWithCategory:category];
         [self showPartsListView:partsList];
@@ -244,6 +246,8 @@ int const TAG_MENU = 3;
     partsListView.tableView.separatorColor = [UIColor clearColor];
     partsListView.tableView.delegate = partsListView;
     partsListView.tableView.dataSource = partsListView;
+    partsListView.tableView.backgroundColor = [UIColor clearColor];
+    partsListView.tableView.showsVerticalScrollIndicator = NO;
     
     [[[CCDirector sharedDirector] view] addSubview:partsListView];
     [partsListView.tableView reloadData];
