@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6563AC5716FFEAFC00D19315 /* btn_rotate_right-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 6563AC5516FFEAFC00D19315 /* btn_rotate_right-hd.png */; };
+		6563AC5816FFEAFC00D19315 /* btn_rotate_right.png in Resources */ = {isa = PBXBuildFile; fileRef = 6563AC5616FFEAFC00D19315 /* btn_rotate_right.png */; };
 		B002CB6F16EB1F39005E3B01 /* base.png in Resources */ = {isa = PBXBuildFile; fileRef = B002CB6D16EB1F39005E3B01 /* base.png */; };
 		B002CB7016EB1F39005E3B01 /* waku.png in Resources */ = {isa = PBXBuildFile; fileRef = B002CB6E16EB1F39005E3B01 /* waku.png */; };
 		B027544C16E1AEFA00B453E9 /* Figure.m in Sources */ = {isa = PBXBuildFile; fileRef = B027544B16E1AEFA00B453E9 /* Figure.m */; };
@@ -157,6 +159,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6563AC5516FFEAFC00D19315 /* btn_rotate_right-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_rotate_right-hd.png"; sourceTree = "<group>"; };
+		6563AC5616FFEAFC00D19315 /* btn_rotate_right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_rotate_right.png; sourceTree = "<group>"; };
 		B002CB6D16EB1F39005E3B01 /* base.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = base.png; sourceTree = "<group>"; };
 		B002CB6E16EB1F39005E3B01 /* waku.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = waku.png; sourceTree = "<group>"; };
 		B027544A16E1AEFA00B453E9 /* Figure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Figure.h; sourceTree = "<group>"; };
@@ -949,6 +953,8 @@
 		B0BC3FB016FF2A3600F86D79 /* button */ = {
 			isa = PBXGroup;
 			children = (
+				6563AC5516FFEAFC00D19315 /* btn_rotate_right-hd.png */,
+				6563AC5616FFEAFC00D19315 /* btn_rotate_right.png */,
 				B0BC3FB116FF2A3600F86D79 /* cell.png */,
 			);
 			path = button;
@@ -1030,6 +1036,8 @@
 				B0BC3FA716FEDE3700F86D79 /* PartsListView.xib in Resources */,
 				B0BC3FAF16FEF40100F86D79 /* PartsCellView.xib in Resources */,
 				B0BC3FB216FF2A3600F86D79 /* cell.png in Resources */,
+				6563AC5716FFEAFC00D19315 /* btn_rotate_right-hd.png in Resources */,
+				6563AC5816FFEAFC00D19315 /* btn_rotate_right.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

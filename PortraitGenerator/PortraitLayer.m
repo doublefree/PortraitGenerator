@@ -267,17 +267,17 @@ int const TAG_IMAGE_CONTROL = 4;
 - (void) showImageControl
 {
     // image control
-    CCSprite *normalRotateRight = [CCSprite spriteWithFile:@"cell.png"];
-    CCSprite *selectedRotateRight = [CCSprite spriteWithFile:@"cell.png"];
+    CCSprite *normalRotateRight = [CCSprite spriteWithFile:@"btn_rotate_right.png"];
+    CCSprite *selectedRotateRight = [CCSprite spriteWithFile:@"btn_rotate_right.png"];
     selectedRotateRight.opacity = 0x7f;
-    CCSprite *normalRotateLeft = [CCSprite spriteWithFile:@"cell.png"];
-    CCSprite *selectedRotateLeft = [CCSprite spriteWithFile:@"cell.png"];
+    CCSprite *normalRotateLeft = [CCSprite spriteWithFile:@"btn_rotate_right.png"];
+    CCSprite *selectedRotateLeft = [CCSprite spriteWithFile:@"btn_rotate_right.png"];
     selectedRotateLeft.opacity = 0x7f;
-    CCSprite *normalMoveClose = [CCSprite spriteWithFile:@"cell.png"];
-    CCSprite *selectedMoveClose = [CCSprite spriteWithFile:@"cell.png"];
+    CCSprite *normalMoveClose = [CCSprite spriteWithFile:@"btn_rotate_right.png"];
+    CCSprite *selectedMoveClose = [CCSprite spriteWithFile:@"btn_rotate_right.png"];
     selectedMoveClose.opacity = 0x7f;
-    CCSprite *normalMoveApart = [CCSprite spriteWithFile:@"cell.png"];
-    CCSprite *selectedMoveApart = [CCSprite spriteWithFile:@"cell.png"];
+    CCSprite *normalMoveApart = [CCSprite spriteWithFile:@"btn_rotate_right.png"];
+    CCSprite *selectedMoveApart = [CCSprite spriteWithFile:@"btn_rotate_right.png"];
     selectedMoveApart.opacity = 0x7f;
     
     CCMenuItemSprite *menuRotateRight = [CCMenuItemSprite itemWithNormalSprite:normalRotateRight selectedSprite:selectedRotateRight block:^(id sender) {;}];
