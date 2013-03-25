@@ -34,6 +34,7 @@ int const TAG_IMAGE_CONTROL = 4;
 @property (retain, nonatomic) CCMenuItem* saveMenu;
 @property (retain, nonatomic) NSString* loadedName;
 @property (retain, nonatomic) PartsListView* selectedPartsListView;
+@property (retain, nonatomic) CCLayerColor* background;
 @end
 
 @implementation PortraitLayer
@@ -52,8 +53,8 @@ int const TAG_IMAGE_CONTROL = 4;
         [[[CCDirector sharedDirector] touchDispatcher] addTargetedDelegate:self priority:0 swallowsTouches:YES];
         [self registerNotification];
         
-        CCLayerColor *background = [CCLayerColor layerWithColor:ccc4(204, 0, 102, 255)];
-        [self addChild:background z:-1];
+        self.background = [CCLayerColor layerWithColor:ccc4(204, 0, 102, 255)];
+        [self addChild:self.background z:-1];
         
         self.spriteList = [[[NSMutableArray alloc] init] autorelease];
         self.figureSet = [FigureSet figureSetFromName:DEFAULT_NAME];
@@ -283,7 +284,17 @@ int const TAG_IMAGE_CONTROL = 4;
     CCMenuItemSprite *menuRotateRight = [CCMenuItemSprite itemWithNormalSprite:normalRotateRight selectedSprite:selectedRotateRight block:^(id sender) {;}];
     CCMenuItemSprite *menuRotateLeft = [CCMenuItemSprite itemWithNormalSprite:normalRotateLeft selectedSprite:selectedRotateLeft block:^(id sender) {;}];
     CCMenuItemSprite *menuMoveClose = [CCMenuItemSprite itemWithNormalSprite:normalMoveClose selectedSprite:selectedMoveClose block:^(id sender) {;}];
-    CCMenuItemSprite *menuMoveApart = [CCMenuItemSprite itemWithNormalSprite:normalMoveApart selectedSprite:selectedMoveApart block:^(id sender) {;}];
+    CCMenuItemSprite *menuMoveApart = [CCMenuItemSprite itemWithNormalSprite:normalMoveApart selectedSprite:selectedMoveApart block:^(id sender) {
+        InfColorPickerController* picker = [InfColorPickerController colorPickerViewController];
+        picker.delegate = self;
+        
+        AppController *app = (AppController*) [[UIApplication sharedApplication] delegate];
+        [app.navController presentModalViewController: picker animated:YES];
+        
+        //picker.sourceColor = self.color;
+        
+        //[ picker presentModallyOverViewController: self ];
+    }];
     CCMenu *menu = [CCMenu menuWithItems:menuRotateRight, menuRotateLeft, menuMoveClose, menuMoveApart, nil];
     [menu alignItemsVerticallyWithPadding:10.0f];
     
@@ -297,6 +308,19 @@ int const TAG_IMAGE_CONTROL = 4;
 - (void) removeImageControl
 {
     [self removeChildByTag:TAG_IMAGE_CONTROL cleanup:YES];
+}
+
+- (void) colorPickerControllerDidFinish: (InfColorPickerController*) picker
+{
+    UIColor* color = picker.resultColor;
+    CGFloat r, g, b, a;
+    if (![color getRed:&r green:&g blue:&b alpha:&a]) {
+        [color getWhite:&r alpha:&a];
+        g = b = r;
+    }
+    self.background.color = ccc3(r*255, g*255, b*255);
+    //CCLayerColor *background = [CCLayerColor layerWithColor:ccc4(r*255, g*255, b*255, a*255)];
+    //[self addChild:background];
 }
 
 // on "dealloc" you need to release all your retained objects

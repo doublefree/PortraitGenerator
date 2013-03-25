@@ -7,8 +7,9 @@
 //
 
 #import "AppDelegate.h"
+#import "InfColorPickerController.h"
 
-@interface PortraitLayer : CCLayer {
+@interface PortraitLayer : CCLayer <InfColorPickerControllerDelegate> {
     
 }
 +(CCScene *) scene;

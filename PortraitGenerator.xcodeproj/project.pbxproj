@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6503E26D170053B100F13AFF /* InfColorBarPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 6503E260170053B100F13AFF /* InfColorBarPicker.m */; };
+		6503E26E170053B100F13AFF /* InfColorIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6503E262170053B100F13AFF /* InfColorIndicatorView.m */; };
+		6503E26F170053B100F13AFF /* InfColorPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6503E265170053B100F13AFF /* InfColorPickerController.m */; };
+		6503E270170053B100F13AFF /* InfColorPickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6503E266170053B100F13AFF /* InfColorPickerView.xib */; };
+		6503E271170053B100F13AFF /* InfColorSquarePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 6503E268170053B100F13AFF /* InfColorSquarePicker.m */; };
+		6503E272170053B100F13AFF /* InfHSBSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = 6503E26A170053B100F13AFF /* InfHSBSupport.m */; };
+		6503E273170053B100F13AFF /* InfSourceColorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6503E26C170053B100F13AFF /* InfSourceColorView.m */; };
 		6563AC5716FFEAFC00D19315 /* btn_rotate_right-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 6563AC5516FFEAFC00D19315 /* btn_rotate_right-hd.png */; };
 		6563AC5816FFEAFC00D19315 /* btn_rotate_right.png in Resources */ = {isa = PBXBuildFile; fileRef = 6563AC5616FFEAFC00D19315 /* btn_rotate_right.png */; };
 		B002CB6F16EB1F39005E3B01 /* base.png in Resources */ = {isa = PBXBuildFile; fileRef = B002CB6D16EB1F39005E3B01 /* base.png */; };
@@ -159,6 +166,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6503E25F170053B100F13AFF /* InfColorBarPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfColorBarPicker.h; sourceTree = "<group>"; };
+		6503E260170053B100F13AFF /* InfColorBarPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfColorBarPicker.m; sourceTree = "<group>"; };
+		6503E261170053B100F13AFF /* InfColorIndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfColorIndicatorView.h; sourceTree = "<group>"; };
+		6503E262170053B100F13AFF /* InfColorIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfColorIndicatorView.m; sourceTree = "<group>"; };
+		6503E263170053B100F13AFF /* InfColorPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfColorPicker.h; sourceTree = "<group>"; };
+		6503E264170053B100F13AFF /* InfColorPickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfColorPickerController.h; sourceTree = "<group>"; };
+		6503E265170053B100F13AFF /* InfColorPickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfColorPickerController.m; sourceTree = "<group>"; };
+		6503E266170053B100F13AFF /* InfColorPickerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InfColorPickerView.xib; sourceTree = "<group>"; };
+		6503E267170053B100F13AFF /* InfColorSquarePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfColorSquarePicker.h; sourceTree = "<group>"; };
+		6503E268170053B100F13AFF /* InfColorSquarePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfColorSquarePicker.m; sourceTree = "<group>"; };
+		6503E269170053B100F13AFF /* InfHSBSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfHSBSupport.h; sourceTree = "<group>"; };
+		6503E26A170053B100F13AFF /* InfHSBSupport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfHSBSupport.m; sourceTree = "<group>"; };
+		6503E26B170053B100F13AFF /* InfSourceColorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfSourceColorView.h; sourceTree = "<group>"; };
+		6503E26C170053B100F13AFF /* InfSourceColorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfSourceColorView.m; sourceTree = "<group>"; };
 		6563AC5516FFEAFC00D19315 /* btn_rotate_right-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_rotate_right-hd.png"; sourceTree = "<group>"; };
 		6563AC5616FFEAFC00D19315 /* btn_rotate_right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_rotate_right.png; sourceTree = "<group>"; };
 		B002CB6D16EB1F39005E3B01 /* base.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = base.png; sourceTree = "<group>"; };
@@ -386,7 +407,6 @@
 		B0544A7316E1995F0028DD55 /* utlist.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = utlist.h; path = libs/cocos2d/Support/utlist.h; sourceTree = "<group>"; };
 		B0544A7416E1995F0028DD55 /* ZipUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ZipUtils.h; path = libs/cocos2d/Support/ZipUtils.h; sourceTree = "<group>"; };
 		B0544A7516E1995F0028DD55 /* ZipUtils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ZipUtils.m; path = libs/cocos2d/Support/ZipUtils.m; sourceTree = "<group>"; };
-		B0544A7716E1995F0028DD55 /* LICENSE_cocos2d.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = LICENSE_cocos2d.txt; path = libs/LICENSE_cocos2d.txt; sourceTree = "<group>"; };
 		B0544A7916E1995F0028DD55 /* CDAudioManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CDAudioManager.h; path = libs/CocosDenshion/CDAudioManager.h; sourceTree = "<group>"; };
 		B0544A7A16E1995F0028DD55 /* CDAudioManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = CDAudioManager.m; path = libs/CocosDenshion/CDAudioManager.m; sourceTree = "<group>"; };
 		B0544A7C16E1995F0028DD55 /* CDConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CDConfig.h; path = libs/CocosDenshion/CDConfig.h; sourceTree = "<group>"; };
@@ -396,7 +416,6 @@
 		B0544A8116E1995F0028DD55 /* CocosDenshion.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = CocosDenshion.m; path = libs/CocosDenshion/CocosDenshion.m; sourceTree = "<group>"; };
 		B0544A8316E1995F0028DD55 /* SimpleAudioEngine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SimpleAudioEngine.h; path = libs/CocosDenshion/SimpleAudioEngine.h; sourceTree = "<group>"; };
 		B0544A8416E1995F0028DD55 /* SimpleAudioEngine.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = SimpleAudioEngine.m; path = libs/CocosDenshion/SimpleAudioEngine.m; sourceTree = "<group>"; };
-		B0544A8616E1995F0028DD55 /* LICENSE_CocosDenshion.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = LICENSE_CocosDenshion.txt; path = libs/LICENSE_CocosDenshion.txt; sourceTree = "<group>"; };
 		B0544A8A16E1995F0028DD55 /* aabb.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = aabb.h; path = libs/kazmath/include/kazmath/aabb.h; sourceTree = "<group>"; };
 		B0544A8C16E1995F0028DD55 /* mat4stack.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = mat4stack.h; path = libs/kazmath/include/kazmath/GL/mat4stack.h; sourceTree = "<group>"; };
 		B0544A8D16E1995F0028DD55 /* matrix.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = matrix.h; path = libs/kazmath/include/kazmath/GL/matrix.h; sourceTree = "<group>"; };
@@ -426,7 +445,6 @@
 		B0544AB216E1995F0028DD55 /* vec2.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = vec2.c; path = libs/kazmath/src/vec2.c; sourceTree = "<group>"; };
 		B0544AB416E1995F0028DD55 /* vec3.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = vec3.c; path = libs/kazmath/src/vec3.c; sourceTree = "<group>"; };
 		B0544AB616E1995F0028DD55 /* vec4.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = vec4.c; path = libs/kazmath/src/vec4.c; sourceTree = "<group>"; };
-		B0544AB816E1995F0028DD55 /* LICENSE_Kazmath.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = LICENSE_Kazmath.txt; path = libs/LICENSE_Kazmath.txt; sourceTree = "<group>"; };
 		B0544ABA16E1995F0028DD55 /* Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Prefix.pch; sourceTree = "<group>"; };
 		B0544ABB16E1995F0028DD55 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B0544ABD16E1995F0028DD55 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -476,6 +494,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6503E25E170053B100F13AFF /* InfColorPicker */ = {
+			isa = PBXGroup;
+			children = (
+				6503E25F170053B100F13AFF /* InfColorBarPicker.h */,
+				6503E260170053B100F13AFF /* InfColorBarPicker.m */,
+				6503E261170053B100F13AFF /* InfColorIndicatorView.h */,
+				6503E262170053B100F13AFF /* InfColorIndicatorView.m */,
+				6503E263170053B100F13AFF /* InfColorPicker.h */,
+				6503E264170053B100F13AFF /* InfColorPickerController.h */,
+				6503E265170053B100F13AFF /* InfColorPickerController.m */,
+				6503E266170053B100F13AFF /* InfColorPickerView.xib */,
+				6503E267170053B100F13AFF /* InfColorSquarePicker.h */,
+				6503E268170053B100F13AFF /* InfColorSquarePicker.m */,
+				6503E269170053B100F13AFF /* InfHSBSupport.h */,
+				6503E26A170053B100F13AFF /* InfHSBSupport.m */,
+				6503E26B170053B100F13AFF /* InfSourceColorView.h */,
+				6503E26C170053B100F13AFF /* InfSourceColorView.m */,
+			);
+			name = InfColorPicker;
+			path = libs/InfColorPicker;
+			sourceTree = "<group>";
+		};
 		B027544D16E1AF9B00B453E9 /* Core */ = {
 			isa = PBXGroup;
 			children = (
@@ -551,13 +591,13 @@
 		B054494516E1995D0028DD55 /* PortraitGenerator */ = {
 			isa = PBXGroup;
 			children = (
-				B0544ACB16E199AD0028DD55 /* images */,
-				B027544D16E1AF9B00B453E9 /* Core */,
-				B027545916E22E9E00B453E9 /* View */,
 				B0544ABD16E1995F0028DD55 /* AppDelegate.h */,
 				B0544ABE16E1995F0028DD55 /* AppDelegate.m */,
 				B0544AD716E199FF0028DD55 /* PortraitLayer.h */,
 				B0544AD816E199FF0028DD55 /* PortraitLayer.m */,
+				B0544ACB16E199AD0028DD55 /* images */,
+				B027544D16E1AF9B00B453E9 /* Core */,
+				B027545916E22E9E00B453E9 /* View */,
 				B054494616E1995D0028DD55 /* Resources */,
 				B054496016E1995D0028DD55 /* libs */,
 				B0544AB916E1995F0028DD55 /* Supporting Files */,
@@ -586,9 +626,7 @@
 		B054496016E1995D0028DD55 /* libs */ = {
 			isa = PBXGroup;
 			children = (
-				B0544A7716E1995F0028DD55 /* LICENSE_cocos2d.txt */,
-				B0544A8616E1995F0028DD55 /* LICENSE_CocosDenshion.txt */,
-				B0544AB816E1995F0028DD55 /* LICENSE_Kazmath.txt */,
+				6503E25E170053B100F13AFF /* InfColorPicker */,
 				B054496116E1995D0028DD55 /* cocos2d */,
 				B0544A7816E1995F0028DD55 /* CocosDenshion */,
 				B0544A8716E1995F0028DD55 /* kazmath */,
@@ -1038,6 +1076,7 @@
 				B0BC3FB216FF2A3600F86D79 /* cell.png in Resources */,
 				6563AC5716FFEAFC00D19315 /* btn_rotate_right-hd.png in Resources */,
 				6563AC5816FFEAFC00D19315 /* btn_rotate_right.png in Resources */,
+				6503E270170053B100F13AFF /* InfColorPickerView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1161,6 +1200,12 @@
 				B0BC3FA516FEB31000F86D79 /* Parts.m in Sources */,
 				B0BC3FAA16FEE18100F86D79 /* PartsListView.m in Sources */,
 				B0BC3FAD16FEF3DB00F86D79 /* PartsCellView.m in Sources */,
+				6503E26D170053B100F13AFF /* InfColorBarPicker.m in Sources */,
+				6503E26E170053B100F13AFF /* InfColorIndicatorView.m in Sources */,
+				6503E26F170053B100F13AFF /* InfColorPickerController.m in Sources */,
+				6503E271170053B100F13AFF /* InfColorSquarePicker.m in Sources */,
+				6503E272170053B100F13AFF /* InfHSBSupport.m in Sources */,
+				6503E273170053B100F13AFF /* InfSourceColorView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
