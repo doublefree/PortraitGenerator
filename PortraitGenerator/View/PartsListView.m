@@ -8,6 +8,7 @@
 
 #import "PartsListView.h"
 #import "PartsCellView.h"
+#import "Parts.h"
 
 @interface PartsListView()
 @end
@@ -35,7 +36,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [self.partsList count];
+    return [[Parts partsForCategory:self.category] count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -44,7 +45,8 @@
         UIViewController* controller;
         controller = [[UIViewController alloc] initWithNibName:@"PartsCellView" bundle:nil];
         cell = (PartsCellView*)controller.view;
-        [cell setData:[self.partsList objectAtIndex:indexPath.row]];
+        NSString* key = [[[Parts partsForCategory:self.category] allKeys] objectAtIndex:indexPath.row];
+        [cell setData:[[Parts partsForCategory:self.category] objectForKey:key]];
         cell.contentView.transform = CGAffineTransformMakeRotation(M_PI / 2);
     }
     return cell;

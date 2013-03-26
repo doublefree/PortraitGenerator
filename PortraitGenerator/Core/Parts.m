@@ -8,6 +8,11 @@
 
 #import "Parts.h"
 
+NSString* const PartsKeyCategory = @"category";
+NSString* const PartsKeyData = @"data";
+NSString* const PartsKeyDataParts = @"parts";
+NSString* const PartsKeyDataPartsFilePath = @"path";
+
 NSString* const CategoryFace = @"face";
 NSString* const CategoryEye = @"eye";
 
@@ -21,5 +26,17 @@ NSString* const CategoryEye = @"eye";
                           [NSArray arrayWithObjects:@"e1",@"e2", @"e3", nil], CategoryEye,
                           nil];
     return [list objectForKey:category];
+}
+
++(NSDictionary*) dictionary {
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"data" ofType:@"json"];
+    NSData* data = [NSData dataWithContentsOfFile:path];
+    
+    NSError *error=nil;
+    return [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&error];
+}
+
++(NSDictionary*) partsForCategory:(NSString*) category {
+    return [[[[Parts dictionary] objectForKey:PartsKeyData] objectForKey:category] objectForKey:PartsKeyDataParts];
 }
 @end

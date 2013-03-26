@@ -8,10 +8,11 @@
 
 #import "AppDelegate.h"
 #import "PartsCellView.h"
+#import "Parts.h"
 
 @interface PartsCellView()
 @property (retain, nonatomic) IBOutlet UIButton *button;
-@property (retain, nonatomic) NSString* parts;
+@property (retain, nonatomic) NSDictionary* parts;
 @end
 
 @implementation PartsCellView
@@ -39,9 +40,9 @@
     [[NSNotificationCenter defaultCenter] postNotification:nc];
 }
 
-- (void)setData:(NSString*)parts {
+- (void)setData:(NSDictionary*)parts {
     self.parts = parts;
-    [self.button setTitle:parts forState:UIControlStateNormal];
+    [self.button setTitle:[parts objectForKey:PartsKeyDataPartsFilePath] forState:UIControlStateNormal];
 }
 
 - (void)dealloc {

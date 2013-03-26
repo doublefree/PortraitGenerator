@@ -212,15 +212,14 @@ int const TAG_IMAGE_CONTROL = 4;
     if ([category length] != 0) {
         self.selectedCategory = category;
         [self removePartsListView];
-        NSArray* partsList = [Parts listWithCategory:category];
-        [self showPartsListView:partsList];
+        [self showPartsListView:category];
     }
 }
 
 - (void) partsSelected:(NSNotification*)center{
-    NSString* parts = [[center userInfo] objectForKey:@"parts"];
-    if ([parts length] != 0) {
-        NSLog(@"parts:%@", parts);
+    NSDictionary* parts = [[center userInfo] objectForKey:@"parts"];
+    if (parts) {
+        NSLog(@"parts:%@", [parts description]);
         [self removePartsListView];
     }
 }
@@ -233,14 +232,14 @@ int const TAG_IMAGE_CONTROL = 4;
     }
 }
 
-- (void) showPartsListView:(NSArray*) partsList
+- (void) showPartsListView:(NSString*) category
 {
     CGSize size = [[CCDirector sharedDirector] winSize];
     
     UIViewController* controller;
     controller = [[UIViewController alloc] initWithNibName:@"PartsListView" bundle:nil];
     PartsListView* partsListView  = (PartsListView*)controller.view;
-    partsListView.partsList = partsList;
+    partsListView.category = category;
     partsListView.frame = CGRectMake(0, size.height - 80, size.width, 50);
     partsListView.tableView.transform = CGAffineTransformMakeRotation(-M_PI / 2);
     partsListView.tableView.frame = CGRectMake(0,0,size.width, 46);

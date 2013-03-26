@@ -16,6 +16,7 @@
 		6503E273170053B100F13AFF /* InfSourceColorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6503E26C170053B100F13AFF /* InfSourceColorView.m */; };
 		6563AC5716FFEAFC00D19315 /* btn_rotate_right-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 6563AC5516FFEAFC00D19315 /* btn_rotate_right-hd.png */; };
 		6563AC5816FFEAFC00D19315 /* btn_rotate_right.png in Resources */ = {isa = PBXBuildFile; fileRef = 6563AC5616FFEAFC00D19315 /* btn_rotate_right.png */; };
+		65FB295B170129BB006BBAA8 /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = 65FB295A170129BB006BBAA8 /* data.json */; };
 		B002CB6F16EB1F39005E3B01 /* base.png in Resources */ = {isa = PBXBuildFile; fileRef = B002CB6D16EB1F39005E3B01 /* base.png */; };
 		B002CB7016EB1F39005E3B01 /* waku.png in Resources */ = {isa = PBXBuildFile; fileRef = B002CB6E16EB1F39005E3B01 /* waku.png */; };
 		B027544C16E1AEFA00B453E9 /* Figure.m in Sources */ = {isa = PBXBuildFile; fileRef = B027544B16E1AEFA00B453E9 /* Figure.m */; };
@@ -182,6 +183,7 @@
 		6503E26C170053B100F13AFF /* InfSourceColorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfSourceColorView.m; sourceTree = "<group>"; };
 		6563AC5516FFEAFC00D19315 /* btn_rotate_right-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_rotate_right-hd.png"; sourceTree = "<group>"; };
 		6563AC5616FFEAFC00D19315 /* btn_rotate_right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_rotate_right.png; sourceTree = "<group>"; };
+		65FB295A170129BB006BBAA8 /* data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = data.json; path = Resources/data.json; sourceTree = "<group>"; };
 		B002CB6D16EB1F39005E3B01 /* base.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = base.png; sourceTree = "<group>"; };
 		B002CB6E16EB1F39005E3B01 /* waku.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = waku.png; sourceTree = "<group>"; };
 		B027544A16E1AEFA00B453E9 /* Figure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Figure.h; sourceTree = "<group>"; };
@@ -608,6 +610,7 @@
 		B054494616E1995D0028DD55 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				65FB295A170129BB006BBAA8 /* data.json */,
 				B054494B16E1995D0028DD55 /* fps_images.png */,
 				B054494D16E1995D0028DD55 /* fps_images-hd.png */,
 				B054494F16E1995D0028DD55 /* fps_images-ipadhd.png */,
@@ -1077,6 +1080,7 @@
 				6563AC5716FFEAFC00D19315 /* btn_rotate_right-hd.png in Resources */,
 				6563AC5816FFEAFC00D19315 /* btn_rotate_right.png in Resources */,
 				6503E270170053B100F13AFF /* InfColorPickerView.xib in Resources */,
+				65FB295B170129BB006BBAA8 /* data.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -23,7 +23,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [[Parts category] count];
+    return [[[Parts dictionary] objectForKey:PartsKeyCategory] count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -33,7 +33,7 @@
         controller = [[UIViewController alloc] initWithNibName:@"PartsCategoryCellView" bundle:nil];
         cell = (PartsCategoryCellView*)controller.view;
         cell.contentView.transform = CGAffineTransformMakeRotation(M_PI / 2);
-        NSString* category = [[Parts category] objectAtIndex:indexPath.row];
+        NSString* category = [[[Parts dictionary] objectForKey:PartsKeyCategory] objectAtIndex:indexPath.row];
         [cell set:category];
         [cell registerNotification];
     }

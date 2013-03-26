@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface PartsCellView : UITableViewCell
-- (void)setData:(NSString*)parts;
+- (void)setData:(NSDictionary*)parts;
 @end
