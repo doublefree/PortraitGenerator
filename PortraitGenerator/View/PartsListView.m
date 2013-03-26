@@ -45,7 +45,8 @@
         UIViewController* controller;
         controller = [[UIViewController alloc] initWithNibName:@"PartsCellView" bundle:nil];
         cell = (PartsCellView*)controller.view;
-        NSString* key = [[[Parts partsForCategory:self.category] allKeys] objectAtIndex:indexPath.row];
+        NSArray* allKeys = [[[Parts partsForCategory:self.category] allKeys] sortedArrayUsingComparator:^(id obj1, id obj2){return [obj1 compare:obj2];}];
+        NSString* key = [allKeys objectAtIndex:indexPath.row];
         [cell setData:[[Parts partsForCategory:self.category] objectForKey:key]];
         cell.contentView.transform = CGAffineTransformMakeRotation(M_PI / 2);
     }

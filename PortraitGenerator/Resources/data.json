@@ -3,47 +3,47 @@
 	"data" : {
 		"face" : {
 			"parts" : {
-				"f1" : {
+				"f001" : {
 					"path" : "f1.png"
 				},
-				"f2" : {
+				"f002" : {
 					"path" : "f2.png"
 				},
-				"f3" : {
+				"f003" : {
 					"path" : "f3.png"
 				},
-				"f4" : {
+				"f004" : {
 					"path" : "f4.png"
 				},
-				"f5" : {
+				"f005" : {
 					"path" : "f5.png"
 				},
-				"f6" : {
+				"f006" : {
 					"path" : "f6.png"
 				},
-				"f7" : {
+				"f007" : {
 					"path" : "f7.png"
 				},
-				"f8" : {
+				"f008" : {
 					"path" : "f8.png"
 				},
-				"f9" : {
+				"f009" : {
 					"path" : "f9.png"
 				},
-				"f10" : {
+				"f010" : {
 					"path" : "f10.png"
 				}
 			}
 		},
 		"eye" : {
 			"parts" : {
-				"e1" : {
+				"e001" : {
 					"path" : "e1.png"
 				},
-				"e2" : {
+				"e002" : {
 					"path" : "e2.png"
 				},
-				"e3" : {
+				"e003" : {
 					"path" : "e3.png"
 				}
 			}
