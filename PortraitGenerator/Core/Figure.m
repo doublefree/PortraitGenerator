@@ -8,6 +8,9 @@
 
 #import "Figure.h"
 
+int const FigureScaleMax = 2;
+int const FigureScaleMin = -2;
+
 @implementation Figure
 -(NSString*) key
 {
@@ -20,6 +23,7 @@
             self.category, @"category",
             self.base_path, @"base_path",
             self.frame_path, @"frame_path",
+            [NSNumber numberWithInteger:self.scale], @"scale",
             NSStringFromCGPoint(self.position), @"position",
             nil];
 }
@@ -30,6 +34,7 @@
     figure.category = [dictionary objectForKey:@"category"];
     figure.base_path = [dictionary objectForKey:@"base_path"];
     figure.frame_path = [dictionary objectForKey:@"frame_path"];
+    figure.scale = [[dictionary objectForKey:@"scale"] intValue];
     figure.position = CGPointFromString([dictionary objectForKey:@"position"]);
     
     return figure;

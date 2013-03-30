@@ -14,17 +14,12 @@
 #import "Parts.h"
 #import "PartsListView.h"
 
-NSString *const FACE_PATH_DEFAULT = @"face.png";
-NSString *const EYE_PATH_DEFAULT = @"eye.png";
-NSString *const DEFAULT_NAME = @"default";
-int const TAG_PORTRAIT_FACE = 1;
-int const TAG_PORTRAIT_EYE = 2;
-int const TAG_MENU = 3;
-int const TAG_IMAGE_CONTROL = 4;
+int const TAG_MENU = 1;
+int const TAG_IMAGE_CONTROL = 2;
 
 @interface PortraitLayer()
 @property (retain, nonatomic) NSMutableArray* nodeList;
-@property (retain, nonatomic) CCNode* selNode;
+@property (retain, nonatomic) CCNode* touchedNode;
 @property (retain, nonatomic) NSString* selectedCategory;
 @property (retain, nonatomic) FigureSet* figureSet;
 @property (retain, nonatomic) CCMenuItem* newMenu;
@@ -55,7 +50,7 @@ int const TAG_IMAGE_CONTROL = 4;
         [self addChild:self.background z:-1];
         
         self.nodeList = [[[NSMutableArray alloc] init] autorelease];
-        self.figureSet = [FigureSet figureSetFromName:DEFAULT_NAME];
+        self.figureSet = [FigureSet figureSetFromName:@"hoge"];
         
         [self drawPortrait];
         
@@ -123,18 +118,18 @@ int const TAG_IMAGE_CONTROL = 4;
     oldTouchLocation = [self convertToNodeSpace:oldTouchLocation];
     
     CGPoint translation = ccpSub(touchLocation, oldTouchLocation);
-    if (self.selNode) {
-        CGPoint newPos = ccpAdd(self.selNode.position, translation);
-        self.selNode.position = newPos;
-        Figure* figure = self.selNode.userData;
-        figure.position = self.selNode.position;
+    if (self.touchedNode) {
+        CGPoint newPos = ccpAdd(self.touchedNode.position, translation);
+        self.touchedNode.position = newPos;
+        Figure* figure = self.touchedNode.userData;
+        figure.position = self.touchedNode.position;
         [self.figureSet add:figure];
     }
 }
 
 - (void)ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event
 {
-    self.selNode = nil;
+    self.touchedNode = nil;
 }
 
 -(void) selectSpriteForTouch:(CGPoint)touchLoation
@@ -152,9 +147,9 @@ int const TAG_IMAGE_CONTROL = 4;
         }
     }
     
-    if (newNode != self.selNode) {
-        [self.selNode stopAllActions];
-        self.selNode = newNode;
+    if (newNode != self.touchedNode) {
+        [self.touchedNode stopAllActions];
+        self.touchedNode = newNode;
     }
 }
 
@@ -167,8 +162,16 @@ int const TAG_IMAGE_CONTROL = 4;
         Figure* figure = [self.figureSet figureWithCategory:category];
         if (figure) {
             CCNode* node = [CCNode node];
+            //ccTexParams texParams = {GL_LINEAR_MIPMAP_LINEAR, GL_LINEAR, GL_CLAMP_TO_EDGE, GL_CLAMP_TO_EDGE};
+            
             CCSprite* base = [CCSprite spriteWithFile:figure.base_path];
             CCSprite* frame = [CCSprite spriteWithFile:figure.frame_path];
+            //[base.texture generateMipmap];
+            //[base.texture setTexParameters:&texParams];
+            //[frame.texture generateMipmap];
+            //[frame.texture setTexParameters:&texParams];
+            base.scaleX = frame.scaleX = 1 + (0.2 * figure.scale);
+            base.scaleY = frame.scaleY = 1 + (0.2 * figure.scale);
             node.userData = figure;
             node.position = figure.position;
             [node addChild:base z:-1 tag:@"base"];
@@ -283,8 +286,22 @@ int const TAG_IMAGE_CONTROL = 4;
     CCSprite *selectedMoveApart = [CCSprite spriteWithFile:@"btn_rotate_right.png"];
     selectedMoveApart.opacity = 0x7f;
     
-    CCMenuItemSprite *menuRotateRight = [CCMenuItemSprite itemWithNormalSprite:normalRotateRight selectedSprite:selectedRotateRight block:^(id sender) {;}];
-    CCMenuItemSprite *menuRotateLeft = [CCMenuItemSprite itemWithNormalSprite:normalRotateLeft selectedSprite:selectedRotateLeft block:^(id sender) {;}];
+    CCMenuItemSprite *menuRotateRight = [CCMenuItemSprite itemWithNormalSprite:normalRotateRight selectedSprite:selectedRotateRight block:^(id sender) {
+        Figure* figure = [self.figureSet figureWithCategory:self.selectedCategory];
+        if (figure && figure) {
+            figure.scale = min(figure.scale+1, FigureScaleMax);
+            [self.figureSet add:figure];
+            [self drawPortrait];
+        }
+    }];
+    CCMenuItemSprite *menuRotateLeft = [CCMenuItemSprite itemWithNormalSprite:normalRotateLeft selectedSprite:selectedRotateLeft block:^(id sender) {
+        Figure* figure = [self.figureSet figureWithCategory:self.selectedCategory];
+        if (figure && figure) {
+            figure.scale = max(figure.scale-1, FigureScaleMin);
+            [self.figureSet add:figure];
+            [self drawPortrait];
+        }
+    }];
     CCMenuItemSprite *menuMoveClose = [CCMenuItemSprite itemWithNormalSprite:normalMoveClose selectedSprite:selectedMoveClose block:^(id sender) {;}];
     CCMenuItemSprite *menuMoveApart = [CCMenuItemSprite itemWithNormalSprite:normalMoveApart selectedSprite:selectedMoveApart block:^(id sender) {
         InfColorPickerController* picker = [InfColorPickerController colorPickerViewController];
