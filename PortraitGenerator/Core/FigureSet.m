@@ -26,8 +26,8 @@ NSString *const FigureSetPrefix = @"com.wiz-r.portrait.figureset";
     [self.dictionary setObject:figure forKey:[figure key]];
 }
 
--(Figure*) figureWithType:(NSString*) type {
-    return [self.dictionary objectForKey:type];
+-(Figure*) figureWithCategory:(NSString *)category {
+    return [self.dictionary objectForKey:category];
 }
 
 -(void) saveWithName:(NSString*)name {

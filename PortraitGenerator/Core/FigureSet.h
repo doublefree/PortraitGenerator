@@ -14,6 +14,6 @@
 -(void) add:(Figure*)figure;
 -(void) saveWithName:(NSString*)name;
 -(void) deleteWithName:(NSString*)name;
--(Figure*) figureWithType:(NSString*) type;
+-(Figure*) figureWithCategory:(NSString*) category;
 +(FigureSet*) figureSetFromName:(NSString*)name;
 @end

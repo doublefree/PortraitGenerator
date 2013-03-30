@@ -42,7 +42,9 @@
 
 - (void)setData:(NSDictionary*)parts {
     self.parts = parts;
-    [self.button setTitle:[parts objectForKey:PartsKeyDataPartsFilePath] forState:UIControlStateNormal];
+    [self.button setTitle:@"" forState:UIControlStateNormal];
+    UIImage* bgImage = [UIImage imageNamed:[parts objectForKey:PartsKeyDataPartsBaseFilePath]];
+    [self.button setBackgroundImage:bgImage forState:UIControlStateNormal];
 }
 
 - (void)dealloc {

@@ -10,22 +10,17 @@
 
 NSString* const PartsKeyCategory = @"category";
 NSString* const PartsKeyData = @"data";
+NSString* const PartsKeyDataDefault = @"default";
 NSString* const PartsKeyDataParts = @"parts";
-NSString* const PartsKeyDataPartsFilePath = @"path";
+NSString* const PartsKeyDataPartsBaseFilePath = @"base_path";
+NSString* const PartsKeyDataPartsFrameFilePath = @"frame_path";
 
-NSString* const CategoryFace = @"face";
-NSString* const CategoryEye = @"eye";
+NSString* const PartsCategoryFace = @"face";
+NSString* const PartsCategoryEye = @"eye";
 
 @implementation Parts
 +(NSArray*) category {
-    return [NSArray arrayWithObjects:CategoryFace, CategoryEye, nil];
-}
-+(NSArray*) listWithCategory:(NSString*) category {
-    NSDictionary* list = [NSDictionary dictionaryWithObjectsAndKeys:
-                          [NSArray arrayWithObjects:@"f1.png",@"f2.png", @"f3.png", @"f4.png", @"f5.png", @"f6.png", @"f7.png", @"f8.png", @"f9.png", @"f10.png", nil], CategoryFace,
-                          [NSArray arrayWithObjects:@"e1",@"e2", @"e3", nil], CategoryEye,
-                          nil];
-    return [list objectForKey:category];
+    return [NSArray arrayWithObjects:PartsCategoryFace, PartsCategoryEye, nil];
 }
 
 +(NSDictionary*) dictionary {
@@ -38,5 +33,9 @@ NSString* const CategoryEye = @"eye";
 
 +(NSDictionary*) partsForCategory:(NSString*) category {
     return [[[[Parts dictionary] objectForKey:PartsKeyData] objectForKey:category] objectForKey:PartsKeyDataParts];
+}
+
++(NSDictionary*) configForCategory:(NSString*) category {
+    return [[[[Parts dictionary] objectForKey:PartsKeyData] objectForKey:category] objectForKey:PartsKeyDataDefault];
 }
 @end

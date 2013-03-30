@@ -23,12 +23,10 @@ int const TAG_MENU = 3;
 int const TAG_IMAGE_CONTROL = 4;
 
 @interface PortraitLayer()
-@property (retain, nonatomic) NSMutableArray* spriteList;
-@property (retain, nonatomic) CCSprite* selSprite;
+@property (retain, nonatomic) NSMutableArray* nodeList;
+@property (retain, nonatomic) CCNode* selNode;
 @property (retain, nonatomic) NSString* selectedCategory;
 @property (retain, nonatomic) FigureSet* figureSet;
-@property (retain, nonatomic) Figure* face;
-@property (retain, nonatomic) Figure* eye;
 @property (retain, nonatomic) CCMenuItem* newMenu;
 @property (retain, nonatomic) CCMenuItem* loadMenu;
 @property (retain, nonatomic) CCMenuItem* saveMenu;
@@ -56,7 +54,7 @@ int const TAG_IMAGE_CONTROL = 4;
         self.background = [CCLayerColor layerWithColor:ccc4(204, 0, 102, 255)];
         [self addChild:self.background z:-1];
         
-        self.spriteList = [[[NSMutableArray alloc] init] autorelease];
+        self.nodeList = [[[NSMutableArray alloc] init] autorelease];
         self.figureSet = [FigureSet figureSetFromName:DEFAULT_NAME];
         
         [self drawPortrait];
@@ -125,72 +123,61 @@ int const TAG_IMAGE_CONTROL = 4;
     oldTouchLocation = [self convertToNodeSpace:oldTouchLocation];
     
     CGPoint translation = ccpSub(touchLocation, oldTouchLocation);
-    if (self.selSprite) {
-        CGPoint newPos = ccpAdd(self.selSprite.position, translation);
-        self.selSprite.position = newPos;
-        Figure* figure = self.selSprite.userData;
-        figure.position = self.selSprite.position;
+    if (self.selNode) {
+        CGPoint newPos = ccpAdd(self.selNode.position, translation);
+        self.selNode.position = newPos;
+        Figure* figure = self.selNode.userData;
+        figure.position = self.selNode.position;
+        [self.figureSet add:figure];
     }
 }
 
 - (void)ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event
 {
-    self.selSprite = nil;
+    self.selNode = nil;
 }
 
 -(void) selectSpriteForTouch:(CGPoint)touchLoation
 {
-    CCSprite* newSprite = nil;
-    for (CCSprite* sprite in self.spriteList) {
-        if (CGRectContainsPoint(sprite.boundingBox, touchLoation)) {
-            newSprite = sprite;
+    CCNode* newNode = nil;
+    for (CCNode* node in self.nodeList) {
+        CGRect nodeRect = node.boundingBox;
+        for (CCSprite* sprite in [node children]) {
+            CGRect spriteRect = sprite.boundingBox;
+            spriteRect.origin.x = nodeRect.origin.x - spriteRect.size.width/2;
+            spriteRect.origin.y = nodeRect.origin.y - spriteRect.size.height/2;
+            if (CGRectContainsPoint(spriteRect, touchLoation)) {
+                newNode = node;
+            }
         }
     }
     
-    if (newSprite != self.selSprite) {
-        [self.selSprite stopAllActions];
-        self.selSprite = newSprite;
+    if (newNode != self.selNode) {
+        [self.selNode stopAllActions];
+        self.selNode = newNode;
     }
 }
 
 - (void) drawPortrait
 {
-    [self removeChildByTag:TAG_PORTRAIT_FACE cleanup:YES];
-    [self removeChildByTag:TAG_PORTRAIT_EYE cleanup:YES];
-    
-    CGSize size = [[CCDirector sharedDirector] winSize];
-    // face
-    self.face = [self.figureSet figureWithType:FigureTypeFace];
-    if (!self.face) {
-        self.face = [[Figure alloc] init];
-        self.face.path = FACE_PATH_DEFAULT;
-        self.face.position = CGPointMake(size.width/2, size.height/2);
-        self.face.type = FigureTypeFace;
-        [self.figureSet add:self.face];
+    for (NSString* category in [Parts category]) {
+        NSDictionary* config = [Parts configForCategory:category];
+        int tag = [[config objectForKey:@"tag"] intValue];
+        [self removeChildByTag:tag cleanup:YES];
+        Figure* figure = [self.figureSet figureWithCategory:category];
+        if (figure) {
+            CCNode* node = [CCNode node];
+            CCSprite* base = [CCSprite spriteWithFile:figure.base_path];
+            CCSprite* frame = [CCSprite spriteWithFile:figure.frame_path];
+            node.userData = figure;
+            node.position = figure.position;
+            [node addChild:base z:-1 tag:@"base"];
+            [node addChild:frame z:0 tag:@"frame"];
+            
+            [self.nodeList addObject:node];
+            [self addChild:node z:0 tag:tag];
+        }
     }
-    
-    CCSprite *faceSprite = [CCSprite spriteWithFile:self.face.path];
-    faceSprite.position = self.face.position;
-    faceSprite.userData = self.face;
-    faceSprite.color = ccc3(100, 100, 100);
-    [self addChild:faceSprite z:0 tag:TAG_PORTRAIT_FACE];
-    [self.spriteList addObject:faceSprite];
-    
-    // eye
-    self.eye = [self.figureSet figureWithType:FigureTypeEye];
-    if (!self.eye) {
-        self.eye = [[Figure alloc] init];
-        self.eye.path = EYE_PATH_DEFAULT;
-        self.eye.position = CGPointMake(size.width/2, size.height/2);
-        self.eye.type = FigureTypeEye;
-        [self.figureSet add:self.eye];
-    }
-    
-    CCSprite *eyeSprite = [CCSprite spriteWithFile:self.eye.path];
-    eyeSprite.position = self.eye.position;
-    eyeSprite.userData = self.eye;
-    [self addChild:eyeSprite z:0 tag:TAG_PORTRAIT_EYE];
-    [self.spriteList addObject:eyeSprite];
 }
 
 - (void) loadWithName:(NSString*)name
@@ -219,8 +206,24 @@ int const TAG_IMAGE_CONTROL = 4;
 - (void) partsSelected:(NSNotification*)center{
     NSDictionary* parts = [[center userInfo] objectForKey:@"parts"];
     if (parts) {
-        NSLog(@"parts:%@", [parts description]);
-        [self removePartsListView];
+        CGSize size = [[CCDirector sharedDirector] winSize];
+        
+        Figure* figure = [[Figure alloc] init];
+        figure.category = self.selectedCategory;
+        figure.base_path = [parts objectForKey:PartsKeyDataPartsBaseFilePath];
+        figure.frame_path = [parts objectForKey:PartsKeyDataPartsFrameFilePath];
+        
+        Figure* oldFigure = [self.figureSet figureWithCategory:self.selectedCategory];
+        if (oldFigure) {
+            figure.position = oldFigure.position;
+        } else {
+            NSDictionary* config = [Parts configForCategory:self.selectedCategory];
+            figure.position = CGPointMake(size.width * [[config objectForKey:@"x"] doubleValue], size.height * [[config objectForKey:@"y"] doubleValue]);
+        }
+        
+        [self.figureSet add:figure];
+        [self drawPortrait];
+        //[self removePartsListView];
     }
 }
 
@@ -240,7 +243,7 @@ int const TAG_IMAGE_CONTROL = 4;
     controller = [[UIViewController alloc] initWithNibName:@"PartsListView" bundle:nil];
     PartsListView* partsListView  = (PartsListView*)controller.view;
     partsListView.category = category;
-    partsListView.frame = CGRectMake(0, size.height - 80, size.width, 50);
+    partsListView.frame = CGRectMake(0, size.height - 100, size.width, 50);
     partsListView.tableView.transform = CGAffineTransformMakeRotation(-M_PI / 2);
     partsListView.tableView.frame = CGRectMake(0,0,size.width, 46);
     partsListView.tableView.bounces = NO;
@@ -299,7 +302,6 @@ int const TAG_IMAGE_CONTROL = 4;
     
     CGSize size = [[CCDirector sharedDirector] winSize];
     menu.position = ccp(size.width - normalRotateRight.contentSize.width * 0.7, size.height / 2);
-    
     
     [self addChild:menu z:0 tag:TAG_IMAGE_CONTROL];
 }

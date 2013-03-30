@@ -2,49 +2,32 @@
 	"category" : ["face", "eye"],
 	"data" : {
 		"face" : {
+            "default" : {
+                "x" : 0.5,
+                "y" : 0.5,
+                "tag" : 100
+            },
 			"parts" : {
 				"f001" : {
-					"path" : "f1.png"
+					"base_path" : "base.png",
+                    "frame_path" : "waku.png"
 				},
-				"f002" : {
-					"path" : "f2.png"
-				},
-				"f003" : {
-					"path" : "f3.png"
-				},
-				"f004" : {
-					"path" : "f4.png"
-				},
-				"f005" : {
-					"path" : "f5.png"
-				},
-				"f006" : {
-					"path" : "f6.png"
-				},
-				"f007" : {
-					"path" : "f7.png"
-				},
-				"f008" : {
-					"path" : "f8.png"
-				},
-				"f009" : {
-					"path" : "f9.png"
-				},
-				"f010" : {
-					"path" : "f10.png"
+                "f002" : {
+					"base_path" : "face.png",
+                    "frame_path" : "face.png"
 				}
 			}
 		},
 		"eye" : {
+            "default" : {
+                "x" : 0.5,
+                "y" : 0.5,
+                "tag" : 101
+            },
 			"parts" : {
 				"e001" : {
-					"path" : "e1.png"
-				},
-				"e002" : {
-					"path" : "e2.png"
-				},
-				"e003" : {
-					"path" : "e3.png"
+					"base_path" : "eye.png",
+                    "frame_path" : "eye.png"
 				}
 			}
 		}
