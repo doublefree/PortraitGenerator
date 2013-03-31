@@ -287,22 +287,14 @@ int const TAG_IMAGE_CONTROL = 2;
     selectedMoveApart.opacity = 0x7f;
     
     CCMenuItemSprite *menuRotateRight = [CCMenuItemSprite itemWithNormalSprite:normalRotateRight selectedSprite:selectedRotateRight block:^(id sender) {
-        Figure* figure = [self.figureSet figureWithCategory:self.selectedCategory];
-        if (figure && figure) {
-            figure.scale = min(figure.scale+1, FigureScaleMax);
-            [self.figureSet add:figure];
-            [self drawPortrait];
-        }
+        [self scaleUpSelectedFigure];
     }];
     CCMenuItemSprite *menuRotateLeft = [CCMenuItemSprite itemWithNormalSprite:normalRotateLeft selectedSprite:selectedRotateLeft block:^(id sender) {
-        Figure* figure = [self.figureSet figureWithCategory:self.selectedCategory];
-        if (figure && figure) {
-            figure.scale = max(figure.scale-1, FigureScaleMin);
-            [self.figureSet add:figure];
-            [self drawPortrait];
-        }
+        [self scaleDownSeletedFigure];
     }];
-    CCMenuItemSprite *menuMoveClose = [CCMenuItemSprite itemWithNormalSprite:normalMoveClose selectedSprite:selectedMoveClose block:^(id sender) {;}];
+    CCMenuItemSprite *menuMoveClose = [CCMenuItemSprite itemWithNormalSprite:normalMoveClose selectedSprite:selectedMoveClose block:^(id sender) {
+        [self saveScreenShot];
+    }];
     CCMenuItemSprite *menuMoveApart = [CCMenuItemSprite itemWithNormalSprite:normalMoveApart selectedSprite:selectedMoveApart block:^(id sender) {
         InfColorPickerController* picker = [InfColorPickerController colorPickerViewController];
         picker.delegate = self;
@@ -339,6 +331,50 @@ int const TAG_IMAGE_CONTROL = 2;
     self.background.color = ccc3(r*255, g*255, b*255);
     //CCLayerColor *background = [CCLayerColor layerWithColor:ccc4(r*255, g*255, b*255, a*255)];
     //[self addChild:background];
+}
+
+- (void)image:(UIImage*)image didFinishSavingWithError:(NSError*)error contextInfo:(void*)contextInfo {
+    if(!error){
+        NSLog(@"no error");
+    } else {
+        NSLog(@"error");
+    }
+}
+
+- (void)scaleUpSelectedFigure
+{
+    Figure* figure = [self.figureSet figureWithCategory:self.selectedCategory];
+    if (figure && figure) {
+        figure.scale = min(figure.scale+1, FigureScaleMax);
+        [self.figureSet add:figure];
+        [self drawPortrait];
+    }
+}
+
+- (void)scaleDownSeletedFigure
+{
+    Figure* figure = [self.figureSet figureWithCategory:self.selectedCategory];
+    if (figure && figure) {
+        figure.scale = max(figure.scale-1, FigureScaleMin);
+        [self.figureSet add:figure];
+        [self drawPortrait];
+    }
+}
+
+- (void)saveScreenShot
+{
+    CGSize size = [[CCDirector sharedDirector] winSize];
+    [self removeImageControl];
+    
+    CCRenderTexture* rtx = [CCRenderTexture renderTextureWithWidth:size.width height:size.height];
+    [rtx beginWithClear:0 g:0 b:0 a:1.0f];
+    [[[CCDirector sharedDirector] runningScene] visit];
+    [rtx end];
+    
+    UIImage* image = [rtx getUIImage];
+    UIImageWriteToSavedPhotosAlbum(image, self, @selector(image:didFinishSavingWithError:contextInfo:),NULL);
+    
+    [self showImageControl];
 }
 
 // on "dealloc" you need to release all your retained objects
