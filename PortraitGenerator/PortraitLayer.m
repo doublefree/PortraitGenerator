@@ -16,6 +16,7 @@
 
 int const TAG_MENU = 1;
 int const TAG_IMAGE_CONTROL = 2;
+double const SCALE_PARAM = 0.2;
 
 @interface PortraitLayer()
 @property (retain, nonatomic) NSMutableArray* nodeList;
@@ -136,13 +137,33 @@ int const TAG_IMAGE_CONTROL = 2;
 {
     CCNode* newNode = nil;
     for (CCNode* node in self.nodeList) {
+        Figure* figure = node.userData;
         CGRect nodeRect = node.boundingBox;
-        for (CCSprite* sprite in [node children]) {
-            CGRect spriteRect = sprite.boundingBox;
-            spriteRect.origin.x = nodeRect.origin.x - spriteRect.size.width/2;
-            spriteRect.origin.y = nodeRect.origin.y - spriteRect.size.height/2;
-            if (CGRectContainsPoint(spriteRect, touchLoation)) {
+        if (figure.isCouple) {
+            float x = 0;
+            float y = 0;
+            for (CCSprite* sprite in [node children]) {
+                CGRect spriteRect = sprite.boundingBox;
+                x = max(x, fabs(spriteRect.origin.x) + spriteRect.size.width/2);
+                y = max(y, fabs(spriteRect.origin.y) + spriteRect.size.height/2);
+            }
+            
+            nodeRect.origin.x = nodeRect.origin.x - x;
+            nodeRect.size.width = x * 2;
+            nodeRect.origin.y = nodeRect.origin.y - y;
+            nodeRect.size.height = y * 2;
+            
+            if (CGRectContainsPoint(nodeRect, touchLoation)) {
                 newNode = node;
+            }
+        } else {
+            for (CCSprite* sprite in [node children]) {
+                CGRect spriteRect = sprite.boundingBox;
+                spriteRect.origin.x = nodeRect.origin.x - spriteRect.size.width/2;
+                spriteRect.origin.y = nodeRect.origin.y - spriteRect.size.height/2;
+                if (CGRectContainsPoint(spriteRect, touchLoation)) {
+                    newNode = node;
+                }
             }
         }
     }
@@ -155,27 +176,58 @@ int const TAG_IMAGE_CONTROL = 2;
 
 - (void) drawPortrait
 {
+    CGSize size = [[CCDirector sharedDirector] winSize];
+    
     for (NSString* category in [Parts category]) {
         NSDictionary* config = [Parts configForCategory:category];
-        int tag = [[config objectForKey:@"tag"] intValue];
+        int tag = [[config objectForKey:PartsKeyDataConfigTag] intValue];
         [self removeChildByTag:tag cleanup:YES];
+        
         Figure* figure = [self.figureSet figureWithCategory:category];
+        
         if (figure) {
             CCNode* node = [CCNode node];
-            //ccTexParams texParams = {GL_LINEAR_MIPMAP_LINEAR, GL_LINEAR, GL_CLAMP_TO_EDGE, GL_CLAMP_TO_EDGE};
             
-            CCSprite* base = [CCSprite spriteWithFile:figure.base_path];
-            CCSprite* frame = [CCSprite spriteWithFile:figure.frame_path];
-            //[base.texture generateMipmap];
-            //[base.texture setTexParameters:&texParams];
-            //[frame.texture generateMipmap];
-            //[frame.texture setTexParameters:&texParams];
-            base.scaleX = frame.scaleX = 1 + (0.2 * figure.scale);
-            base.scaleY = frame.scaleY = 1 + (0.2 * figure.scale);
+            if (figure.isCouple) {
+                CCSprite* leftBase = [CCSprite spriteWithFile:figure.base_path];
+                CCSprite* rightBase = [CCSprite spriteWithFile:figure.base_path];
+                rightBase.flipX = YES;
+                
+                CCSprite* leftFrame = [CCSprite spriteWithFile:figure.frame_path];
+                CCSprite* rightFrame = [CCSprite spriteWithFile:figure.frame_path];
+                rightFrame.flipX = YES;
+                
+                float aida = size.width/5; // TODO : XXX
+                
+                CCSprite* base = [[CCSprite alloc] init];
+                //base.contentSize.width = aida + leftBase.contentSize.width;
+                //base.contentSize.height = leftBase.contentSize.height;
+                
+                CCSprite* frame = [[CCSprite alloc] init];
+                //frame.contentSize.width = aida + leftBase.contentSize.width;
+                //frame.contentSize.height = leftBase.contentSize.height;
+                
+                
+                CGPoint leftPoint = CGPointMake(-1 * aida/2, leftBase.contentSize.height/2);
+                CGPoint rightPoint = CGPointMake(aida/2, leftFrame.contentSize.height/2);
+
+                leftBase.position = leftFrame.position = leftPoint;
+                rightBase.position = rightFrame.position = rightPoint;
+                
+                [node addChild:leftBase];
+                [node addChild:rightBase];
+                [node addChild:leftFrame];
+                [node addChild:rightFrame];
+            } else {
+                CCSprite* base = [CCSprite spriteWithFile:figure.base_path];
+                CCSprite* frame = [CCSprite spriteWithFile:figure.frame_path];
+                base.scaleX = frame.scaleX = 1 + (SCALE_PARAM * figure.scale);
+                base.scaleY = frame.scaleY = 1 + (SCALE_PARAM * figure.scale);
+                [node addChild:base z:-1 tag:@"base"];
+                [node addChild:frame z:0 tag:@"frame"];
+            }
             node.userData = figure;
             node.position = figure.position;
-            [node addChild:base z:-1 tag:@"base"];
-            [node addChild:frame z:0 tag:@"frame"];
             
             [self.nodeList addObject:node];
             [self addChild:node z:0 tag:tag];
@@ -210,18 +262,19 @@ int const TAG_IMAGE_CONTROL = 2;
     NSDictionary* parts = [[center userInfo] objectForKey:@"parts"];
     if (parts) {
         CGSize size = [[CCDirector sharedDirector] winSize];
+        NSDictionary* config = [Parts configForCategory:self.selectedCategory];
         
         Figure* figure = [[Figure alloc] init];
         figure.category = self.selectedCategory;
         figure.base_path = [parts objectForKey:PartsKeyDataPartsBaseFilePath];
         figure.frame_path = [parts objectForKey:PartsKeyDataPartsFrameFilePath];
+        figure.isCouple = [[config objectForKey:PartsKeyDataConfigCouple] boolValue];
         
         Figure* oldFigure = [self.figureSet figureWithCategory:self.selectedCategory];
         if (oldFigure) {
             figure.position = oldFigure.position;
         } else {
-            NSDictionary* config = [Parts configForCategory:self.selectedCategory];
-            figure.position = CGPointMake(size.width * [[config objectForKey:@"x"] doubleValue], size.height * [[config objectForKey:@"y"] doubleValue]);
+            figure.position = CGPointMake(size.width * [[config objectForKey:PartsKeyDataConfigX] doubleValue], size.height * [[config objectForKey:PartsKeyDataConfigY] doubleValue]);
         }
         
         [self.figureSet add:figure];

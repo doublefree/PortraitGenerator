@@ -18,6 +18,7 @@ extern int const FigureScaleMin;
 @property (assign, nonatomic) CGPoint position;
 @property (retain, nonatomic) NSString* category;
 @property (assign, nonatomic) int scale;
+@property (assign, nonatomic) BOOL isCouple;
 
 -(NSString*) key;
 -(NSDictionary*) dictionary;

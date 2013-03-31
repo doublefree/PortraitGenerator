@@ -10,7 +10,12 @@
 
 NSString* const PartsKeyCategory = @"category";
 NSString* const PartsKeyData = @"data";
-NSString* const PartsKeyDataDefault = @"default";
+NSString* const PartsKeyDataConfig = @"config";
+NSString* const PartsKeyDataConfigX = @"x";
+NSString* const PartsKeyDataConfigY = @"y";
+NSString* const PartsKeyDataConfigTag = @"tag";
+NSString* const PartsKeyDataConfigCouple = @"couple";
+NSString* const PartsKeyDataConfigColorChange = @"color_change";
 NSString* const PartsKeyDataParts = @"parts";
 NSString* const PartsKeyDataPartsBaseFilePath = @"base_path";
 NSString* const PartsKeyDataPartsFrameFilePath = @"frame_path";
@@ -36,6 +41,6 @@ NSString* const PartsCategoryEye = @"eye";
 }
 
 +(NSDictionary*) configForCategory:(NSString*) category {
-    return [[[[Parts dictionary] objectForKey:PartsKeyData] objectForKey:category] objectForKey:PartsKeyDataDefault];
+    return [[[[Parts dictionary] objectForKey:PartsKeyData] objectForKey:category] objectForKey:PartsKeyDataConfig];
 }
 @end

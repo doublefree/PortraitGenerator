@@ -34,6 +34,10 @@
 		65FB297717013F1E006BBAA8 /* PartsListView.xib in Sources */ = {isa = PBXBuildFile; fileRef = 65FB297517013F03006BBAA8 /* PartsListView.xib */; };
 		B002CB6F16EB1F39005E3B01 /* base.png in Resources */ = {isa = PBXBuildFile; fileRef = B002CB6D16EB1F39005E3B01 /* base.png */; };
 		B002CB7016EB1F39005E3B01 /* waku.png in Resources */ = {isa = PBXBuildFile; fileRef = B002CB6E16EB1F39005E3B01 /* waku.png */; };
+		B015A42017086B4900696547 /* eye001_color.png in Resources */ = {isa = PBXBuildFile; fileRef = B015A41C17086B4900696547 /* eye001_color.png */; };
+		B015A42117086B4900696547 /* eye001_line.png in Resources */ = {isa = PBXBuildFile; fileRef = B015A41D17086B4900696547 /* eye001_line.png */; };
+		B015A42217086B4900696547 /* face001_color.png in Resources */ = {isa = PBXBuildFile; fileRef = B015A41E17086B4900696547 /* face001_color.png */; };
+		B015A42317086B4900696547 /* face001_line.png in Resources */ = {isa = PBXBuildFile; fileRef = B015A41F17086B4900696547 /* face001_line.png */; };
 		B054493416E1995D0028DD55 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B054493316E1995D0028DD55 /* QuartzCore.framework */; };
 		B054493616E1995D0028DD55 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B054493516E1995D0028DD55 /* OpenGLES.framework */; };
 		B054493816E1995D0028DD55 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B054493716E1995D0028DD55 /* OpenAL.framework */; };
@@ -206,6 +210,10 @@
 		65FB297517013F03006BBAA8 /* PartsListView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PartsListView.xib; path = View/PartsListView.xib; sourceTree = "<group>"; };
 		B002CB6D16EB1F39005E3B01 /* base.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = base.png; sourceTree = "<group>"; };
 		B002CB6E16EB1F39005E3B01 /* waku.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = waku.png; sourceTree = "<group>"; };
+		B015A41C17086B4900696547 /* eye001_color.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = eye001_color.png; sourceTree = "<group>"; };
+		B015A41D17086B4900696547 /* eye001_line.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = eye001_line.png; sourceTree = "<group>"; };
+		B015A41E17086B4900696547 /* face001_color.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = face001_color.png; sourceTree = "<group>"; };
+		B015A41F17086B4900696547 /* face001_line.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = face001_line.png; sourceTree = "<group>"; };
 		B054493016E1995D0028DD55 /* PortraitGenerator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PortraitGenerator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B054493316E1995D0028DD55 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		B054493516E1995D0028DD55 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -523,6 +531,17 @@
 			);
 			name = InfColorPicker;
 			path = libs/InfColorPicker;
+			sourceTree = "<group>";
+		};
+		B015A41B17086B4900696547 /* parts */ = {
+			isa = PBXGroup;
+			children = (
+				B015A41C17086B4900696547 /* eye001_color.png */,
+				B015A41D17086B4900696547 /* eye001_line.png */,
+				B015A41E17086B4900696547 /* face001_color.png */,
+				B015A41F17086B4900696547 /* face001_line.png */,
+			);
+			path = parts;
 			sourceTree = "<group>";
 		};
 		B027544D16E1AF9B00B453E9 /* Core */ = {
@@ -978,6 +997,7 @@
 		B0544ACB16E199AD0028DD55 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				B015A41B17086B4900696547 /* parts */,
 				B0BC3FB016FF2A3600F86D79 /* button */,
 				B002CB6D16EB1F39005E3B01 /* base.png */,
 				B002CB6E16EB1F39005E3B01 /* waku.png */,
@@ -1086,6 +1106,10 @@
 				6503E270170053B100F13AFF /* InfColorPickerView.xib in Resources */,
 				65FB295B170129BB006BBAA8 /* data.json in Resources */,
 				65FB297617013F03006BBAA8 /* PartsListView.xib in Resources */,
+				B015A42017086B4900696547 /* eye001_color.png in Resources */,
+				B015A42117086B4900696547 /* eye001_line.png in Resources */,
+				B015A42217086B4900696547 /* face001_color.png in Resources */,
+				B015A42317086B4900696547 /* face001_line.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
