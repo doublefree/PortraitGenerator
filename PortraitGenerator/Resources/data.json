@@ -21,6 +21,7 @@
                 "y" : 0.5,
                 "tag" : 101,
                 "couple" : true,
+                "distance" : 0.15,
                 "color_change" : true
             },
             "parts" : {

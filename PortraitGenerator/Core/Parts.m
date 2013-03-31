@@ -15,6 +15,7 @@ NSString* const PartsKeyDataConfigX = @"x";
 NSString* const PartsKeyDataConfigY = @"y";
 NSString* const PartsKeyDataConfigTag = @"tag";
 NSString* const PartsKeyDataConfigCouple = @"couple";
+NSString* const PartsKeyDataConfigDistance = @"distance";
 NSString* const PartsKeyDataConfigColorChange = @"color_change";
 NSString* const PartsKeyDataParts = @"parts";
 NSString* const PartsKeyDataPartsBaseFilePath = @"base_path";

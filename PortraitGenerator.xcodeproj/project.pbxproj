@@ -32,8 +32,6 @@
 		65FB297417013EF3006BBAA8 /* PortraitCellView.xib in Sources */ = {isa = PBXBuildFile; fileRef = 65FB297117013EDD006BBAA8 /* PortraitCellView.xib */; };
 		65FB297617013F03006BBAA8 /* PartsListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65FB297517013F03006BBAA8 /* PartsListView.xib */; };
 		65FB297717013F1E006BBAA8 /* PartsListView.xib in Sources */ = {isa = PBXBuildFile; fileRef = 65FB297517013F03006BBAA8 /* PartsListView.xib */; };
-		B002CB6F16EB1F39005E3B01 /* base.png in Resources */ = {isa = PBXBuildFile; fileRef = B002CB6D16EB1F39005E3B01 /* base.png */; };
-		B002CB7016EB1F39005E3B01 /* waku.png in Resources */ = {isa = PBXBuildFile; fileRef = B002CB6E16EB1F39005E3B01 /* waku.png */; };
 		B015A42017086B4900696547 /* eye001_color.png in Resources */ = {isa = PBXBuildFile; fileRef = B015A41C17086B4900696547 /* eye001_color.png */; };
 		B015A42117086B4900696547 /* eye001_line.png in Resources */ = {isa = PBXBuildFile; fileRef = B015A41D17086B4900696547 /* eye001_line.png */; };
 		B015A42217086B4900696547 /* face001_color.png in Resources */ = {isa = PBXBuildFile; fileRef = B015A41E17086B4900696547 /* face001_color.png */; };
@@ -160,8 +158,6 @@
 		B0544AB716E1995F0028DD55 /* vec4.c in Sources */ = {isa = PBXBuildFile; fileRef = B0544AB616E1995F0028DD55 /* vec4.c */; };
 		B0544ABC16E1995F0028DD55 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B0544ABB16E1995F0028DD55 /* main.m */; };
 		B0544ABF16E1995F0028DD55 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B0544ABE16E1995F0028DD55 /* AppDelegate.m */; };
-		B0544AD216E199AD0028DD55 /* eye.png in Resources */ = {isa = PBXBuildFile; fileRef = B0544ACC16E199AD0028DD55 /* eye.png */; };
-		B0544AD316E199AD0028DD55 /* face.png in Resources */ = {isa = PBXBuildFile; fileRef = B0544ACD16E199AD0028DD55 /* face.png */; };
 		B0544AD416E199AD0028DD55 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B0544ACF16E199AD0028DD55 /* Default-568h@2x.png */; };
 		B0544AD516E199AD0028DD55 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = B0544AD016E199AD0028DD55 /* Default.png */; };
 		B0544AD616E199AD0028DD55 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B0544AD116E199AD0028DD55 /* Default@2x.png */; };
@@ -208,8 +204,6 @@
 		65FB297017013EDD006BBAA8 /* PortraitCellView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = PortraitCellView.m; path = View/PortraitCellView.m; sourceTree = "<group>"; };
 		65FB297117013EDD006BBAA8 /* PortraitCellView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = PortraitCellView.xib; path = View/PortraitCellView.xib; sourceTree = "<group>"; };
 		65FB297517013F03006BBAA8 /* PartsListView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PartsListView.xib; path = View/PartsListView.xib; sourceTree = "<group>"; };
-		B002CB6D16EB1F39005E3B01 /* base.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = base.png; sourceTree = "<group>"; };
-		B002CB6E16EB1F39005E3B01 /* waku.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = waku.png; sourceTree = "<group>"; };
 		B015A41C17086B4900696547 /* eye001_color.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = eye001_color.png; sourceTree = "<group>"; };
 		B015A41D17086B4900696547 /* eye001_line.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = eye001_line.png; sourceTree = "<group>"; };
 		B015A41E17086B4900696547 /* face001_color.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = face001_color.png; sourceTree = "<group>"; };
@@ -467,8 +461,6 @@
 		B0544ABB16E1995F0028DD55 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B0544ABD16E1995F0028DD55 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		B0544ABE16E1995F0028DD55 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		B0544ACC16E199AD0028DD55 /* eye.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = eye.png; sourceTree = "<group>"; };
-		B0544ACD16E199AD0028DD55 /* face.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = face.png; sourceTree = "<group>"; };
 		B0544ACF16E199AD0028DD55 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		B0544AD016E199AD0028DD55 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		B0544AD116E199AD0028DD55 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
@@ -999,10 +991,6 @@
 			children = (
 				B015A41B17086B4900696547 /* parts */,
 				B0BC3FB016FF2A3600F86D79 /* button */,
-				B002CB6D16EB1F39005E3B01 /* base.png */,
-				B002CB6E16EB1F39005E3B01 /* waku.png */,
-				B0544ACC16E199AD0028DD55 /* eye.png */,
-				B0544ACD16E199AD0028DD55 /* face.png */,
 				B0544ACE16E199AD0028DD55 /* general */,
 			);
 			path = images;
@@ -1090,14 +1078,10 @@
 				B054495C16E1995D0028DD55 /* Icon@2x.png in Resources */,
 				B054495F16E1995D0028DD55 /* iTunesArtwork in Resources */,
 				B0544A9D16E1995F0028DD55 /* ChangeLog in Resources */,
-				B0544AD216E199AD0028DD55 /* eye.png in Resources */,
-				B0544AD316E199AD0028DD55 /* face.png in Resources */,
 				B0544AD416E199AD0028DD55 /* Default-568h@2x.png in Resources */,
 				B0544AD516E199AD0028DD55 /* Default.png in Resources */,
 				B0544AD616E199AD0028DD55 /* Default@2x.png in Resources */,
 				B0B3C50316E2F7C30053512D /* Localizable.strings in Resources */,
-				B002CB6F16EB1F39005E3B01 /* base.png in Resources */,
-				B002CB7016EB1F39005E3B01 /* waku.png in Resources */,
 				B0BC3F9F16FDF22A00F86D79 /* PartsCategoryCellView.xib in Resources */,
 				B0BC3FAF16FEF40100F86D79 /* PartsCellView.xib in Resources */,
 				B0BC3FB216FF2A3600F86D79 /* cell.png in Resources */,

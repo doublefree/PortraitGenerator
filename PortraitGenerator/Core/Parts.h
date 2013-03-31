@@ -14,6 +14,7 @@ extern NSString* const PartsKeyDataConfigX;
 extern NSString* const PartsKeyDataConfigY;
 extern NSString* const PartsKeyDataConfigTag;
 extern NSString* const PartsKeyDataConfigCouple;
+extern NSString* const PartsKeyDataConfigDistance;
 extern NSString* const PartsKeyDataConfigColorChange;
 extern NSString* const PartsKeyDataParts;
 extern NSString* const PartsKeyDataPartsBaseFilePath;

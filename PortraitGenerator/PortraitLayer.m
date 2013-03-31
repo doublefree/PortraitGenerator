@@ -197,19 +197,10 @@ double const SCALE_PARAM = 0.2;
                 CCSprite* rightFrame = [CCSprite spriteWithFile:figure.frame_path];
                 rightFrame.flipX = YES;
                 
-                float aida = size.width/5; // TODO : XXX
+                float distance = [[config objectForKey:PartsKeyDataConfigDistance] floatValue] * size.width;
                 
-                CCSprite* base = [[CCSprite alloc] init];
-                //base.contentSize.width = aida + leftBase.contentSize.width;
-                //base.contentSize.height = leftBase.contentSize.height;
-                
-                CCSprite* frame = [[CCSprite alloc] init];
-                //frame.contentSize.width = aida + leftBase.contentSize.width;
-                //frame.contentSize.height = leftBase.contentSize.height;
-                
-                
-                CGPoint leftPoint = CGPointMake(-1 * aida/2, leftBase.contentSize.height/2);
-                CGPoint rightPoint = CGPointMake(aida/2, leftFrame.contentSize.height/2);
+                CGPoint leftPoint = CGPointMake(-1 * distance/2, leftBase.contentSize.height/2);
+                CGPoint rightPoint = CGPointMake(distance/2, leftFrame.contentSize.height/2);
 
                 leftBase.position = leftFrame.position = leftPoint;
                 rightBase.position = rightFrame.position = rightPoint;
