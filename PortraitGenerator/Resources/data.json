@@ -1,35 +1,35 @@
 {
-	"category" : ["face", "eye"],
-	"data" : {
-		"face" : {
+    "category" : ["face", "eye"],
+    "data" : {
+        "face" : {
             "default" : {
                 "x" : 0.5,
                 "y" : 0.5,
                 "tag" : 100
             },
-			"parts" : {
-				"f001" : {
-					"base_path" : "base.png",
+            "parts" : {
+                "f001" : {
+                    "base_path" : "base.png",
                     "frame_path" : "waku.png"
-				},
+                },
                 "f002" : {
-					"base_path" : "face.png",
+                    "base_path" : "face.png",
                     "frame_path" : "face.png"
-				}
-			}
-		},
-		"eye" : {
+                }
+            }
+        },
+        "eye" : {
             "default" : {
                 "x" : 0.5,
                 "y" : 0.5,
                 "tag" : 101
             },
-			"parts" : {
-				"e001" : {
-					"base_path" : "eye.png",
+            "parts" : {
+                "e001" : {
+                    "base_path" : "eye.png",
                     "frame_path" : "eye.png"
-				}
-			}
-		}
-	}
+                }
+            }
+        }
+    }
 }
