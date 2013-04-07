@@ -197,7 +197,7 @@ double const SCALE_PARAM = 0.2;
                 CCSprite* rightFrame = [CCSprite spriteWithFile:figure.frame_path];
                 rightFrame.flipX = YES;
                 
-                float distance = [[config objectForKey:PartsKeyDataConfigDistance] floatValue] * size.width;
+                float distance = figure.distance * size.width;
                 
                 CGPoint leftPoint = CGPointMake(-1 * distance/2, leftBase.contentSize.height/2);
                 CGPoint rightPoint = CGPointMake(distance/2, leftFrame.contentSize.height/2);
@@ -260,6 +260,9 @@ double const SCALE_PARAM = 0.2;
         figure.base_path = [parts objectForKey:PartsKeyDataPartsBaseFilePath];
         figure.frame_path = [parts objectForKey:PartsKeyDataPartsFrameFilePath];
         figure.isCouple = [[config objectForKey:PartsKeyDataConfigCouple] boolValue];
+        if (figure.isCouple) {
+            figure.distance = [[config objectForKey:PartsKeyDataConfigDistance] floatValue];
+        }
         
         Figure* oldFigure = [self.figureSet figureWithCategory:self.selectedCategory];
         if (oldFigure) {

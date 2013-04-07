@@ -24,6 +24,7 @@ int const FigureScaleMin = -2;
             self.base_path, @"base_path",
             self.frame_path, @"frame_path",
             [NSNumber numberWithInteger:self.scale], @"scale",
+            [NSNumber numberWithFloat:self.distance], @"distance",
             NSStringFromCGPoint(self.position), @"position",
             nil];
 }
@@ -35,6 +36,7 @@ int const FigureScaleMin = -2;
     figure.base_path = [dictionary objectForKey:@"base_path"];
     figure.frame_path = [dictionary objectForKey:@"frame_path"];
     figure.scale = [[dictionary objectForKey:@"scale"] intValue];
+    figure.distance = [[dictionary objectForKey:@"distance"] floatValue];
     figure.position = CGPointFromString([dictionary objectForKey:@"position"]);
     
     return figure;

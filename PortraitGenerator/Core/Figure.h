@@ -19,6 +19,7 @@ extern int const FigureScaleMin;
 @property (retain, nonatomic) NSString* category;
 @property (assign, nonatomic) int scale;
 @property (assign, nonatomic) BOOL isCouple;
+@property (assign, nonatomic) float distance;
 
 -(NSString*) key;
 -(NSDictionary*) dictionary;
