@@ -205,6 +205,9 @@ double const SCALE_PARAM = 0.2;
                 leftBase.position = leftFrame.position = leftPoint;
                 rightBase.position = rightFrame.position = rightPoint;
                 
+                leftBase.scaleX = rightBase.scaleX = leftFrame.scaleX = rightFrame.scaleX = 1 + (SCALE_PARAM * figure.scale);
+                leftBase.scaleY = rightBase.scaleY = leftFrame.scaleY = rightFrame.scaleY = 1 + (SCALE_PARAM * figure.scale);
+
                 [node addChild:leftBase];
                 [node addChild:rightBase];
                 [node addChild:leftFrame];
