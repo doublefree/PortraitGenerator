@@ -182,6 +182,7 @@
 		B0C42BEB171AA1A500565C2D /* btn_scale_up.png in Resources */ = {isa = PBXBuildFile; fileRef = B0C42BE1171AA1A500565C2D /* btn_scale_up.png */; };
 		B0C42BEE171AAAFD00565C2D /* btn_color_change-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = B0C42BEC171AAAFD00565C2D /* btn_color_change-hd.png */; };
 		B0C42BEF171AAAFD00565C2D /* btn_color_change.png in Resources */ = {isa = PBXBuildFile; fileRef = B0C42BED171AAAFD00565C2D /* btn_color_change.png */; };
+		B0C42BF1171AD5B000565C2D /* eyebrow001.png in Resources */ = {isa = PBXBuildFile; fileRef = B0C42BF0171AD5B000565C2D /* eyebrow001.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -503,6 +504,7 @@
 		B0C42BE1171AA1A500565C2D /* btn_scale_up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_scale_up.png; sourceTree = "<group>"; };
 		B0C42BEC171AAAFD00565C2D /* btn_color_change-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_color_change-hd.png"; sourceTree = "<group>"; };
 		B0C42BED171AAAFD00565C2D /* btn_color_change.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_color_change.png; sourceTree = "<group>"; };
+		B0C42BF0171AD5B000565C2D /* eyebrow001.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = eyebrow001.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -550,6 +552,7 @@
 		B015A41B17086B4900696547 /* parts */ = {
 			isa = PBXGroup;
 			children = (
+				B0C42BF0171AD5B000565C2D /* eyebrow001.png */,
 				B015A41C17086B4900696547 /* eye001_color.png */,
 				B015A41D17086B4900696547 /* eye001_line.png */,
 				B015A41E17086B4900696547 /* face001_color.png */,
@@ -1138,6 +1141,7 @@
 				B0C42BEB171AA1A500565C2D /* btn_scale_up.png in Resources */,
 				B0C42BEE171AAAFD00565C2D /* btn_color_change-hd.png in Resources */,
 				B0C42BEF171AAAFD00565C2D /* btn_color_change.png in Resources */,
+				B0C42BF1171AD5B000565C2D /* eyebrow001.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

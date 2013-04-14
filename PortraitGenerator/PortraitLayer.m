@@ -18,6 +18,7 @@ int const TAG_MENU = 1;
 int const TAG_IMAGE_CONTROL = 2;
 
 double const SCALE_PARAM = 0.2;
+double const DISTANCE_PARAM = 0.2;
 double const PADDING_MENU_ITEM = 2.5f;
 double const PADDING_MENU = 10.0f;
 
@@ -188,46 +189,79 @@ double const PADDING_MENU = 10.0f;
         
         Figure* figure = [self.figureSet figureWithCategory:category];
         
+        int rotation = 360 / FigureRotateDegree * figure.rotate;
+        float scale = 1 + (SCALE_PARAM * figure.scale);
+        
         if (figure) {
             CCNode* node = [CCNode node];
-            
             if (figure.isCouple) {
                 CCSprite* leftBase = [CCSprite spriteWithFile:figure.base_path];
                 CCSprite* rightBase = [CCSprite spriteWithFile:figure.base_path];
                 rightBase.flipX = YES;
                 
-                CCSprite* leftFrame = [CCSprite spriteWithFile:figure.frame_path];
-                CCSprite* rightFrame = [CCSprite spriteWithFile:figure.frame_path];
-                rightFrame.flipX = YES;
+                if (figure.isColored) {
+                    leftBase.color = rightBase.color = ccc3(figure.red, figure.green, figure.blue);
+                }
                 
-                float distance = figure.distance * size.width;
-                
+                // position
+                float defaultDistance = [[config objectForKey:PartsKeyDataConfigDistance] floatValue];
+                float distance =  defaultDistance * (1 + figure.distance * DISTANCE_PARAM) * size.width;
                 CGPoint leftPoint = CGPointMake(-1 * distance/2, leftBase.contentSize.height/2);
-                CGPoint rightPoint = CGPointMake(distance/2, leftFrame.contentSize.height/2);
-
-                leftBase.position = leftFrame.position = leftPoint;
-                rightBase.position = rightFrame.position = rightPoint;
+                CGPoint rightPoint = CGPointMake(distance/2, leftBase.contentSize.height/2);
+                leftBase.position = leftPoint;
+                rightBase.position = rightPoint;
                 
-                leftBase.scaleX = rightBase.scaleX = leftFrame.scaleX = rightFrame.scaleX = 1 + (SCALE_PARAM * figure.scale);
-                leftBase.scaleY = rightBase.scaleY = leftFrame.scaleY = rightFrame.scaleY = 1 + (SCALE_PARAM * figure.scale);
+                // scale
+                leftBase.scaleX = rightBase.scaleX = scale;
+                leftBase.scaleY = rightBase.scaleY = scale;
+                
+                // rotation
+                leftBase.rotation = rotation;
+                rightBase.rotation = -1 * leftBase.rotation;
 
                 [node addChild:leftBase];
                 [node addChild:rightBase];
-                [node addChild:leftFrame];
-                [node addChild:rightFrame];
+                
+                if (figure.frame_path) {
+                    CCSprite* leftFrame = [CCSprite spriteWithFile:figure.frame_path];
+                    CCSprite* rightFrame = [CCSprite spriteWithFile:figure.frame_path];
+                    rightFrame.flipX = YES;
+                    
+                    leftFrame.position = leftBase.position;
+                    rightFrame.position = rightBase.position;
+                    leftFrame.scaleX = rightFrame.scaleX = leftBase.scaleX;
+                    leftFrame.scaleY = rightFrame.scaleY = leftBase.scaleY;
+                    leftFrame.rotation = leftBase.rotation;
+                    rightFrame.rotation = rightBase.rotation;
+                    
+                    [node addChild:leftFrame];
+                    [node addChild:rightFrame];
+                }
             } else {
                 CCSprite* base = [CCSprite spriteWithFile:figure.base_path];
-                CCSprite* frame = [CCSprite spriteWithFile:figure.frame_path];
-                base.scaleX = frame.scaleX = 1 + (SCALE_PARAM * figure.scale);
-                base.scaleY = frame.scaleY = 1 + (SCALE_PARAM * figure.scale);
+                
+                if (figure.isColored) {
+                    base.color = ccc3(figure.red, figure.green, figure.blue);
+                }
+                
+                base.scaleX = scale;
+                base.scaleY = scale;
                 [node addChild:base z:-1 tag:@"base"];
-                [node addChild:frame z:0 tag:@"frame"];
+                
+                if (figure.frame_path) {
+                    CCSprite* frame = [CCSprite spriteWithFile:figure.frame_path];
+                    frame.scaleX = base.scaleX;
+                    frame.scaleY = base.scaleY;
+                    [node addChild:frame z:0 tag:@"frame"];
+                }
             }
             node.userData = figure;
             node.position = figure.position;
             
+            int zindex = [[config objectForKey:PartsKeyDataConfigZindex] intValue];
+            
             [self.nodeList addObject:node];
-            [self addChild:node z:0 tag:tag];
+            [self addChild:node z:zindex tag:tag];
         }
     }
 }
@@ -269,9 +303,6 @@ double const PADDING_MENU = 10.0f;
         figure.base_path = [parts objectForKey:PartsKeyDataPartsBaseFilePath];
         figure.frame_path = [parts objectForKey:PartsKeyDataPartsFrameFilePath];
         figure.isCouple = [[config objectForKey:PartsKeyDataConfigCouple] boolValue];
-        if (figure.isCouple) {
-            figure.distance = [[config objectForKey:PartsKeyDataConfigDistance] floatValue];
-        }
         
         Figure* oldFigure = [self.figureSet figureWithCategory:self.selectedCategory];
         if (oldFigure) {
@@ -282,7 +313,6 @@ double const PADDING_MENU = 10.0f;
         
         [self.figureSet add:figure];
         [self drawPortrait];
-        //[self removePartsListView];
     }
 }
 
@@ -356,14 +386,17 @@ double const PADDING_MENU = 10.0f;
     
     // menu item
     CCMenuItemSprite *menuRotateRight = [CCMenuItemSprite itemWithNormalSprite:normalRotateRight selectedSprite:selectedRotateRight block:^(id sender) {
+        [self rotateRightSeletedFigure];
     }];
     CCMenuItemSprite *menuRotateLeft = [CCMenuItemSprite itemWithNormalSprite:normalRotateLeft selectedSprite:selectedRotateLeft block:^(id sender) {
+        [self rotateLeftSeletedFigure];
     }];
     CCMenuItemSprite *menuMoveClose = [CCMenuItemSprite itemWithNormalSprite:normalMoveClose selectedSprite:selectedMoveClose block:^(id sender) {
+        [self moveCloseSeletedFigure];
         //[self saveScreenShot];
     }];
     CCMenuItemSprite *menuMoveApart = [CCMenuItemSprite itemWithNormalSprite:normalMoveApart selectedSprite:selectedMoveApart block:^(id sender) {
-        ;
+        [self moveApartSeletedFigure];
     }];
     CCMenuItem* menuScaleUp = [CCMenuItemSprite itemWithNormalSprite:normalScaleUp selectedSprite:selectedScaleUp block:^(id sender) {
         [self scaleUpSelectedFigure];
@@ -373,11 +406,7 @@ double const PADDING_MENU = 10.0f;
     }];
     
     CCMenuItem* menuColorChange = [CCMenuItemSprite itemWithNormalSprite:normalColorChange selectedSprite:selectedColorChange block:^(id sender) {
-        InfColorPickerController* picker = [InfColorPickerController colorPickerViewController];
-        picker.delegate = self;
-        
-        AppController *app = (AppController*) [[UIApplication sharedApplication] delegate];
-        [app.navController presentModalViewController: picker animated:YES];
+        [self colorChangeSeletctedFigure];
     }];
     
     // menu
@@ -471,17 +500,32 @@ double const PADDING_MENU = 10.0f;
     [self removeChildByTag:TAG_IMAGE_CONTROL cleanup:YES];
 }
 
+- (void)colorChangeSeletctedFigure
+{
+    InfColorPickerController* picker = [InfColorPickerController colorPickerViewController];
+    picker.delegate = self;
+    
+    AppController *app = (AppController*) [[UIApplication sharedApplication] delegate];
+    [app.navController presentModalViewController: picker animated:YES];
+}
+
 - (void) colorPickerControllerDidFinish: (InfColorPickerController*) picker
 {
-    UIColor* color = picker.resultColor;
-    CGFloat r, g, b, a;
-    if (![color getRed:&r green:&g blue:&b alpha:&a]) {
-        [color getWhite:&r alpha:&a];
-        g = b = r;
+    Figure* figure = [self.figureSet figureWithCategory:self.selectedCategory];
+    if (figure && figure) {
+        UIColor* color = picker.resultColor;
+        CGFloat r, g, b, a;
+        if (![color getRed:&r green:&g blue:&b alpha:&a]) {
+            [color getWhite:&r alpha:&a];
+            g = b = r;
+        }
+        figure.isColored = true;
+        figure.red = r * 255;
+        figure.green = g * 255;
+        figure.blue = b * 255;
+        
+        [self drawPortrait];
     }
-    self.background.color = ccc3(r*255, g*255, b*255);
-    //CCLayerColor *background = [CCLayerColor layerWithColor:ccc4(r*255, g*255, b*255, a*255)];
-    //[self addChild:background];
 }
 
 - (void)image:(UIImage*)image didFinishSavingWithError:(NSError*)error contextInfo:(void*)contextInfo {
@@ -507,6 +551,46 @@ double const PADDING_MENU = 10.0f;
     Figure* figure = [self.figureSet figureWithCategory:self.selectedCategory];
     if (figure && figure) {
         figure.scale = max(figure.scale-1, FigureScaleMin);
+        [self.figureSet add:figure];
+        [self drawPortrait];
+    }
+}
+
+- (void)moveApartSeletedFigure
+{
+    Figure* figure = [self.figureSet figureWithCategory:self.selectedCategory];
+    if (figure && figure) {
+        figure.distance = min(figure.distance+1, FigureDistanceMax);
+        [self.figureSet add:figure];
+        [self drawPortrait];
+    }
+}
+
+- (void)moveCloseSeletedFigure
+{
+    Figure* figure = [self.figureSet figureWithCategory:self.selectedCategory];
+    if (figure && figure) {
+        figure.distance = max(figure.distance-1, FigureDistanceMin);
+        [self.figureSet add:figure];
+        [self drawPortrait];
+    }
+}
+
+- (void)rotateRightSeletedFigure
+{
+    Figure* figure = [self.figureSet figureWithCategory:self.selectedCategory];
+    if (figure && figure) {
+        figure.rotate++;
+        [self.figureSet add:figure];
+        [self drawPortrait];
+    }
+}
+
+- (void)rotateLeftSeletedFigure
+{
+    Figure* figure = [self.figureSet figureWithCategory:self.selectedCategory];
+    if (figure && figure) {
+        figure.rotate--;
         [self.figureSet add:figure];
         [self drawPortrait];
     }

@@ -10,6 +10,9 @@
 
 int const FigureScaleMax = 2;
 int const FigureScaleMin = -2;
+int const FigureDistanceMax = 2;
+int const FigureDistanceMin = -2;
+int const FigureRotateDegree = 45;
 
 @implementation Figure
 -(NSString*) key
@@ -24,8 +27,14 @@ int const FigureScaleMin = -2;
             self.base_path, @"base_path",
             self.frame_path, @"frame_path",
             [NSNumber numberWithInteger:self.scale], @"scale",
-            [NSNumber numberWithFloat:self.distance], @"distance",
+            [NSNumber numberWithBool:self.isCouple], @"isCouple",
+            [NSNumber numberWithInteger:self.distance], @"distance",
+            [NSNumber numberWithInteger:self.rotate], @"rotate",
             NSStringFromCGPoint(self.position), @"position",
+            [NSNumber numberWithBool:self.isCouple], @"isColored",
+            [NSNumber numberWithInt:self.red], @"red",
+            [NSNumber numberWithInt:self.green], @"green",
+            [NSNumber numberWithInt:self.blue], @"blue",
             nil];
 }
 
@@ -36,8 +45,14 @@ int const FigureScaleMin = -2;
     figure.base_path = [dictionary objectForKey:@"base_path"];
     figure.frame_path = [dictionary objectForKey:@"frame_path"];
     figure.scale = [[dictionary objectForKey:@"scale"] intValue];
-    figure.distance = [[dictionary objectForKey:@"distance"] floatValue];
+    figure.isCouple = [[dictionary objectForKey:@"isCouple"] boolValue];
+    figure.distance = [[dictionary objectForKey:@"distance"] intValue];
+    figure.rotate = [[dictionary objectForKey:@"rotate"] intValue];
     figure.position = CGPointFromString([dictionary objectForKey:@"position"]);
+    figure.isColored = [[dictionary objectForKey:@"isColored"] boolValue];
+    figure.red = [[dictionary objectForKey:@"red"] intValue];
+    figure.green = [[dictionary objectForKey:@"green"] intValue];
+    figure.blue = [[dictionary objectForKey:@"blue"] intValue];
     
     return figure;
 }

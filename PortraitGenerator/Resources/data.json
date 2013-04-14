@@ -1,20 +1,22 @@
 {
-    "category" : ["face", "eye"],
+    "category" : ["face", "eye", "eyebrow"],
     "data" : {
-        "face" : {
+        "eyebrow" : {
             "config" : {
                 "x" : 0.5,
-                "y" : 0.5,
-                "tag" : 100,
+                "y" : 0.55,
+                "tag" : 103,
+                "zindex" : 18,
+                "couple" : true,
+                "distance" : 0.15,
                 "allow_scale" : true,
-                "allow_rotate" : false,
-                "allow_move" : false,
-                "allow_color" : true
+                "allow_rotate" : true,
+                "allow_move" : true,
+                "allow_color" : false
             },
             "parts" : {
-                "f001" : {
-                    "base_path" : "face001_color.png",
-                    "frame_path" : "face001_line.png"
+                "eb001" : {
+                    "base_path" : "eyebrow001.png"
                 }
             }
         },
@@ -22,7 +24,8 @@
             "config" : {
                 "x" : 0.5,
                 "y" : 0.5,
-                "tag" : 101,
+                "tag" : 104,
+                "zindex" : 17,
                 "couple" : true,
                 "distance" : 0.15,
                 "allow_scale" : true,
@@ -34,6 +37,24 @@
                 "e001" : {
                     "base_path" : "eye001_color.png",
                     "frame_path" : "eye001_line.png"
+                }
+            }
+        },
+        "face" : {
+            "config" : {
+                "x" : 0.5,
+                "y" : 0.5,
+                "tag" : 108,
+                "zindex" : 13,
+                "allow_scale" : true,
+                "allow_rotate" : false,
+                "allow_move" : false,
+                "allow_color" : true
+            },
+            "parts" : {
+                "f001" : {
+                    "base_path" : "face001_color.png",
+                    "frame_path" : "face001_line.png"
                 }
             }
         }

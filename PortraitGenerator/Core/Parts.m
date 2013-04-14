@@ -14,6 +14,7 @@ NSString* const PartsKeyDataConfig = @"config";
 NSString* const PartsKeyDataConfigX = @"x";
 NSString* const PartsKeyDataConfigY = @"y";
 NSString* const PartsKeyDataConfigTag = @"tag";
+NSString* const PartsKeyDataConfigZindex = @"zindex";
 NSString* const PartsKeyDataConfigCouple = @"couple";
 NSString* const PartsKeyDataConfigDistance = @"distance";
 NSString* const PartsKeyDataConfigAllowScale = @"allow_scale";
@@ -24,12 +25,9 @@ NSString* const PartsKeyDataParts = @"parts";
 NSString* const PartsKeyDataPartsBaseFilePath = @"base_path";
 NSString* const PartsKeyDataPartsFrameFilePath = @"frame_path";
 
-NSString* const PartsCategoryFace = @"face";
-NSString* const PartsCategoryEye = @"eye";
-
 @implementation Parts
 +(NSArray*) category {
-    return [NSArray arrayWithObjects:PartsCategoryFace, PartsCategoryEye, nil];
+    return [[Parts dictionary] objectForKey:PartsKeyCategory];
 }
 
 +(NSDictionary*) dictionary {

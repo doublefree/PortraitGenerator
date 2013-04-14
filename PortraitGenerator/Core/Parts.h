@@ -13,6 +13,7 @@ extern NSString* const PartsKeyDataConfig;
 extern NSString* const PartsKeyDataConfigX;
 extern NSString* const PartsKeyDataConfigY;
 extern NSString* const PartsKeyDataConfigTag;
+extern NSString* const PartsKeyDataConfigZindex;
 extern NSString* const PartsKeyDataConfigCouple;
 extern NSString* const PartsKeyDataConfigDistance;
 extern NSString* const PartsKeyDataConfigAllowScale;
@@ -22,9 +23,6 @@ extern NSString* const PartsKeyDataConfigAllowColor;
 extern NSString* const PartsKeyDataParts;
 extern NSString* const PartsKeyDataPartsBaseFilePath;
 extern NSString* const PartsKeyDataPartsFrameFilePath;
-
-extern NSString* const PartsCategoryFace;
-extern NSString* const PartsCategoryEye;
 
 @interface Parts : NSObject
 @property (retain, nonatomic) NSString* path;
