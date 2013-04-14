@@ -6,7 +6,10 @@
                 "x" : 0.5,
                 "y" : 0.5,
                 "tag" : 100,
-                "color_change" : true
+                "allow_scale" : true,
+                "allow_rotate" : false,
+                "allow_move" : false,
+                "allow_color" : true
             },
             "parts" : {
                 "f001" : {
@@ -22,7 +25,10 @@
                 "tag" : 101,
                 "couple" : true,
                 "distance" : 0.15,
-                "color_change" : true
+                "allow_scale" : true,
+                "allow_rotate" : true,
+                "allow_move" : true,
+                "allow_color" : true
             },
             "parts" : {
                 "e001" : {

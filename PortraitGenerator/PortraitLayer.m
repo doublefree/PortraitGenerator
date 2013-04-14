@@ -16,7 +16,10 @@
 
 int const TAG_MENU = 1;
 int const TAG_IMAGE_CONTROL = 2;
+
 double const SCALE_PARAM = 0.2;
+double const PADDING_MENU_ITEM = 2.5f;
+double const PADDING_MENU = 10.0f;
 
 @interface PortraitLayer()
 @property (retain, nonatomic) NSMutableArray* nodeList;
@@ -249,6 +252,9 @@ double const SCALE_PARAM = 0.2;
         self.selectedCategory = category;
         [self removePartsListView];
         [self showPartsListView:category];
+        
+        [self removeImageControl];
+        [self showImageControl];
     }
 }
 
@@ -322,47 +328,142 @@ double const SCALE_PARAM = 0.2;
 
 - (void) showImageControl
 {
-    // image control
-    CCSprite *normalRotateRight = [CCSprite spriteWithFile:@"btn_rotate_right.png"];
-    CCSprite *selectedRotateRight = [CCSprite spriteWithFile:@"btn_rotate_right.png"];
+    // sprite for menu
+    CCSprite* normalRotateRight = [CCSprite spriteWithFile:@"btn_rotate_right.png"];
+    CCSprite* selectedRotateRight = [CCSprite spriteWithFile:@"btn_rotate_right.png"];
     selectedRotateRight.opacity = 0x7f;
-    CCSprite *normalRotateLeft = [CCSprite spriteWithFile:@"btn_rotate_right.png"];
-    CCSprite *selectedRotateLeft = [CCSprite spriteWithFile:@"btn_rotate_right.png"];
+    CCSprite* normalRotateLeft = [CCSprite spriteWithFile:@"btn_rotate_left.png"];
+    CCSprite* selectedRotateLeft = [CCSprite spriteWithFile:@"btn_rotate_left.png"];
     selectedRotateLeft.opacity = 0x7f;
-    CCSprite *normalMoveClose = [CCSprite spriteWithFile:@"btn_rotate_right.png"];
-    CCSprite *selectedMoveClose = [CCSprite spriteWithFile:@"btn_rotate_right.png"];
+    
+    CCSprite* normalMoveClose = [CCSprite spriteWithFile:@"btn_move_close.png"];
+    CCSprite* selectedMoveClose = [CCSprite spriteWithFile:@"btn_move_close.png"];
     selectedMoveClose.opacity = 0x7f;
-    CCSprite *normalMoveApart = [CCSprite spriteWithFile:@"btn_rotate_right.png"];
-    CCSprite *selectedMoveApart = [CCSprite spriteWithFile:@"btn_rotate_right.png"];
+    CCSprite* normalMoveApart = [CCSprite spriteWithFile:@"btn_move_apart.png"];
+    CCSprite* selectedMoveApart = [CCSprite spriteWithFile:@"btn_move_apart.png"];
     selectedMoveApart.opacity = 0x7f;
     
+    CCSprite* normalScaleUp = [CCSprite spriteWithFile:@"btn_scale_up.png"];
+    CCSprite* selectedScaleUp = [CCSprite spriteWithFile:@"btn_scale_up.png"];
+    selectedScaleUp.opacity = 0x7f;
+    CCSprite* normalScaleDown = [CCSprite spriteWithFile:@"btn_scale_down.png"];
+    CCSprite* selectedScaleDown = [CCSprite spriteWithFile:@"btn_scale_down.png"];
+    selectedScaleDown.opacity = 0x7f;
+    
+    CCSprite* normalColorChange = [CCSprite spriteWithFile:@"btn_color_change.png"];
+    CCSprite* selectedColorChange = [CCSprite spriteWithFile:@"btn_color_change.png"];
+    selectedColorChange.opacity = 0x7f;
+    
+    // menu item
     CCMenuItemSprite *menuRotateRight = [CCMenuItemSprite itemWithNormalSprite:normalRotateRight selectedSprite:selectedRotateRight block:^(id sender) {
-        [self scaleUpSelectedFigure];
     }];
     CCMenuItemSprite *menuRotateLeft = [CCMenuItemSprite itemWithNormalSprite:normalRotateLeft selectedSprite:selectedRotateLeft block:^(id sender) {
-        [self scaleDownSeletedFigure];
     }];
     CCMenuItemSprite *menuMoveClose = [CCMenuItemSprite itemWithNormalSprite:normalMoveClose selectedSprite:selectedMoveClose block:^(id sender) {
-        [self saveScreenShot];
+        //[self saveScreenShot];
     }];
     CCMenuItemSprite *menuMoveApart = [CCMenuItemSprite itemWithNormalSprite:normalMoveApart selectedSprite:selectedMoveApart block:^(id sender) {
+        ;
+    }];
+    CCMenuItem* menuScaleUp = [CCMenuItemSprite itemWithNormalSprite:normalScaleUp selectedSprite:selectedScaleUp block:^(id sender) {
+        [self scaleUpSelectedFigure];
+    }];
+    CCMenuItem* menuScaleDown = [CCMenuItemSprite itemWithNormalSprite:normalScaleDown selectedSprite:selectedScaleDown block:^(id sender) {
+        [self scaleDownSeletedFigure];
+    }];
+    
+    CCMenuItem* menuColorChange = [CCMenuItemSprite itemWithNormalSprite:normalColorChange selectedSprite:selectedColorChange block:^(id sender) {
         InfColorPickerController* picker = [InfColorPickerController colorPickerViewController];
         picker.delegate = self;
         
         AppController *app = (AppController*) [[UIApplication sharedApplication] delegate];
         [app.navController presentModalViewController: picker animated:YES];
-        
-        //picker.sourceColor = self.color;
-        
-        //[ picker presentModallyOverViewController: self ];
     }];
-    CCMenu *menu = [CCMenu menuWithItems:menuRotateRight, menuRotateLeft, menuMoveClose, menuMoveApart, nil];
-    [menu alignItemsVerticallyWithPadding:10.0f];
     
-    CGSize size = [[CCDirector sharedDirector] winSize];
-    menu.position = ccp(size.width - normalRotateRight.contentSize.width * 0.7, size.height / 2);
+    // menu
+    CCMenu* menuRotate = [CCMenu menuWithItems:menuRotateRight, menuRotateLeft, nil];
+    [menuRotate alignItemsVerticallyWithPadding:PADDING_MENU_ITEM];
+    CCMenu* menuMove = [CCMenu menuWithItems:menuMoveApart, menuMoveClose, nil];
+    [menuMove alignItemsVerticallyWithPadding:PADDING_MENU_ITEM];
+    CCMenu* menuScale = [CCMenu menuWithItems:menuScaleUp, menuScaleDown, nil];
+    [menuScale alignItemsVerticallyWithPadding:PADDING_MENU_ITEM];
+    CCMenu* menuColor = [CCMenu menuWithItems:menuColorChange, nil];
+    [menuColor alignItemsVerticallyWithPadding:PADDING_MENU_ITEM];
     
-    [self addChild:menu z:0 tag:TAG_IMAGE_CONTROL];
+    CCNode* nodeMenu = [CCNode node];
+    
+    if (self.selectedCategory) {
+        int count = 0;
+        double width = 0.0f;
+        double height = 0.0f;
+        NSDictionary* config = [Parts configForCategory:self.selectedCategory];
+        
+        {
+            // calculate scale
+            if ([[config objectForKey:PartsKeyDataConfigAllowScale] boolValue]) {
+                count++;
+                height += menuScaleUp.contentSize.height + menuScaleDown.contentSize.height;
+                width = max(width, max(menuScaleUp.contentSize.width, menuScaleDown.contentSize.width));
+            }
+            if ([[config objectForKey:PartsKeyDataConfigAllowRotate] boolValue]) {
+                count++;
+                height += menuRotateRight.contentSize.height + menuRotateLeft.contentSize.height;
+                width = max(width, max(menuRotateRight.contentSize.width, menuRotateLeft.contentSize.width));
+            }
+            if ([[config objectForKey:PartsKeyDataConfigAllowMove] boolValue]) {
+                count++;
+                height += menuMoveApart.contentSize.height + menuMoveClose.contentSize.height;
+                width = max(width, max(menuMoveApart.contentSize.width, menuMoveClose.contentSize.width));
+            }
+            if ([[config objectForKey:PartsKeyDataConfigAllowColor] boolValue]) {
+                count++;
+                height += menuColorChange.contentSize.height;
+                width = max(width, menuColorChange.contentSize.width);
+            }
+        }
+        {
+            // actual deployment
+            CGSize size = [[CCDirector sharedDirector] winSize];
+            height = height + PADDING_MENU * (count - 1);
+            double x = size.width - (width/2 + PADDING_MENU_ITEM);
+            double hightUsed = 0.0f;
+            double yTop = size.height/2 + height/2;
+            
+            if ([[config objectForKey:PartsKeyDataConfigAllowColor] boolValue]) {
+                double partsHeight = menuColorChange.contentSize.height;
+                menuColor.position = ccp(x, yTop - hightUsed - partsHeight/2);
+                hightUsed += partsHeight + PADDING_MENU;
+                
+                [nodeMenu addChild:menuColor];
+            }
+            
+            if ([[config objectForKey:PartsKeyDataConfigAllowMove] boolValue]) {
+                double partsHeight = menuMoveApart.contentSize.height + menuMoveClose.contentSize.height;
+                menuMove.position = ccp(x, yTop - hightUsed - partsHeight/2);
+                hightUsed += partsHeight + PADDING_MENU;
+                
+                [nodeMenu addChild:menuMove];
+            }
+            
+            if ([[config objectForKey:PartsKeyDataConfigAllowRotate] boolValue]) {
+                double partsHeight = menuRotateRight.contentSize.height + menuRotateLeft.contentSize.height;
+                menuRotate.position = ccp(x, yTop - hightUsed - partsHeight/2);
+                hightUsed += partsHeight + PADDING_MENU;
+                
+                [nodeMenu addChild:menuRotate];
+            }
+
+            if ([[config objectForKey:PartsKeyDataConfigAllowScale] boolValue]) {
+                double partsHeight = menuScaleUp.contentSize.height + menuScaleDown.contentSize.height;
+                menuScale.position = ccp(x, yTop - hightUsed - partsHeight/2);
+                hightUsed += partsHeight + PADDING_MENU;
+                
+                [nodeMenu addChild:menuScale];
+            }
+        }
+    }
+    
+    [self addChild:nodeMenu z:0 tag:TAG_IMAGE_CONTROL];
 }
 
 - (void) removeImageControl
