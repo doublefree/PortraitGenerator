@@ -81,31 +81,6 @@ int const ZINDEX_FRAME = 1000;
         self.figureSet = [FigureSet figureSetFromName:@""];
         [self drawPortrait];
         
-        /*
-        self.newMenu = [CCMenuItemFont itemWithString:@"new" block:^(id sender) {
-            self.figureSet = [[FigureSet alloc] init];
-            self.loadedName = @"";
-            [self drawPortrait];
-		}];
-        
-        self.loadMenu = [CCMenuItemFont itemWithString:NSLocalizedString(@"list", "label for list") block:^(id sender) {
-            LoadViewController* loadViewController = [[LoadViewController alloc] initWithNibName:@"LoadViewController" bundle:nil];
-            AppController *app = (AppController*) [[UIApplication sharedApplication] delegate];
-            
-            [app.navController presentModalViewController: loadViewController animated:YES];
-		}];
-        
-        self.saveMenu = [CCMenuItemFont itemWithString:NSLocalizedString(@"save", "label for save") block:^(id sender) {
-            UIAlertView* alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"save", "label for save") message:NSLocalizedString(@"save_message", "label for save") delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
-            [alert setAlertViewStyle:UIAlertViewStylePlainTextInput];
-            UITextField *textField = [alert textFieldAtIndex:0];
-            textField.text = self.loadedName;
-            [alert show];
-		}];
-		
-		[self drawMenu];
-        */
-        
         self.partsCategoryView = [[UITableView alloc] init];
         self.partsCategoryView.transform = CGAffineTransformMakeRotation(-M_PI / 2);
         self.partsCategoryView.backgroundColor = [UIColor clearColor];
