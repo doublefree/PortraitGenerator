@@ -597,8 +597,15 @@ int const ZINDEX_FRAME = 1000;
 {
     UIImage* image = [self croppedPortraitImage];
     SaveViewController* saveViewController = [[SaveViewController alloc] initWithNibName:@"SaveViewController" bundle:nil image:image figureSet:self.figureSet name:self.name];
-    AppController *app = (AppController*) [[UIApplication sharedApplication] delegate];
-    [app.navController presentModalViewController: saveViewController animated:YES];
+    //AppController *app = (AppController*) [[UIApplication sharedApplication] delegate];
+    //[app.navController presentModalViewController: saveViewController animated:YES];
+    UIView* view = [[CCDirector sharedDirector] view];
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationDuration:0.7];
+    [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromLeft forView:view cache:YES];
+    [view addSubview:saveViewController.view];
+    [UIView commitAnimations];
+    
 }
 
 - (UIImage*)croppedPortraitImage

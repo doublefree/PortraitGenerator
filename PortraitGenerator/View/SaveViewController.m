@@ -10,7 +10,6 @@
 #import "Portrait.h"
 
 @interface SaveViewController ()
-- (IBAction)closeButtonPushed:(id)sender;
 - (IBAction)cancelButtonPushed:(id)sender;
 - (IBAction)okButtonPushed:(id)sender;
 @property (retain, nonatomic) IBOutlet UIImageView *imageView;
@@ -55,18 +54,23 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)closeButtonPushed:(id)sender {
-    [self dismissModalViewControllerAnimated:YES];
-}
-
 - (IBAction)cancelButtonPushed:(id)sender {
-    [self dismissModalViewControllerAnimated:YES];
+    [self closeView];
 }
 
 - (IBAction)okButtonPushed:(id)sender {
     UIImageWriteToSavedPhotosAlbum(self.image, self, @selector(image:didFinishSavingWithError:contextInfo:), NULL );
     [Portrait add:self.figureSet withName:self.textField.text image:self.image];
-    [self dismissModalViewControllerAnimated:YES];
+    [self closeView];
+}
+
+- (void)closeView
+{
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationDuration:0.7];
+    [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromRight forView:self.view.window.rootViewController.view cache:YES];
+    [self.view removeFromSuperview];
+    [UIView commitAnimations];
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
