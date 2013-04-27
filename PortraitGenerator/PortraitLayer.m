@@ -13,6 +13,8 @@
 #import "PartsTableDataDelegate.h"
 #import "Parts.h"
 #import "PartsListView.h"
+#import "SaveViewController.h"
+#import "TopLayer.h"
 
 int const TAG_MENU = 1;
 int const TAG_IMAGE_CONTROL = 2;
@@ -40,10 +42,12 @@ int const ZINDEX_FRAME = 1000;
 @property (retain, nonatomic) PartsListView* selectedPartsListView;
 @property (retain, nonatomic) CCLayerColor* background;
 @property (retain, nonatomic) CCSprite* frameSprite;
+@property (retain, nonatomic) UITableView* partsCategoryView;
+@property (retain, nonatomic) NSString* name;
 @end
 
 @implementation PortraitLayer
-+(CCScene *) scene
++(CCScene *)scene
 {
 	CCScene *scene = [CCScene node];
 	PortraitLayer *layer = [PortraitLayer node];
@@ -51,7 +55,18 @@ int const ZINDEX_FRAME = 1000;
 	return scene;
 }
 
--(id) init
++(CCScene *)sceneWithName:(NSString*)name
+{
+    CCScene *scene = [CCScene node];
+	PortraitLayer *layer = [PortraitLayer node];
+    layer.name = name;
+    layer.figureSet = [FigureSet figureSetFromName:name];
+    [layer drawPortrait];
+	[scene addChild: layer];
+	return scene;
+}
+
+-(id)init
 {
 	if( (self=[super init]) ) {
         CGSize size = [[CCDirector sharedDirector] winSize];
@@ -62,10 +77,8 @@ int const ZINDEX_FRAME = 1000;
         [self addChild:self.background z:-1];
         
         self.nodeList = [[[NSMutableArray alloc] init] autorelease];
-        self.figureSet = [FigureSet figureSetFromName:@"hoge"];
-        
         self.frameSprite = [CCSprite spriteWithFile:@"portrait_area_rect.png"];
-        
+        self.figureSet = [FigureSet figureSetFromName:@""];
         [self drawPortrait];
         
         /*
@@ -93,27 +106,19 @@ int const ZINDEX_FRAME = 1000;
 		[self drawMenu];
         */
         
-        UITableView* partsCategoryView = [[UITableView alloc] init];
-        partsCategoryView.transform = CGAffineTransformMakeRotation(-M_PI / 2);
-        partsCategoryView.backgroundColor = [UIColor clearColor];
-        partsCategoryView.frame = CGRectMake(0, size.height - 45, size.width, 45);
+        self.partsCategoryView = [[UITableView alloc] init];
+        self.partsCategoryView.transform = CGAffineTransformMakeRotation(-M_PI / 2);
+        self.partsCategoryView.backgroundColor = [UIColor clearColor];
+        self.partsCategoryView.frame = CGRectMake(0, size.height - 45, size.width, 45);
         PartsTableDataDelegate* partsDelegate = [[PartsTableDataDelegate alloc] init];
-        partsCategoryView.delegate = partsDelegate;
-        partsCategoryView.dataSource = partsDelegate;
-        partsCategoryView.bounces = NO;
-        partsCategoryView.separatorColor = [UIColor clearColor];
-        [[[CCDirector sharedDirector] view] addSubview:partsCategoryView];
+        self.partsCategoryView.delegate = partsDelegate;
+        self.partsCategoryView.dataSource = partsDelegate;
+        self.partsCategoryView.bounces = NO;
+        self.partsCategoryView.separatorColor = [UIColor clearColor];
         
         [self showControls];
     }
 	return self;
-}
-
--(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
-    if (buttonIndex==1) {
-        NSString* name = [[alertView textFieldAtIndex:0] text];
-        [Portrait add:self.figureSet withName:name];
-    }
 }
 
 -(BOOL) ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event
@@ -275,20 +280,6 @@ int const ZINDEX_FRAME = 1000;
     }
 }
 
-- (void) loadWithName:(NSString*)name
-{
-    self.figureSet = [FigureSet figureSetFromName:name];
-    self.loadedName = name;
-    [self drawPortrait];
-}
-
-- (void) loadEventReceived:(NSNotification*)center{
-    NSString* name = [[center userInfo] objectForKey:@"name"];
-    if ([name length] != 0) {
-        [self loadWithName:name];
-    }
-}
-
 - (void) partsCategorySelected:(NSNotification*)center{
     NSString* category = [[center userInfo] objectForKey:@"category"];
     if ([category length] != 0) {
@@ -360,7 +351,6 @@ int const ZINDEX_FRAME = 1000;
 - (void) registerNotification
 {
     NSNotificationCenter* nc = [NSNotificationCenter defaultCenter];
-    [nc addObserver:self selector:@selector(loadEventReceived:) name:NOTIFICATION_LOAD_WITH_NAME object:nil];
     [nc addObserver:self selector:@selector(partsCategorySelected:) name:NOTIFICATION_PARTS_CATEGORY_BUTTON_PUSHED object:nil];
     [nc addObserver:self selector:@selector(partsSelected:) name:NOTIFICATION_PARTS_BUTTON_PUSHED object:nil];
 }
@@ -518,10 +508,10 @@ int const ZINDEX_FRAME = 1000;
     selectedSave.opacity = 0x7f;
     
     CCMenuItemSprite *menuBack = [CCMenuItemSprite itemWithNormalSprite:normalBack selectedSprite:selectedBack block:^(id sender) {
-        ;
+        [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[TopLayer scene]]];
     }];
     CCMenuItemSprite *menuSave = [CCMenuItemSprite itemWithNormalSprite:normalSave selectedSprite:selectedSave block:^(id sender) {
-        [self launchSaveLayer];
+        [self launchSaveDialog];
     }];
     
     CGSize size = [[CCDirector sharedDirector] winSize];
@@ -565,14 +555,6 @@ int const ZINDEX_FRAME = 1000;
         figure.blue = b * 255;
         
         [self drawPortrait];
-    }
-}
-
-- (void)image:(UIImage*)image didFinishSavingWithError:(NSError*)error contextInfo:(void*)contextInfo {
-    if(!error){
-        NSLog(@"no error");
-    } else {
-        NSLog(@"error");
     }
 }
 
@@ -636,15 +618,17 @@ int const ZINDEX_FRAME = 1000;
     }
 }
 
-- (void)launchSaveLayer
+- (void)launchSaveDialog
 {
-    [self removeControls];
-    UIImageWriteToSavedPhotosAlbum([self croppedPortraitImage], self, @selector(image:didFinishSavingWithError:contextInfo:),NULL);
-    [self showControls];
+    UIImage* image = [self croppedPortraitImage];
+    SaveViewController* saveViewController = [[SaveViewController alloc] initWithNibName:@"SaveViewController" bundle:nil image:image figureSet:self.figureSet name:self.name];
+    AppController *app = (AppController*) [[UIApplication sharedApplication] delegate];
+    [app.navController presentModalViewController: saveViewController animated:YES];
 }
 
 - (UIImage*)croppedPortraitImage
 {
+    [self removeControls];
     CGSize size = [[CCDirector sharedDirector] winSize];
     float h = self.frameSprite.contentSize.height;
     float w = self.frameSprite.contentSize.width;
@@ -668,6 +652,8 @@ int const ZINDEX_FRAME = 1000;
     CGImageRef imageRef = CGImageCreateWithImageInRect([image CGImage], rect);
     UIImage *cropped =[UIImage imageWithCGImage:imageRef];
     
+    [self showControls];
+    
     return cropped;
 }
 
@@ -683,11 +669,22 @@ int const ZINDEX_FRAME = 1000;
     [self removeChildByTag:TAG_FRAME cleanup:YES];
 }
 
+- (void)showPartsCategoryView
+{
+    [[[CCDirector sharedDirector] view] addSubview:self.partsCategoryView];
+}
+
+- (void)removePartsCategoryView
+{
+    [self.partsCategoryView removeFromSuperview];
+}
+
 - (void)showControls
 {
     [self showImageControl];
     [self showMainControl];
     [self showPortraitFrame];
+    [self showPartsCategoryView];
 }
 
 - (void)removeControls
@@ -695,22 +692,12 @@ int const ZINDEX_FRAME = 1000;
     [self removeImageControl];
     [self removeMainControl];
     [self removePortraitFrame];
+    [self removePartsCategoryView];
+    [self removePartsListView];
 }
 
-// on "dealloc" you need to release all your retained objects
 - (void) dealloc
 {
 	[super dealloc];
 }
-
-/*
- - (void) drawMenu
- {
- CGSize size = [[CCDirector sharedDirector] winSize];
- CCMenu *menu = [CCMenu menuWithItems:self.newMenu, self.loadMenu, self.saveMenu, nil];
- [menu alignItemsHorizontallyWithPadding:20];
- [menu setPosition:ccp(size.width/2, self.saveMenu.contentSize.height)];
- [self addChild:menu z:0 tag:TAG_MENU];
- }
- */
 @end

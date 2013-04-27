@@ -69,6 +69,9 @@ int const AlertTagDeletePortrait = 1;
         cell = (PortraitCellView*)controller.view;
         NSString* name = [nameList objectAtIndex:indexPath.row];
         cell.nameLabel.text = name;
+        NSDictionary* dictionary = [portraitList objectForKey:name];
+        NSData* data = [dictionary objectForKey:@"image"];
+        cell.image.image = [UIImage imageWithData:data];
     }
     return cell;
 }

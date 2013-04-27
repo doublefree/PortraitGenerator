@@ -8,6 +8,7 @@
 
 #import "TopLayer.h"
 #import "PortraitLayer.h"
+#import "LoadViewController.h"
 
 @implementation TopLayer
 +(CCScene *) scene
@@ -33,7 +34,10 @@
 			[[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[PortraitLayer scene]]];
 		}];
 		CCMenuItem *itemGallary = [CCMenuItemFont itemWithString:@"Gallary" block:^(id sender) {
-			;
+			LoadViewController* loadViewController = [[LoadViewController alloc] initWithNibName:@"LoadViewController" bundle:nil];
+            AppController *app = (AppController*) [[UIApplication sharedApplication] delegate];
+            
+            [app.navController presentModalViewController: loadViewController animated:YES];
 		}];
         
         // banner
@@ -44,12 +48,24 @@
 		CCMenu *menu = [CCMenu menuWithItems:itemGenerate, itemGallary, nil];
 		
 		[menu alignItemsHorizontallyWithPadding:20];
-		[menu setPosition:ccp( size.width/2, size.height/2 - 50)];
+		[menu setPosition:ccp(size.width/2, size.height/2 - 50)];
 		
 		[self addChild:menu];
         [self showBanner];
+        
+        // notification
+        NSNotificationCenter* nc = [NSNotificationCenter defaultCenter];
+        [nc addObserver:self selector:@selector(loadEventReceived:) name:NOTIFICATION_LOAD_WITH_NAME object:nil];
 	}
 	return self;
+}
+
+- (void) loadEventReceived:(NSNotification*)center{
+    NSString* name = [[center userInfo] objectForKey:@"name"];
+    if ([name length] != 0) {
+        [self removeBanner];
+        [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[PortraitLayer sceneWithName:name]]];
+    }
 }
 
 -(void) showBanner
@@ -64,6 +80,8 @@
 }
 -(void) dealloc
 {
+    NSNotificationCenter* nc = [NSNotificationCenter defaultCenter];
+    [nc removeObserver:self];
     [bannerView_ release];
 	[super dealloc];
 }

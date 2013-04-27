@@ -11,14 +11,19 @@
 NSString *const PortraitPrefix = @"com.wiz-r.portrait.portrait";
 
 @implementation Portrait
-+(void) add:(FigureSet *)figureSet withName:(NSString *)name
++(void) add:(FigureSet *)figureSet withName:(NSString *)name image:(UIImage*)image
 {
+    NSData *imageData = UIImagePNGRepresentation(image);
+    NSDictionary* portrait = [NSDictionary dictionaryWithObjectsAndKeys:
+                              name, @"name",
+                              imageData, @"image",
+                              nil];
     NSUserDefaults* ud = [NSUserDefaults standardUserDefaults];
     NSMutableDictionary* dictionary = [Portrait list];
     if (!dictionary) {
         dictionary = [NSMutableDictionary dictionary];
     }
-    [dictionary setObject:name forKey:name];
+    [dictionary setObject:portrait forKey:name];
     
     [ud setObject:dictionary forKey:PortraitPrefix];
     [ud synchronize];

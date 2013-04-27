@@ -43,9 +43,10 @@
 		B013D2BE172B7F3300657FC8 /* btn_back.png in Resources */ = {isa = PBXBuildFile; fileRef = B013D2BA172B7F3300657FC8 /* btn_back.png */; };
 		B013D2BF172B7F3300657FC8 /* btn_save-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = B013D2BB172B7F3300657FC8 /* btn_save-hd.png */; };
 		B013D2C0172B7F3300657FC8 /* btn_save.png in Resources */ = {isa = PBXBuildFile; fileRef = B013D2BC172B7F3300657FC8 /* btn_save.png */; };
-		B013D2C3172BB46000657FC8 /* SaveLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = B013D2C2172BB46000657FC8 /* SaveLayer.m */; };
 		B013D2C6172BBAE400657FC8 /* portrait_area_rect-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = B013D2C4172BBAE400657FC8 /* portrait_area_rect-hd.png */; };
 		B013D2C7172BBAE400657FC8 /* portrait_area_rect.png in Resources */ = {isa = PBXBuildFile; fileRef = B013D2C5172BBAE400657FC8 /* portrait_area_rect.png */; };
+		B013D2D6172BFB9E00657FC8 /* SaveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B013D2D5172BFB9D00657FC8 /* SaveViewController.m */; };
+		B013D2D8172BFBBC00657FC8 /* SaveViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B013D2D7172BFBBC00657FC8 /* SaveViewController.xib */; };
 		B015A42017086B4900696547 /* eye001_color.png in Resources */ = {isa = PBXBuildFile; fileRef = B015A41C17086B4900696547 /* eye001_color.png */; };
 		B015A42117086B4900696547 /* eye001_line.png in Resources */ = {isa = PBXBuildFile; fileRef = B015A41D17086B4900696547 /* eye001_line.png */; };
 		B015A42217086B4900696547 /* face001_color.png in Resources */ = {isa = PBXBuildFile; fileRef = B015A41E17086B4900696547 /* face001_color.png */; };
@@ -250,10 +251,11 @@
 		B013D2BA172B7F3300657FC8 /* btn_back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_back.png; sourceTree = "<group>"; };
 		B013D2BB172B7F3300657FC8 /* btn_save-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_save-hd.png"; sourceTree = "<group>"; };
 		B013D2BC172B7F3300657FC8 /* btn_save.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_save.png; sourceTree = "<group>"; };
-		B013D2C1172BB46000657FC8 /* SaveLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SaveLayer.h; sourceTree = "<group>"; };
-		B013D2C2172BB46000657FC8 /* SaveLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SaveLayer.m; sourceTree = "<group>"; };
 		B013D2C4172BBAE400657FC8 /* portrait_area_rect-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "portrait_area_rect-hd.png"; sourceTree = "<group>"; };
 		B013D2C5172BBAE400657FC8 /* portrait_area_rect.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = portrait_area_rect.png; sourceTree = "<group>"; };
+		B013D2D4172BFB9D00657FC8 /* SaveViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SaveViewController.h; path = View/SaveViewController.h; sourceTree = "<group>"; };
+		B013D2D5172BFB9D00657FC8 /* SaveViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SaveViewController.m; path = View/SaveViewController.m; sourceTree = "<group>"; };
+		B013D2D7172BFBBC00657FC8 /* SaveViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SaveViewController.xib; path = View/SaveViewController.xib; sourceTree = "<group>"; };
 		B015A41C17086B4900696547 /* eye001_color.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = eye001_color.png; sourceTree = "<group>"; };
 		B015A41D17086B4900696547 /* eye001_line.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = eye001_line.png; sourceTree = "<group>"; };
 		B015A41E17086B4900696547 /* face001_color.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = face001_color.png; sourceTree = "<group>"; };
@@ -660,6 +662,9 @@
 				B0BC3FAB16FEF3DA00F86D79 /* PartsCellView.h */,
 				B0BC3FAC16FEF3DA00F86D79 /* PartsCellView.m */,
 				B0BC3FAE16FEF40100F86D79 /* PartsCellView.xib */,
+				B013D2D4172BFB9D00657FC8 /* SaveViewController.h */,
+				B013D2D5172BFB9D00657FC8 /* SaveViewController.m */,
+				B013D2D7172BFBBC00657FC8 /* SaveViewController.xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -710,8 +715,6 @@
 				B0627C8D172B6B7D0088CB76 /* TopLayer.m */,
 				B0544AD716E199FF0028DD55 /* PortraitLayer.h */,
 				B0544AD816E199FF0028DD55 /* PortraitLayer.m */,
-				B013D2C1172BB46000657FC8 /* SaveLayer.h */,
-				B013D2C2172BB46000657FC8 /* SaveLayer.m */,
 				B0544ACB16E199AD0028DD55 /* images */,
 				B027544D16E1AF9B00B453E9 /* Core */,
 				B027545916E22E9E00B453E9 /* View */,
@@ -1228,6 +1231,7 @@
 				B013D2C0172B7F3300657FC8 /* btn_save.png in Resources */,
 				B013D2C6172BBAE400657FC8 /* portrait_area_rect-hd.png in Resources */,
 				B013D2C7172BBAE400657FC8 /* portrait_area_rect.png in Resources */,
+				B013D2D8172BFBBC00657FC8 /* SaveViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1368,7 +1372,7 @@
 				6503E272170053B100F13AFF /* InfHSBSupport.m in Sources */,
 				6503E273170053B100F13AFF /* InfSourceColorView.m in Sources */,
 				B0627C8E172B6B7D0088CB76 /* TopLayer.m in Sources */,
-				B013D2C3172BB46000657FC8 /* SaveLayer.m in Sources */,
+				B013D2D6172BFB9E00657FC8 /* SaveViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

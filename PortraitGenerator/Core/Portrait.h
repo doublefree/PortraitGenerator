@@ -10,7 +10,7 @@
 #import "FigureSet.h"
 
 @interface Portrait : NSObject
-+(void)add:(FigureSet*)figureSet withName:(NSString*)name;
++(void) add:(FigureSet *)figureSet withName:(NSString *)name image:(UIImage*)image;
 +(void)removeWithName:(NSString*)name;
 +(NSMutableDictionary*) list;
 +(int) count;

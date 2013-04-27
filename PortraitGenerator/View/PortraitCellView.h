@@ -12,4 +12,5 @@
 @interface PortraitCellView : UITableViewCell
 +(float) cellHeight;
 @property (retain, nonatomic) IBOutlet UILabel *nameLabel;
+@property (retain, nonatomic) IBOutlet UIImageView *image;
 @end

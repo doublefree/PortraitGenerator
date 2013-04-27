@@ -28,8 +28,6 @@ int const CELL_HEIGHT = 64.0f;
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {
     [super setSelected:NO animated:animated];
-
-    // Configure the view for the selected state
 }
 
 + (float)cellHeight {
@@ -38,6 +36,7 @@ int const CELL_HEIGHT = 64.0f;
 - (void)dealloc {
     [_nameLabel release];
     [_nameLabel release];
+    [_image release];
     [super dealloc];
 }
 - (IBAction)deleteButtonPushed:(id)sender {

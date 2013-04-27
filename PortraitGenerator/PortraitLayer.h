@@ -9,8 +9,7 @@
 #import "AppDelegate.h"
 #import "InfColorPickerController.h"
 
-@interface PortraitLayer : CCLayer <InfColorPickerControllerDelegate> {
-    
-}
-+(CCScene *) scene;
+@interface PortraitLayer : CCLayer <InfColorPickerControllerDelegate>
++(CCScene *)scene;
++(CCScene *)sceneWithName:(NSString*)name;
 @end
