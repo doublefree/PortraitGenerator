@@ -16,11 +16,17 @@
 
 int const TAG_MENU = 1;
 int const TAG_IMAGE_CONTROL = 2;
+int const TAG_MAIN_CONTROL = 3;
+int const TAG_FRAME = 4;
 
 double const SCALE_PARAM = 0.2;
 double const DISTANCE_PARAM = 0.2;
 double const PADDING_MENU_ITEM = 2.5f;
 double const PADDING_MENU = 10.0f;
+double const PADDING_FRAME = 30.0f;
+
+int const ZINDEX_IMAGE_CONTROL = 1010;
+int const ZINDEX_FRAME = 1000;
 
 @interface PortraitLayer()
 @property (retain, nonatomic) NSMutableArray* nodeList;
@@ -33,6 +39,7 @@ double const PADDING_MENU = 10.0f;
 @property (retain, nonatomic) NSString* loadedName;
 @property (retain, nonatomic) PartsListView* selectedPartsListView;
 @property (retain, nonatomic) CCLayerColor* background;
+@property (retain, nonatomic) CCSprite* frameSprite;
 @end
 
 @implementation PortraitLayer
@@ -56,6 +63,8 @@ double const PADDING_MENU = 10.0f;
         
         self.nodeList = [[[NSMutableArray alloc] init] autorelease];
         self.figureSet = [FigureSet figureSetFromName:@"hoge"];
+        
+        self.frameSprite = [CCSprite spriteWithFile:@"portrait_area_rect.png"];
         
         [self drawPortrait];
         
@@ -95,7 +104,7 @@ double const PADDING_MENU = 10.0f;
         partsCategoryView.separatorColor = [UIColor clearColor];
         [[[CCDirector sharedDirector] view] addSubview:partsCategoryView];
         
-        [self showImageControl];
+        [self showControls];
     }
 	return self;
 }
@@ -393,7 +402,6 @@ double const PADDING_MENU = 10.0f;
     }];
     CCMenuItemSprite *menuMoveClose = [CCMenuItemSprite itemWithNormalSprite:normalMoveClose selectedSprite:selectedMoveClose block:^(id sender) {
         [self moveCloseSeletedFigure];
-        //[self saveScreenShot];
     }];
     CCMenuItemSprite *menuMoveApart = [CCMenuItemSprite itemWithNormalSprite:normalMoveApart selectedSprite:selectedMoveApart block:^(id sender) {
         [self moveApartSeletedFigure];
@@ -492,12 +500,44 @@ double const PADDING_MENU = 10.0f;
         }
     }
     
-    [self addChild:nodeMenu z:0 tag:TAG_IMAGE_CONTROL];
+    [self addChild:nodeMenu z:ZINDEX_IMAGE_CONTROL tag:TAG_IMAGE_CONTROL];
 }
 
-- (void) removeImageControl
+- (void)removeImageControl
 {
     [self removeChildByTag:TAG_IMAGE_CONTROL cleanup:YES];
+}
+
+- (void)showMainControl
+{
+    CCSprite* normalBack = [CCSprite spriteWithFile:@"btn_back.png"];
+    CCSprite* selectedBack = [CCSprite spriteWithFile:@"btn_back.png"];
+    selectedBack.opacity = 0x7f;
+    CCSprite* normalSave = [CCSprite spriteWithFile:@"btn_save.png"];
+    CCSprite* selectedSave = [CCSprite spriteWithFile:@"btn_save.png"];
+    selectedSave.opacity = 0x7f;
+    
+    CCMenuItemSprite *menuBack = [CCMenuItemSprite itemWithNormalSprite:normalBack selectedSprite:selectedBack block:^(id sender) {
+        ;
+    }];
+    CCMenuItemSprite *menuSave = [CCMenuItemSprite itemWithNormalSprite:normalSave selectedSprite:selectedSave block:^(id sender) {
+        [self launchSaveLayer];
+    }];
+    
+    CGSize size = [[CCDirector sharedDirector] winSize];
+    
+    CCMenu* menu = [CCMenu menuWithItems:menuBack, menuSave, nil];
+    [menu alignItemsHorizontallyWithPadding:20];
+    
+    float height = menuSave.contentSize.height;
+    menu.position = CGPointMake(size.width/2, size.height - height / 3 * 2);
+    
+    [self addChild:menu];
+}
+
+- (void)removeMainControl
+{
+    [self removeChildByTag:TAG_MAIN_CONTROL cleanup:YES];
 }
 
 - (void)colorChangeSeletctedFigure
@@ -596,10 +636,27 @@ double const PADDING_MENU = 10.0f;
     }
 }
 
-- (void)saveScreenShot
+- (void)launchSaveLayer
+{
+    [self removeControls];
+    UIImageWriteToSavedPhotosAlbum([self croppedPortraitImage], self, @selector(image:didFinishSavingWithError:contextInfo:),NULL);
+    [self showControls];
+}
+
+- (UIImage*)croppedPortraitImage
 {
     CGSize size = [[CCDirector sharedDirector] winSize];
-    [self removeImageControl];
+    float h = self.frameSprite.contentSize.height;
+    float w = self.frameSprite.contentSize.width;
+    float x = self.frameSprite.position.x - w/2;
+    float y = size.height - (self.frameSprite.position.y + h/2);
+    
+    CGRect rect;
+    if([[CCDirector sharedDirector] enableRetinaDisplay:YES]) {
+        rect = CGRectMake(x*2,y*2,w*2,h*2);
+    } else {
+        rect = CGRectMake(x,y,w,h);
+    }
     
     CCRenderTexture* rtx = [CCRenderTexture renderTextureWithWidth:size.width height:size.height];
     [rtx beginWithClear:0 g:0 b:0 a:1.0f];
@@ -607,9 +664,37 @@ double const PADDING_MENU = 10.0f;
     [rtx end];
     
     UIImage* image = [rtx getUIImage];
-    UIImageWriteToSavedPhotosAlbum(image, self, @selector(image:didFinishSavingWithError:contextInfo:),NULL);
     
+    CGImageRef imageRef = CGImageCreateWithImageInRect([image CGImage], rect);
+    UIImage *cropped =[UIImage imageWithCGImage:imageRef];
+    
+    return cropped;
+}
+
+- (void)showPortraitFrame
+{
+    CGSize size = [[CCDirector sharedDirector] winSize];
+    self.frameSprite.position = CGPointMake(size.width/2, size.height/2 + PADDING_FRAME);
+    [self addChild:self.frameSprite z:ZINDEX_FRAME tag:TAG_FRAME];
+}
+
+- (void)removePortraitFrame
+{
+    [self removeChildByTag:TAG_FRAME cleanup:YES];
+}
+
+- (void)showControls
+{
     [self showImageControl];
+    [self showMainControl];
+    [self showPortraitFrame];
+}
+
+- (void)removeControls
+{
+    [self removeImageControl];
+    [self removeMainControl];
+    [self removePortraitFrame];
 }
 
 // on "dealloc" you need to release all your retained objects

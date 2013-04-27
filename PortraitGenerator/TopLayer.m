@@ -18,7 +18,6 @@
 	return scene;
 }
 
-// on "init" you need to initialize your instance
 -(id) init
 {
 	if( (self=[super init]) ) {
