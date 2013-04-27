@@ -32,6 +32,13 @@
 		65FB297417013EF3006BBAA8 /* PortraitCellView.xib in Sources */ = {isa = PBXBuildFile; fileRef = 65FB297117013EDD006BBAA8 /* PortraitCellView.xib */; };
 		65FB297617013F03006BBAA8 /* PartsListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65FB297517013F03006BBAA8 /* PartsListView.xib */; };
 		65FB297717013F1E006BBAA8 /* PartsListView.xib in Sources */ = {isa = PBXBuildFile; fileRef = 65FB297517013F03006BBAA8 /* PartsListView.xib */; };
+		B013D2AB172B71D100657FC8 /* libGoogleAdMobAds.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B013D27A172B71D100657FC8 /* libGoogleAdMobAds.a */; };
+		B013D2AC172B71D200657FC8 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = B013D27B172B71D100657FC8 /* README.txt */; };
+		B013D2B1172B733000657FC8 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B013D2B0172B733000657FC8 /* StoreKit.framework */; };
+		B013D2B3172B733F00657FC8 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B013D2B2172B733F00657FC8 /* MessageUI.framework */; };
+		B013D2B5172B734C00657FC8 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B013D2B4172B734C00657FC8 /* SystemConfiguration.framework */; };
+		B013D2B7172B736400657FC8 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B013D2B6172B736400657FC8 /* AdSupport.framework */; };
+		B013D2B8172B73CF00657FC8 /* libGoogleAdMobAds.a in Sources */ = {isa = PBXBuildFile; fileRef = B013D27A172B71D100657FC8 /* libGoogleAdMobAds.a */; };
 		B015A42017086B4900696547 /* eye001_color.png in Resources */ = {isa = PBXBuildFile; fileRef = B015A41C17086B4900696547 /* eye001_color.png */; };
 		B015A42117086B4900696547 /* eye001_line.png in Resources */ = {isa = PBXBuildFile; fileRef = B015A41D17086B4900696547 /* eye001_line.png */; };
 		B015A42217086B4900696547 /* face001_color.png in Resources */ = {isa = PBXBuildFile; fileRef = B015A41E17086B4900696547 /* face001_color.png */; };
@@ -162,6 +169,7 @@
 		B0544AD516E199AD0028DD55 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = B0544AD016E199AD0028DD55 /* Default.png */; };
 		B0544AD616E199AD0028DD55 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B0544AD116E199AD0028DD55 /* Default@2x.png */; };
 		B0544AD916E199FF0028DD55 /* PortraitLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = B0544AD816E199FF0028DD55 /* PortraitLayer.m */; };
+		B0627C8E172B6B7D0088CB76 /* TopLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = B0627C8D172B6B7D0088CB76 /* TopLayer.m */; };
 		B0B3C50316E2F7C30053512D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B0B3C50516E2F7C30053512D /* Localizable.strings */; };
 		B0BC3F9B16FDF1DD00F86D79 /* PartsCategoryCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = B0BC3F9A16FDF1DD00F86D79 /* PartsCategoryCellView.m */; };
 		B0BC3F9F16FDF22A00F86D79 /* PartsCategoryCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0BC3F9E16FDF22A00F86D79 /* PartsCategoryCellView.xib */; };
@@ -216,6 +224,21 @@
 		65FB297017013EDD006BBAA8 /* PortraitCellView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = PortraitCellView.m; path = View/PortraitCellView.m; sourceTree = "<group>"; };
 		65FB297117013EDD006BBAA8 /* PortraitCellView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = PortraitCellView.xib; path = View/PortraitCellView.xib; sourceTree = "<group>"; };
 		65FB297517013F03006BBAA8 /* PartsListView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PartsListView.xib; path = View/PartsListView.xib; sourceTree = "<group>"; };
+		B013D271172B71D100657FC8 /* GADAdMobExtras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADAdMobExtras.h; sourceTree = "<group>"; };
+		B013D272172B71D100657FC8 /* GADAdNetworkExtras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADAdNetworkExtras.h; sourceTree = "<group>"; };
+		B013D273172B71D100657FC8 /* GADAdSize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADAdSize.h; sourceTree = "<group>"; };
+		B013D274172B71D100657FC8 /* GADBannerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADBannerView.h; sourceTree = "<group>"; };
+		B013D275172B71D100657FC8 /* GADBannerViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADBannerViewDelegate.h; sourceTree = "<group>"; };
+		B013D276172B71D100657FC8 /* GADInterstitial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADInterstitial.h; sourceTree = "<group>"; };
+		B013D277172B71D100657FC8 /* GADInterstitialDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADInterstitialDelegate.h; sourceTree = "<group>"; };
+		B013D278172B71D100657FC8 /* GADRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADRequest.h; sourceTree = "<group>"; };
+		B013D279172B71D100657FC8 /* GADRequestError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADRequestError.h; sourceTree = "<group>"; };
+		B013D27A172B71D100657FC8 /* libGoogleAdMobAds.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAdMobAds.a; sourceTree = "<group>"; };
+		B013D27B172B71D100657FC8 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
+		B013D2B0172B733000657FC8 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		B013D2B2172B733F00657FC8 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		B013D2B4172B734C00657FC8 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		B013D2B6172B736400657FC8 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		B015A41C17086B4900696547 /* eye001_color.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = eye001_color.png; sourceTree = "<group>"; };
 		B015A41D17086B4900696547 /* eye001_line.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = eye001_line.png; sourceTree = "<group>"; };
 		B015A41E17086B4900696547 /* face001_color.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = face001_color.png; sourceTree = "<group>"; };
@@ -478,6 +501,8 @@
 		B0544AD116E199AD0028DD55 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		B0544AD716E199FF0028DD55 /* PortraitLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PortraitLayer.h; sourceTree = "<group>"; };
 		B0544AD816E199FF0028DD55 /* PortraitLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PortraitLayer.m; sourceTree = "<group>"; };
+		B0627C8C172B6B7D0088CB76 /* TopLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopLayer.h; sourceTree = "<group>"; };
+		B0627C8D172B6B7D0088CB76 /* TopLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopLayer.m; sourceTree = "<group>"; };
 		B0B3C50416E2F7C30053512D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		B0B3C50616E2F83A0053512D /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		B0BC3F9916FDF1DD00F86D79 /* PartsCategoryCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PartsCategoryCellView.h; path = View/PartsCategoryCellView.h; sourceTree = "<group>"; };
@@ -512,15 +537,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B013D2B7172B736400657FC8 /* AdSupport.framework in Frameworks */,
+				B054494216E1995D0028DD55 /* CoreGraphics.framework in Frameworks */,
+				B013D2B5172B734C00657FC8 /* SystemConfiguration.framework in Frameworks */,
+				B013D2B3172B733F00657FC8 /* MessageUI.framework in Frameworks */,
+				B013D2B1172B733000657FC8 /* StoreKit.framework in Frameworks */,
+				B054493A16E1995D0028DD55 /* AudioToolbox.framework in Frameworks */,
 				B054493416E1995D0028DD55 /* QuartzCore.framework in Frameworks */,
 				B054493616E1995D0028DD55 /* OpenGLES.framework in Frameworks */,
 				B054493816E1995D0028DD55 /* OpenAL.framework in Frameworks */,
-				B054493A16E1995D0028DD55 /* AudioToolbox.framework in Frameworks */,
 				B054493C16E1995D0028DD55 /* AVFoundation.framework in Frameworks */,
 				B054493E16E1995D0028DD55 /* UIKit.framework in Frameworks */,
 				B054494016E1995D0028DD55 /* Foundation.framework in Frameworks */,
-				B054494216E1995D0028DD55 /* CoreGraphics.framework in Frameworks */,
 				B054494416E1995D0028DD55 /* GameKit.framework in Frameworks */,
+				B013D2AB172B71D100657FC8 /* libGoogleAdMobAds.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -547,6 +577,25 @@
 			);
 			name = InfColorPicker;
 			path = libs/InfColorPicker;
+			sourceTree = "<group>";
+		};
+		B013D215172B71D100657FC8 /* GoogleAdMobAdsSdkiOS-6.4.1 */ = {
+			isa = PBXGroup;
+			children = (
+				B013D271172B71D100657FC8 /* GADAdMobExtras.h */,
+				B013D272172B71D100657FC8 /* GADAdNetworkExtras.h */,
+				B013D273172B71D100657FC8 /* GADAdSize.h */,
+				B013D274172B71D100657FC8 /* GADBannerView.h */,
+				B013D275172B71D100657FC8 /* GADBannerViewDelegate.h */,
+				B013D276172B71D100657FC8 /* GADInterstitial.h */,
+				B013D277172B71D100657FC8 /* GADInterstitialDelegate.h */,
+				B013D278172B71D100657FC8 /* GADRequest.h */,
+				B013D279172B71D100657FC8 /* GADRequestError.h */,
+				B013D27A172B71D100657FC8 /* libGoogleAdMobAds.a */,
+				B013D27B172B71D100657FC8 /* README.txt */,
+			);
+			name = "GoogleAdMobAdsSdkiOS-6.4.1";
+			path = "libs/GoogleAdMobAdsSdkiOS-6.4.1";
 			sourceTree = "<group>";
 		};
 		B015A41B17086B4900696547 /* parts */ = {
@@ -603,6 +652,10 @@
 		B054492716E1995D0028DD55 = {
 			isa = PBXGroup;
 			children = (
+				B013D2B6172B736400657FC8 /* AdSupport.framework */,
+				B013D2B4172B734C00657FC8 /* SystemConfiguration.framework */,
+				B013D2B2172B733F00657FC8 /* MessageUI.framework */,
+				B013D2B0172B733000657FC8 /* StoreKit.framework */,
 				B054494516E1995D0028DD55 /* PortraitGenerator */,
 				B054493216E1995D0028DD55 /* Frameworks */,
 				B054493116E1995D0028DD55 /* Products */,
@@ -638,6 +691,8 @@
 			children = (
 				B0544ABD16E1995F0028DD55 /* AppDelegate.h */,
 				B0544ABE16E1995F0028DD55 /* AppDelegate.m */,
+				B0627C8C172B6B7D0088CB76 /* TopLayer.h */,
+				B0627C8D172B6B7D0088CB76 /* TopLayer.m */,
 				B0544AD716E199FF0028DD55 /* PortraitLayer.h */,
 				B0544AD816E199FF0028DD55 /* PortraitLayer.m */,
 				B0544ACB16E199AD0028DD55 /* images */,
@@ -672,6 +727,7 @@
 		B054496016E1995D0028DD55 /* libs */ = {
 			isa = PBXGroup;
 			children = (
+				B013D215172B71D100657FC8 /* GoogleAdMobAdsSdkiOS-6.4.1 */,
 				6503E25E170053B100F13AFF /* InfColorPicker */,
 				B054496116E1995D0028DD55 /* cocos2d */,
 				B0544A7816E1995F0028DD55 /* CocosDenshion */,
@@ -1142,6 +1198,7 @@
 				B0C42BEE171AAAFD00565C2D /* btn_color_change-hd.png in Resources */,
 				B0C42BEF171AAAFD00565C2D /* btn_color_change.png in Resources */,
 				B0C42BF1171AD5B000565C2D /* eyebrow001.png in Resources */,
+				B013D2AC172B71D200657FC8 /* README.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1152,6 +1209,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B013D2B8172B73CF00657FC8 /* libGoogleAdMobAds.a in Sources */,
 				65FB297717013F1E006BBAA8 /* PartsListView.xib in Sources */,
 				65FB297217013EF3006BBAA8 /* PortraitCellView.h in Sources */,
 				65FB297317013EF3006BBAA8 /* PortraitCellView.m in Sources */,
@@ -1280,6 +1338,7 @@
 				6503E271170053B100F13AFF /* InfColorSquarePicker.m in Sources */,
 				6503E272170053B100F13AFF /* InfHSBSupport.m in Sources */,
 				6503E273170053B100F13AFF /* InfSourceColorView.m in Sources */,
+				B0627C8E172B6B7D0088CB76 /* TopLayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1348,6 +1407,11 @@
 				GCC_PREFIX_HEADER = PortraitGenerator/Prefix.pch;
 				HEADER_SEARCH_PATHS = "\"PortraitGenerator/libs/kazmath/include\"";
 				INFOPLIST_FILE = PortraitGenerator/Resources/Info.plist;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/PortraitGenerator/libs/GoogleAdMobAdsSdkiOS-6.4.1/Add-ons/GoogleAnalyticsiOS_2.0beta4/Library\"",
+					"\"$(SRCROOT)/PortraitGenerator/libs/GoogleAdMobAdsSdkiOS-6.4.1\"",
+				);
 				OTHER_LDFLAGS = (
 					"-lz",
 					"-ObjC",
@@ -1366,6 +1430,11 @@
 				GCC_PREFIX_HEADER = PortraitGenerator/Prefix.pch;
 				HEADER_SEARCH_PATHS = "\"PortraitGenerator/libs/kazmath/include\"";
 				INFOPLIST_FILE = PortraitGenerator/Resources/Info.plist;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/PortraitGenerator/libs/GoogleAdMobAdsSdkiOS-6.4.1/Add-ons/GoogleAnalyticsiOS_2.0beta4/Library\"",
+					"\"$(SRCROOT)/PortraitGenerator/libs/GoogleAdMobAdsSdkiOS-6.4.1\"",
+				);
 				OTHER_LDFLAGS = (
 					"-lz",
 					"-ObjC",

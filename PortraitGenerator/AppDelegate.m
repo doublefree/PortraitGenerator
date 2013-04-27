@@ -9,7 +9,7 @@
 #import "cocos2d.h"
 
 #import "AppDelegate.h"
-#import "PortraitLayer.h"
+#import "TopLayer.h"
 
 NSString* const NOTIFICATION_LOAD_BUTTON_PUSHED = @"notification_load_button_pushed";
 NSString* const NOTIFICATION_DELETE_BUTTON_PUSHED = @"notification_delete_button_pushed";
@@ -41,7 +41,7 @@ NSString* const NOTIFICATION_PARTS_BUTTON_PUSHED = @"notification_parts_button_p
 	director_.wantsFullScreenLayout = YES;
 
 	// Display FSP and SPF
-	[director_ setDisplayStats:YES];
+	//[director_ setDisplayStats:YES];
 
 	// set FPS at 60
 	[director_ setAnimationInterval:1.0/60];
@@ -79,7 +79,8 @@ NSString* const NOTIFICATION_PARTS_BUTTON_PUSHED = @"notification_parts_button_p
 	[CCTexture2D PVRImagesHavePremultipliedAlpha:YES];
 
 	// and add the scene to the stack. The director will run it when it automatically when the view is displayed.
-	[director_ pushScene: [PortraitLayer scene]];
+	//[director_ pushScene: [PortraitLayer scene]];
+    [director_ pushScene: [TopLayer scene]];
 
 	
 	// Create a Navigation Controller with the Director
