@@ -181,6 +181,16 @@
 		B0544AD616E199AD0028DD55 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B0544AD116E199AD0028DD55 /* Default@2x.png */; };
 		B0544AD916E199FF0028DD55 /* PortraitLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = B0544AD816E199FF0028DD55 /* PortraitLayer.m */; };
 		B0627C8E172B6B7D0088CB76 /* TopLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = B0627C8D172B6B7D0088CB76 /* TopLayer.m */; };
+		B09480F1172CFFD6005BEE28 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B09480F0172CFFD6005BEE28 /* Parse.framework */; };
+		B09480F3172D0004005BEE28 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B09480F2172D0004005BEE28 /* CFNetwork.framework */; };
+		B09480F5172D0016005BEE28 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B09480F4172D0016005BEE28 /* CoreLocation.framework */; };
+		B09480F7172D0024005BEE28 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B09480F6172D0024005BEE28 /* MobileCoreServices.framework */; };
+		B09480F9172D002F005BEE28 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B09480F8172D002F005BEE28 /* Security.framework */; };
+		B09480FB172D0041005BEE28 /* libz.1.1.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B09480FA172D0041005BEE28 /* libz.1.1.3.dylib */; };
+		B0948106172D0168005BEE28 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0948105172D0168005BEE28 /* FacebookSDK.framework */; };
+		B0948108172D0185005BEE28 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B0948107172D0185005BEE28 /* libsqlite3.0.dylib */; };
+		B0948109172D0196005BEE28 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B09480FC172D00CD005BEE28 /* Social.framework */; };
+		B094810B172D01A3005BEE28 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B094810A172D01A3005BEE28 /* Accounts.framework */; };
 		B0B3C50316E2F7C30053512D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B0B3C50516E2F7C30053512D /* Localizable.strings */; };
 		B0BC3F9B16FDF1DD00F86D79 /* PartsCategoryCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = B0BC3F9A16FDF1DD00F86D79 /* PartsCategoryCellView.m */; };
 		B0BC3F9F16FDF22A00F86D79 /* PartsCategoryCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0BC3F9E16FDF22A00F86D79 /* PartsCategoryCellView.xib */; };
@@ -527,6 +537,16 @@
 		B0544AD816E199FF0028DD55 /* PortraitLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PortraitLayer.m; sourceTree = "<group>"; };
 		B0627C8C172B6B7D0088CB76 /* TopLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopLayer.h; sourceTree = "<group>"; };
 		B0627C8D172B6B7D0088CB76 /* TopLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopLayer.m; sourceTree = "<group>"; };
+		B09480F0172CFFD6005BEE28 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = PortraitGenerator/libs/Parse.framework; sourceTree = "<group>"; };
+		B09480F2172D0004005BEE28 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		B09480F4172D0016005BEE28 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		B09480F6172D0024005BEE28 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		B09480F8172D002F005BEE28 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		B09480FA172D0041005BEE28 /* libz.1.1.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.1.3.dylib; path = usr/lib/libz.1.1.3.dylib; sourceTree = SDKROOT; };
+		B09480FC172D00CD005BEE28 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		B0948105172D0168005BEE28 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = PortraitGenerator/libs/FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
+		B0948107172D0185005BEE28 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
+		B094810A172D01A3005BEE28 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		B0B3C50416E2F7C30053512D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		B0B3C50616E2F83A0053512D /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		B0BC3F9916FDF1DD00F86D79 /* PartsCategoryCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PartsCategoryCellView.h; path = View/PartsCategoryCellView.h; sourceTree = "<group>"; };
@@ -561,13 +581,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B013D2B7172B736400657FC8 /* AdSupport.framework in Frameworks */,
+				B094810B172D01A3005BEE28 /* Accounts.framework in Frameworks */,
+				B0948109172D0196005BEE28 /* Social.framework in Frameworks */,
+				B0948108172D0185005BEE28 /* libsqlite3.0.dylib in Frameworks */,
+				B054493A16E1995D0028DD55 /* AudioToolbox.framework in Frameworks */,
+				B054493416E1995D0028DD55 /* QuartzCore.framework in Frameworks */,
 				B054494216E1995D0028DD55 /* CoreGraphics.framework in Frameworks */,
+				B09480FB172D0041005BEE28 /* libz.1.1.3.dylib in Frameworks */,
+				B09480F9172D002F005BEE28 /* Security.framework in Frameworks */,
+				B09480F7172D0024005BEE28 /* MobileCoreServices.framework in Frameworks */,
+				B09480F5172D0016005BEE28 /* CoreLocation.framework in Frameworks */,
+				B09480F3172D0004005BEE28 /* CFNetwork.framework in Frameworks */,
+				B013D2B7172B736400657FC8 /* AdSupport.framework in Frameworks */,
 				B013D2B5172B734C00657FC8 /* SystemConfiguration.framework in Frameworks */,
 				B013D2B3172B733F00657FC8 /* MessageUI.framework in Frameworks */,
 				B013D2B1172B733000657FC8 /* StoreKit.framework in Frameworks */,
-				B054493A16E1995D0028DD55 /* AudioToolbox.framework in Frameworks */,
-				B054493416E1995D0028DD55 /* QuartzCore.framework in Frameworks */,
 				B054493616E1995D0028DD55 /* OpenGLES.framework in Frameworks */,
 				B054493816E1995D0028DD55 /* OpenAL.framework in Frameworks */,
 				B054493C16E1995D0028DD55 /* AVFoundation.framework in Frameworks */,
@@ -575,6 +603,8 @@
 				B054494016E1995D0028DD55 /* Foundation.framework in Frameworks */,
 				B054494416E1995D0028DD55 /* GameKit.framework in Frameworks */,
 				B013D2AB172B71D100657FC8 /* libGoogleAdMobAds.a in Frameworks */,
+				B09480F1172CFFD6005BEE28 /* Parse.framework in Frameworks */,
+				B0948106172D0168005BEE28 /* FacebookSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -682,10 +712,6 @@
 		B054492716E1995D0028DD55 = {
 			isa = PBXGroup;
 			children = (
-				B013D2B6172B736400657FC8 /* AdSupport.framework */,
-				B013D2B4172B734C00657FC8 /* SystemConfiguration.framework */,
-				B013D2B2172B733F00657FC8 /* MessageUI.framework */,
-				B013D2B0172B733000657FC8 /* StoreKit.framework */,
 				B054494516E1995D0028DD55 /* PortraitGenerator */,
 				B054493216E1995D0028DD55 /* Frameworks */,
 				B054493116E1995D0028DD55 /* Products */,
@@ -703,6 +729,20 @@
 		B054493216E1995D0028DD55 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B094810A172D01A3005BEE28 /* Accounts.framework */,
+				B0948107172D0185005BEE28 /* libsqlite3.0.dylib */,
+				B09480FC172D00CD005BEE28 /* Social.framework */,
+				B09480FA172D0041005BEE28 /* libz.1.1.3.dylib */,
+				B0948105172D0168005BEE28 /* FacebookSDK.framework */,
+				B09480F8172D002F005BEE28 /* Security.framework */,
+				B09480F6172D0024005BEE28 /* MobileCoreServices.framework */,
+				B09480F4172D0016005BEE28 /* CoreLocation.framework */,
+				B09480F2172D0004005BEE28 /* CFNetwork.framework */,
+				B013D2B6172B736400657FC8 /* AdSupport.framework */,
+				B013D2B4172B734C00657FC8 /* SystemConfiguration.framework */,
+				B013D2B2172B733F00657FC8 /* MessageUI.framework */,
+				B013D2B0172B733000657FC8 /* StoreKit.framework */,
+				B09480F0172CFFD6005BEE28 /* Parse.framework */,
 				B054493316E1995D0028DD55 /* QuartzCore.framework */,
 				B054493516E1995D0028DD55 /* OpenGLES.framework */,
 				B054493716E1995D0028DD55 /* OpenAL.framework */,
@@ -1449,7 +1489,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/PortraitGenerator/libs\"",
+					"\"$(SRCROOT)/PortraitGenerator/libs/FacebookSDK\"",
+				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = PortraitGenerator/Prefix.pch;
@@ -1465,6 +1512,8 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1473,7 +1522,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/PortraitGenerator/libs\"",
+					"\"$(SRCROOT)/PortraitGenerator/libs/FacebookSDK\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = PortraitGenerator/Prefix.pch;
 				HEADER_SEARCH_PATHS = "\"PortraitGenerator/libs/kazmath/include\"";
@@ -1488,6 +1544,8 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
 			};

@@ -10,6 +10,7 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 #import "GADBannerView.h"
+#import <Parse/Parse.h>
 
 extern NSString* const NOTIFICATION_LOAD_BUTTON_PUSHED;
 extern NSString* const NOTIFICATION_DELETE_BUTTON_PUSHED;
