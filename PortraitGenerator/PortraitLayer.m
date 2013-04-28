@@ -483,6 +483,7 @@ int const ZINDEX_FRAME = 1000;
     selectedSave.opacity = 0x7f;
     
     CCMenuItemSprite *menuBack = [CCMenuItemSprite itemWithNormalSprite:normalBack selectedSprite:selectedBack block:^(id sender) {
+        [self removeControls];
         [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[TopLayer scene]]];
     }];
     CCMenuItemSprite *menuSave = [CCMenuItemSprite itemWithNormalSprite:normalSave selectedSprite:selectedSave block:^(id sender) {
@@ -597,8 +598,6 @@ int const ZINDEX_FRAME = 1000;
 {
     UIImage* image = [self croppedPortraitImage];
     SaveViewController* saveViewController = [[SaveViewController alloc] initWithNibName:@"SaveViewController" bundle:nil image:image figureSet:self.figureSet name:self.name];
-    //AppController *app = (AppController*) [[UIApplication sharedApplication] delegate];
-    //[app.navController presentModalViewController: saveViewController animated:YES];
     UIView* view = [[CCDirector sharedDirector] view];
     [UIView beginAnimations:nil context:NULL];
     [UIView setAnimationDuration:0.7];

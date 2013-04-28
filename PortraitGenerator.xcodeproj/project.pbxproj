@@ -47,6 +47,9 @@
 		B013D2C7172BBAE400657FC8 /* portrait_area_rect.png in Resources */ = {isa = PBXBuildFile; fileRef = B013D2C5172BBAE400657FC8 /* portrait_area_rect.png */; };
 		B013D2D6172BFB9E00657FC8 /* SaveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B013D2D5172BFB9D00657FC8 /* SaveViewController.m */; };
 		B013D2D8172BFBBC00657FC8 /* SaveViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B013D2D7172BFBBC00657FC8 /* SaveViewController.xib */; };
+		B013D2DA172C9FE800657FC8 /* PortraitDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B013D2D9172C9FE800657FC8 /* PortraitDetailViewController.xib */; };
+		B013D2DD172CA00300657FC8 /* PortraitDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B013D2DC172CA00300657FC8 /* PortraitDetailViewController.m */; };
+		B013D2DF172CA12100657FC8 /* linebutton_40x40.png in Resources */ = {isa = PBXBuildFile; fileRef = B013D2DE172CA12100657FC8 /* linebutton_40x40.png */; };
 		B015A42017086B4900696547 /* eye001_color.png in Resources */ = {isa = PBXBuildFile; fileRef = B015A41C17086B4900696547 /* eye001_color.png */; };
 		B015A42117086B4900696547 /* eye001_line.png in Resources */ = {isa = PBXBuildFile; fileRef = B015A41D17086B4900696547 /* eye001_line.png */; };
 		B015A42217086B4900696547 /* face001_color.png in Resources */ = {isa = PBXBuildFile; fileRef = B015A41E17086B4900696547 /* face001_color.png */; };
@@ -256,6 +259,10 @@
 		B013D2D4172BFB9D00657FC8 /* SaveViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SaveViewController.h; path = View/SaveViewController.h; sourceTree = "<group>"; };
 		B013D2D5172BFB9D00657FC8 /* SaveViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SaveViewController.m; path = View/SaveViewController.m; sourceTree = "<group>"; };
 		B013D2D7172BFBBC00657FC8 /* SaveViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SaveViewController.xib; path = View/SaveViewController.xib; sourceTree = "<group>"; };
+		B013D2D9172C9FE800657FC8 /* PortraitDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PortraitDetailViewController.xib; path = View/PortraitDetailViewController.xib; sourceTree = "<group>"; };
+		B013D2DB172CA00300657FC8 /* PortraitDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PortraitDetailViewController.h; path = View/PortraitDetailViewController.h; sourceTree = "<group>"; };
+		B013D2DC172CA00300657FC8 /* PortraitDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PortraitDetailViewController.m; path = View/PortraitDetailViewController.m; sourceTree = "<group>"; };
+		B013D2DE172CA12100657FC8 /* linebutton_40x40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = linebutton_40x40.png; sourceTree = "<group>"; };
 		B015A41C17086B4900696547 /* eye001_color.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = eye001_color.png; sourceTree = "<group>"; };
 		B015A41D17086B4900696547 /* eye001_line.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = eye001_line.png; sourceTree = "<group>"; };
 		B015A41E17086B4900696547 /* face001_color.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = face001_color.png; sourceTree = "<group>"; };
@@ -665,6 +672,9 @@
 				B013D2D4172BFB9D00657FC8 /* SaveViewController.h */,
 				B013D2D5172BFB9D00657FC8 /* SaveViewController.m */,
 				B013D2D7172BFBBC00657FC8 /* SaveViewController.xib */,
+				B013D2DB172CA00300657FC8 /* PortraitDetailViewController.h */,
+				B013D2DC172CA00300657FC8 /* PortraitDetailViewController.m */,
+				B013D2D9172C9FE800657FC8 /* PortraitDetailViewController.xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -1100,6 +1110,7 @@
 		B0544ACE16E199AD0028DD55 /* general */ = {
 			isa = PBXGroup;
 			children = (
+				B013D2DE172CA12100657FC8 /* linebutton_40x40.png */,
 				B013D2C4172BBAE400657FC8 /* portrait_area_rect-hd.png */,
 				B013D2C5172BBAE400657FC8 /* portrait_area_rect.png */,
 				B0544ACF16E199AD0028DD55 /* Default-568h@2x.png */,
@@ -1232,6 +1243,8 @@
 				B013D2C6172BBAE400657FC8 /* portrait_area_rect-hd.png in Resources */,
 				B013D2C7172BBAE400657FC8 /* portrait_area_rect.png in Resources */,
 				B013D2D8172BFBBC00657FC8 /* SaveViewController.xib in Resources */,
+				B013D2DA172C9FE800657FC8 /* PortraitDetailViewController.xib in Resources */,
+				B013D2DF172CA12100657FC8 /* linebutton_40x40.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1373,6 +1386,7 @@
 				6503E273170053B100F13AFF /* InfSourceColorView.m in Sources */,
 				B0627C8E172B6B7D0088CB76 /* TopLayer.m in Sources */,
 				B013D2D6172BFB9E00657FC8 /* SaveViewController.m in Sources */,
+				B013D2DD172CA00300657FC8 /* PortraitDetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

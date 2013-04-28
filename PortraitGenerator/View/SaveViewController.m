@@ -8,6 +8,7 @@
 
 #import "SaveViewController.h"
 #import "Portrait.h"
+#import "PortraitDetailViewController.h"
 
 @interface SaveViewController ()
 - (IBAction)cancelButtonPushed:(id)sender;
@@ -60,8 +61,16 @@
 
 - (IBAction)okButtonPushed:(id)sender {
     UIImageWriteToSavedPhotosAlbum(self.image, self, @selector(image:didFinishSavingWithError:contextInfo:), NULL );
-    [Portrait add:self.figureSet withName:self.textField.text image:self.image];
-    [self closeView];
+    NSString* name = self.textField.text;
+    [Portrait add:self.figureSet withName:name image:self.image];
+    
+    PortraitDetailViewController* detailViewController = [[PortraitDetailViewController alloc] initWithNibName:@"PortraitDetailViewController" bundle:nil name:name];
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationDuration:0.7];
+    [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromRight forView:self.view.window.rootViewController.view cache:YES];
+    [self.view.window.rootViewController.view addSubview:detailViewController.view];
+    [UIView commitAnimations];
+    [self.view removeFromSuperview];
 }
 
 - (void)closeView
