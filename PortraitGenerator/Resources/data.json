@@ -1,5 +1,5 @@
 {
-    "category" : ["face", "eye", "eyebrow"],
+    "category" : ["face", "eye", "eyebrow","fronthair"],
     "data" : {
         "eyebrow" : {
             "config" : {
@@ -28,7 +28,7 @@
                 "tag" : 104,
                 "zindex" : 17,
                 "couple" : true,
-                "distance" : 0.15,
+                "distance" : 0.35,
                 "allow_scale" : true,
                 "allow_rotate" : true,
                 "allow_move" : true,
@@ -36,8 +36,44 @@
             },
             "parts" : {
                 "e001" : {
-                    "base_path" : "eye001_color.png",
-                    "frame_path" : "eye001_line.png"
+                    "base_path" : "righteye001_color.png",
+                    "frame_path" : "righteye001_line.png"
+                },
+                "e002" : {
+                    "base_path" : "righteye002_color.png",
+                    "frame_path" : "righteye002_line.png"
+                },
+                "e003" : {
+                    "base_path" : "righteye003_color.png",
+                    "frame_path" : "righteye003_line.png"
+                },
+                "e004" : {
+                    "base_path" : "righteye004_color.png",
+                    "frame_path" : "righteye004_line.png"
+                },
+                "e005" : {
+                    "base_path" : "righteye005_color.png",
+                    "frame_path" : "righteye005_line.png"
+                },
+                "e006" : {
+                    "base_path" : "righteye006_color.png",
+                    "frame_path" : "righteye006_line.png"
+                },
+                "e007" : {
+                    "base_path" : "righteye007_color.png",
+                    "frame_path" : "righteye007_line.png"
+                },
+                "e008" : {
+                    "base_path" : "righteye008_color.png",
+                    "frame_path" : "righteye008_line.png"
+                },
+                "e009" : {
+                    "base_path" : "righteye009_color.png",
+                    "frame_path" : "righteye009_line.png"
+                },
+                "e010" : {
+                    "base_path" : "righteye010_color.png",
+                    "frame_path" : "righteye010_line.png"
                 }
             }
         },
@@ -56,6 +92,56 @@
                 "f001" : {
                     "base_path" : "face001_color.png",
                     "frame_path" : "face001_line.png"
+                },
+                "f002" : {
+                    "base_path" : "face002_color.png",
+                    "frame_path" : "face002_line.png"
+                },
+                "f003" : {
+                    "base_path" : "face003_color.png",
+                    "frame_path" : "face003_line.png"
+                },
+                "f004" : {
+                    "base_path" : "face004_color.png",
+                    "frame_path" : "face004_line.png"
+                },
+                "f005" : {
+                    "base_path" : "face005_color.png",
+                    "frame_path" : "face005_line.png"
+                }
+            }
+        },
+        "fronthair" : {
+            "config" : {
+                "x" : 0.5,
+                "y" : 0.5,
+                "tag" : 107,
+                "zindex" : 14,
+                "allow_scale" : true,
+                "allow_rotate" : false,
+                "allow_move" : false,
+                "allow_color" : true
+            },
+            "parts" : {
+                "fh001" : {
+                    "base_path" : "fronthair001_color.png",
+                    "frame_path" : "fronthair001_line.png"
+                },
+                "fh002" : {
+                    "base_path" : "fronthair002_color.png",
+                    "frame_path" : "fronthair002_line.png"
+                },
+                "fh003" : {
+                    "base_path" : "fronthair003_color.png",
+                    "frame_path" : "fronthair003_line.png"
+                },
+                "fh004" : {
+                    "base_path" : "fronthair004_color.png",
+                    "frame_path" : "fronthair004_line.png"
+                },
+                "fh005" : {
+                    "base_path" : "fronthair005_color.png",
+                    "frame_path" : "fronthair005_line.png"
                 }
             }
         }

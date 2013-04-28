@@ -247,13 +247,13 @@ int const ZINDEX_FRAME = 1000;
                 
                 base.scaleX = scale;
                 base.scaleY = scale;
-                [node addChild:base z:-1 tag:@"base"];
+                [node addChild:base z:-1];
                 
                 if (figure.frame_path) {
                     CCSprite* frame = [CCSprite spriteWithFile:figure.frame_path];
                     frame.scaleX = base.scaleX;
                     frame.scaleY = base.scaleY;
-                    [node addChild:frame z:0 tag:@"frame"];
+                    [node addChild:frame z:0];
                 }
             }
             node.userObject = category;
