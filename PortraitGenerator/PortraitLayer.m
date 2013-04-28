@@ -155,9 +155,9 @@ int const ZINDEX_FRAME = 1000;
             nodeRect.size.height = y * 2;
             
             if (CGRectContainsPoint(nodeRect, touchLoation)) {
-                newNode = node;
-                self.selectedCategory = category;
-                [self notifySelectedCategoryChanged];
+                if ([self.selectedCategory isEqualToString:category]) {
+                    newNode = node;
+                }
             }
         } else {
             for (CCSprite* sprite in [node children]) {
@@ -165,9 +165,9 @@ int const ZINDEX_FRAME = 1000;
                 spriteRect.origin.x = nodeRect.origin.x - spriteRect.size.width/2;
                 spriteRect.origin.y = nodeRect.origin.y - spriteRect.size.height/2;
                 if (CGRectContainsPoint(spriteRect, touchLoation)) {
-                    newNode = node;
-                    self.selectedCategory = category;
-                    [self notifySelectedCategoryChanged];
+                    if ([self.selectedCategory isEqualToString:category]) {
+                        newNode = node;
+                    }
                 }
             }
         }
