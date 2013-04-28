@@ -9,12 +9,15 @@
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
+#import "GADBannerView.h"
 
 extern NSString* const NOTIFICATION_LOAD_BUTTON_PUSHED;
 extern NSString* const NOTIFICATION_DELETE_BUTTON_PUSHED;
 extern NSString* const NOTIFICATION_LOAD_WITH_NAME;
 extern NSString* const NOTIFICATION_PARTS_CATEGORY_BUTTON_PUSHED;
 extern NSString* const NOTIFICATION_PARTS_BUTTON_PUSHED;
+
+extern NSString* const GOOGLE_AD_ID;
 
 @interface AppController : NSObject <UIApplicationDelegate, CCDirectorDelegate>
 {

@@ -6,8 +6,7 @@
 //
 //
 
-#import "cocos2d.h"
-#import "GADBannerView.h"
+#import "AppDelegate.h"
 
 @interface TopLayer : CCLayer
 {

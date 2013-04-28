@@ -42,7 +42,7 @@
         
         // banner
         bannerView_ = [[GADBannerView alloc] initWithAdSize:kGADAdSizeBanner];
-        bannerView_.adUnitID = @"a1517b36c098dbe";
+        bannerView_.adUnitID = GOOGLE_AD_ID;
         bannerView_.rootViewController = self;
 		
 		CCMenu *menu = [CCMenu menuWithItems:itemGenerate, itemGallary, nil];
