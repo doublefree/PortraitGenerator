@@ -16,6 +16,8 @@ NSString* const NOTIFICATION_DELETE_BUTTON_PUSHED = @"notification_delete_button
 NSString* const NOTIFICATION_LOAD_WITH_NAME = @"notification_load_with_name";
 NSString* const NOTIFICATION_PARTS_CATEGORY_BUTTON_PUSHED = @"notification_parts_category_button_pushed";
 NSString* const NOTIFICATION_PARTS_BUTTON_PUSHED = @"notification_parts_button_pushed";
+NSString* const NOTIFICATION_SELECTED_CATEGORY_CHANGED = @"notification_selected_category_changed";
+
 NSString* const GOOGLE_AD_ID = @"a1517b36c098dbe";
 
 @implementation AppController

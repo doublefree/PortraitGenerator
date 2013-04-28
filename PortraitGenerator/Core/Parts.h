@@ -20,6 +20,7 @@ extern NSString* const PartsKeyDataConfigAllowScale;
 extern NSString* const PartsKeyDataConfigAllowRotate;
 extern NSString* const PartsKeyDataConfigAllowMove;
 extern NSString* const PartsKeyDataConfigAllowColor;
+extern NSString* const PartsKeyDataConfigFixed;
 extern NSString* const PartsKeyDataParts;
 extern NSString* const PartsKeyDataPartsBaseFilePath;
 extern NSString* const PartsKeyDataPartsFrameFilePath;

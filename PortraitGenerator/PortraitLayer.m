@@ -105,6 +105,12 @@ int const ZINDEX_FRAME = 1000;
 
 - (void)ccTouchMoved:(UITouch *)touch withEvent:(UIEvent *)event
 {
+    NSDictionary* config = [Parts configForCategory:self.selectedCategory];
+    BOOL fixed = [[config objectForKey:PartsKeyDataConfigFixed] boolValue];
+    if (fixed) {
+        return;
+    }
+    
     CGPoint touchLocation = [self convertTouchToNodeSpace:touch];
     
     CGPoint oldTouchLocation = [touch previousLocationInView:touch.view];
@@ -115,7 +121,8 @@ int const ZINDEX_FRAME = 1000;
     if (self.touchedNode) {
         CGPoint newPos = ccpAdd(self.touchedNode.position, translation);
         self.touchedNode.position = newPos;
-        Figure* figure = self.touchedNode.userData;
+        NSString* category = self.touchedNode.userObject;
+        Figure* figure = [self.figureSet figureWithCategory:category];
         figure.position = self.touchedNode.position;
         [self.figureSet add:figure];
     }
@@ -130,7 +137,8 @@ int const ZINDEX_FRAME = 1000;
 {
     CCNode* newNode = nil;
     for (CCNode* node in self.nodeList) {
-        Figure* figure = node.userData;
+        NSString* category = node.userObject;
+        Figure* figure = [self.figureSet figureWithCategory:category];
         CGRect nodeRect = node.boundingBox;
         if (figure.isCouple) {
             float x = 0;
@@ -148,6 +156,8 @@ int const ZINDEX_FRAME = 1000;
             
             if (CGRectContainsPoint(nodeRect, touchLoation)) {
                 newNode = node;
+                self.selectedCategory = category;
+                [self notifySelectedCategoryChanged];
             }
         } else {
             for (CCSprite* sprite in [node children]) {
@@ -156,6 +166,8 @@ int const ZINDEX_FRAME = 1000;
                 spriteRect.origin.y = nodeRect.origin.y - spriteRect.size.height/2;
                 if (CGRectContainsPoint(spriteRect, touchLoation)) {
                     newNode = node;
+                    self.selectedCategory = category;
+                    [self notifySelectedCategoryChanged];
                 }
             }
         }
@@ -167,7 +179,7 @@ int const ZINDEX_FRAME = 1000;
     }
 }
 
-- (void) drawPortrait
+- (void)drawPortrait
 {
     CGSize size = [[CCDirector sharedDirector] winSize];
     
@@ -244,7 +256,7 @@ int const ZINDEX_FRAME = 1000;
                     [node addChild:frame z:0 tag:@"frame"];
                 }
             }
-            node.userData = figure;
+            node.userObject = category;
             node.position = figure.position;
             
             int zindex = [[config objectForKey:PartsKeyDataConfigZindex] intValue];
@@ -675,6 +687,13 @@ int const ZINDEX_FRAME = 1000;
     [self removePortraitFrame];
     [self removePartsCategoryView];
     [self removePartsListView];
+}
+
+- (void)notifySelectedCategoryChanged
+{
+    NSDictionary* dictionary = [NSDictionary dictionaryWithObject:self.selectedCategory forKey:@"category"];
+    NSNotification* nc = [NSNotification notificationWithName:NOTIFICATION_SELECTED_CATEGORY_CHANGED object:self userInfo:dictionary];
+    [[NSNotificationCenter defaultCenter] postNotification:nc];
 }
 
 - (void) dealloc

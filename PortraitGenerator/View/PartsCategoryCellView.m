@@ -27,13 +27,12 @@
 - (void)registerNotification {
     NSNotificationCenter* nc = [NSNotificationCenter defaultCenter];
     [nc addObserver:self selector:@selector(partsCategorySelected:) name:NOTIFICATION_PARTS_CATEGORY_BUTTON_PUSHED object:nil];
+    [nc addObserver:self selector:@selector(selectedCategoryChanged:) name:NOTIFICATION_SELECTED_CATEGORY_CHANGED object:nil];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {
     [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
 }
 
 -(void)set:(NSString*)category
@@ -42,14 +41,34 @@
     [self.button setTitle:category forState:UIControlStateNormal];
 }
 - (IBAction)buttonPushed:(id)sender {
+    [self buttonToSelected];
+    [self notifyToOtherCells];
+}
+
+- (void)buttonToSelected
+{
     [[self.button layer] setBorderColor:[[UIColor blackColor] CGColor]];
     [[self.button layer] setBorderWidth:3.0f];
+}
+
+- (void)notifyToOtherCells
+{
     NSDictionary* dictionary = [NSDictionary dictionaryWithObject:self.category forKey:@"category"];
     NSNotification* nc = [NSNotification notificationWithName:NOTIFICATION_PARTS_CATEGORY_BUTTON_PUSHED object:self userInfo:dictionary];
     [[NSNotificationCenter defaultCenter] postNotification:nc];
 }
 
-- (void) partsCategorySelected:(NSNotification*)center{
+- (void)selectedCategoryChanged:(NSNotification*)center
+{
+    NSString* category = [[center userInfo] objectForKey:@"category"];
+    if ([category length] != 0 && [self.category isEqualToString:category]) {
+        [self buttonToSelected];
+        [self notifyToOtherCells];
+    }
+}
+
+- (void)partsCategorySelected:(NSNotification*)center
+{
     NSString* category = [[center userInfo] objectForKey:@"category"];
     if ([category length] != 0 && ![self.category isEqualToString:category]) {
         [[self.button layer] setBorderWidth:0.0f];
