@@ -176,6 +176,7 @@
 		B0544AD516E199AD0028DD55 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = B0544AD016E199AD0028DD55 /* Default.png */; };
 		B0544AD616E199AD0028DD55 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B0544AD116E199AD0028DD55 /* Default@2x.png */; };
 		B0544AD916E199FF0028DD55 /* PortraitLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = B0544AD816E199FF0028DD55 /* PortraitLayer.m */; };
+		B0548750172DE62A00DE3AC3 /* parts_list_base.png in Resources */ = {isa = PBXBuildFile; fileRef = B054874F172DE62A00DE3AC3 /* parts_list_base.png */; };
 		B0627C8E172B6B7D0088CB76 /* TopLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = B0627C8D172B6B7D0088CB76 /* TopLayer.m */; };
 		B0B3C50316E2F7C30053512D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B0B3C50516E2F7C30053512D /* Localizable.strings */; };
 		B0BC3F9B16FDF1DD00F86D79 /* PartsCategoryCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = B0BC3F9A16FDF1DD00F86D79 /* PartsCategoryCellView.m */; };
@@ -760,6 +761,7 @@
 		B0544AD116E199AD0028DD55 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		B0544AD716E199FF0028DD55 /* PortraitLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PortraitLayer.h; sourceTree = "<group>"; };
 		B0544AD816E199FF0028DD55 /* PortraitLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PortraitLayer.m; sourceTree = "<group>"; };
+		B054874F172DE62A00DE3AC3 /* parts_list_base.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = parts_list_base.png; sourceTree = "<group>"; };
 		B0627C8C172B6B7D0088CB76 /* TopLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopLayer.h; sourceTree = "<group>"; };
 		B0627C8D172B6B7D0088CB76 /* TopLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopLayer.m; sourceTree = "<group>"; };
 		B0B3C50416E2F7C30053512D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -1827,6 +1829,7 @@
 		B0544ACE16E199AD0028DD55 /* general */ = {
 			isa = PBXGroup;
 			children = (
+				B054874F172DE62A00DE3AC3 /* parts_list_base.png */,
 				B013D2DE172CA12100657FC8 /* linebutton_40x40.png */,
 				B013D2C4172BBAE400657FC8 /* portrait_area_rect-hd.png */,
 				B013D2C5172BBAE400657FC8 /* portrait_area_rect.png */,
@@ -2201,6 +2204,7 @@
 				B0C06A68172D4A9000093765 /* righteyebrow004_line.png in Resources */,
 				B0C06A69172D4A9000093765 /* righteyebrow005_line-hd.png in Resources */,
 				B0C06A6A172D4A9000093765 /* righteyebrow005_line.png in Resources */,
+				B0548750172DE62A00DE3AC3 /* parts_list_base.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
