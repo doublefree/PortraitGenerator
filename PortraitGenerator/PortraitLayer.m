@@ -295,7 +295,12 @@ int const ZINDEX_FRAME = 1000;
         if (oldFigure) {
             figure.position = oldFigure.position;
         } else {
-            figure.position = CGPointMake(size.width * [[config objectForKey:PartsKeyDataConfigX] doubleValue], size.height * [[config objectForKey:PartsKeyDataConfigY] doubleValue]);
+            float frameHeight = self.frameSprite.contentSize.height;
+            float offsetBottom = self.frameSprite.position.y - self.frameSprite.contentSize.height/2;
+            //figure.position = CGPointMake(size.width * [[config objectForKey:PartsKeyDataConfigX] doubleValue], size.height * [[config objectForKey:PartsKeyDataConfigY] doubleValue]);
+            float x = size.width * [[config objectForKey:PartsKeyDataConfigX] doubleValue];
+            float y = frameHeight * [[config objectForKey:PartsKeyDataConfigY] doubleValue] + offsetBottom;
+            figure.position = CGPointMake(x, y);
         }
         
         [self.figureSet add:figure];
