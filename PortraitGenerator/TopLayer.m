@@ -22,35 +22,49 @@
 -(id) init
 {
 	if( (self=[super init]) ) {
-		CCLabelTTF *label = [CCLabelTTF labelWithString:@"Portrait Generator" fontName:@"Marker Felt" fontSize:36];
-		CGSize size = [[CCDirector sharedDirector] winSize];
-		label.position =  ccp( size.width /2 , size.height/3 * 2 );
-		[self addChild: label];
+        CGSize size = [[CCDirector sharedDirector] winSize];
         
-		[CCMenuItemFont setFontSize:28];
-		
-		CCMenuItem *itemGenerate = [CCMenuItemFont itemWithString:@"Make New!!" block:^(id sender) {
+        // background
+        CCSprite* background = [CCSprite spriteWithFile:@"background.png"];
+        background.position = CGPointMake(size.width/2, size.height/2);
+        [self addChild:background z:0];
+        
+        // menu
+        CCSprite* spriteGenerate = [CCSprite spriteWithFile:@"makenewface_button.png"];
+        CCSprite* spriteGenerateSelected = [CCSprite spriteWithFile:@"makenewface_button.png"];
+        spriteGenerateSelected.opacity = 0x7f;
+        
+        CCMenuItem *itemGenerate = [CCMenuItemImage itemWithNormalSprite:spriteGenerate selectedSprite:spriteGenerateSelected block:^(id sender) {
             [self removeBanner];
 			[[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[PortraitLayer scene]]];
 		}];
-		CCMenuItem *itemGallary = [CCMenuItemFont itemWithString:@"Gallary" block:^(id sender) {
+        
+        CCSprite* spriteGallary = [CCSprite spriteWithFile:@"gallary_button.png"];
+        CCSprite* spriteGallarySelected = [CCSprite spriteWithFile:@"gallary_button.png"];
+        spriteGallarySelected.opacity = 0x7f;
+        
+		CCMenuItem* itemGallary = [CCMenuItemImage itemWithNormalSprite:spriteGallary selectedSprite:spriteGallarySelected block:^(id sender) {
 			LoadViewController* loadViewController = [[LoadViewController alloc] initWithNibName:@"LoadViewController" bundle:nil];
             AppController *app = (AppController*) [[UIApplication sharedApplication] delegate];
             
             [app.navController presentModalViewController: loadViewController animated:YES];
 		}];
         
+        CCMenu *menu = [CCMenu menuWithItems:itemGenerate, itemGallary, nil];
+		
+		[menu alignItemsVerticallyWithPadding:30];
+		[menu setPosition:ccp(size.width/2, (size.height + GAD_SIZE_320x50.height)/2)];
+		
+		[self addChild:menu z:10];
+        
         // banner
-        bannerView_ = [[GADBannerView alloc] initWithAdSize:kGADAdSizeBanner];
+        bannerView_ = [[GADBannerView alloc]
+                       initWithFrame:CGRectMake(0.0, size.height - GAD_SIZE_320x50.height, GAD_SIZE_320x50.width, GAD_SIZE_320x50.height)];
+
         bannerView_.adUnitID = GOOGLE_AD_ID;
         bannerView_.rootViewController = self;
 		
-		CCMenu *menu = [CCMenu menuWithItems:itemGenerate, itemGallary, nil];
 		
-		[menu alignItemsHorizontallyWithPadding:20];
-		[menu setPosition:ccp(size.width/2, size.height/2 - 50)];
-		
-		[self addChild:menu];
         [self showBanner];
         
         // notification
