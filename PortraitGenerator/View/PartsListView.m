@@ -11,6 +11,7 @@
 #import "Parts.h"
 
 @interface PartsListView()
+- (IBAction)closeButtonPushed:(id)sender;
 @end
 
 @implementation PartsListView
@@ -61,5 +62,8 @@
 - (void)dealloc {
     [_tableView release];
     [super dealloc];
+}
+- (IBAction)closeButtonPushed:(id)sender {
+    [self removeFromSuperview];
 }
 @end
