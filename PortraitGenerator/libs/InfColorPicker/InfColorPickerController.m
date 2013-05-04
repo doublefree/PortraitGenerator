@@ -51,6 +51,7 @@ static void HSVFromUIColor( UIColor* color, float* h, float* s, float* v )
 - (IBAction) takeBackgroundColor: (UIView*) sender;
 - (IBAction) done: (id) sender;
 - (IBAction)closeButtionPushed:(id)sender;
+- (IBAction)cancelButtonPushed:(id)sender;
 
 @end
 
@@ -142,6 +143,7 @@ static void HSVFromUIColor( UIColor* color, float* h, float* s, float* v )
 
 - (void) viewDidUnload
 {
+    [self setCancelButtonPushed:nil];
 	[ super viewDidUnload ];
 	
 	// Release any retained subviews of the main view.
@@ -215,6 +217,10 @@ static void HSVFromUIColor( UIColor* color, float* h, float* s, float* v )
 
 - (IBAction)closeButtionPushed:(id)sender {
     [self.delegate colorPickerControllerDidFinish: self];
+    [self dismissModalViewControllerAnimated:YES];
+}
+
+- (IBAction)cancelButtonPushed:(id)sender {
     [self dismissModalViewControllerAnimated:YES];
 }
 

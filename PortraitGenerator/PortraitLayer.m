@@ -525,8 +525,14 @@ int const ZINDEX_FRAME = 1000;
 
 - (void)colorChangeSeletctedFigure
 {
+    Figure* figure = [self.figureSet figureWithCategory:self.selectedCategory];
+    
     InfColorPickerController* picker = [InfColorPickerController colorPickerViewController];
     picker.delegate = self;
+    
+    if (figure.isColored) {
+        picker.sourceColor = [UIColor colorWithRed:((float)figure.red)/255.0f green:((float)figure.green)/255.0f blue:((float)figure.blue)/255.0f alpha:1.0f];
+    }
     
     AppController *app = (AppController*) [[UIApplication sharedApplication] delegate];
     [app.navController presentModalViewController: picker animated:YES];
@@ -535,18 +541,19 @@ int const ZINDEX_FRAME = 1000;
 - (void) colorPickerControllerDidFinish: (InfColorPickerController*) picker
 {
     Figure* figure = [self.figureSet figureWithCategory:self.selectedCategory];
-    if (figure && figure) {
+    if (figure) {
         UIColor* color = picker.resultColor;
         CGFloat r, g, b, a;
         if (![color getRed:&r green:&g blue:&b alpha:&a]) {
             [color getWhite:&r alpha:&a];
             g = b = r;
         }
-        figure.isColored = true;
+        figure.isColored = YES;
         figure.red = r * 255;
         figure.green = g * 255;
         figure.blue = b * 255;
         
+        [self.figureSet add:figure];
         [self drawPortrait];
     }
 }
