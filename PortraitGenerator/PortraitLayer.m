@@ -88,6 +88,13 @@ int const PARTS_LIST_HEIGHT = 63;
         [self drawPortrait];
         [self showControls];
         [self showPortraitFrame];
+        
+        /* tutorial
+        UIWebView *wv = [[UIWebView alloc] init];
+        wv.frame = CGRectMake(0, 0, size.width, size.height);
+        [wv loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"tutorial" ofType:@"html"]isDirectory:NO]]];
+        [[[CCDirector sharedDirector] view] addSubview:wv];
+        */
     }
 	return self;
 }
