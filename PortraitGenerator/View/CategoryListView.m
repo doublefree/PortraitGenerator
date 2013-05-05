@@ -1,16 +1,30 @@
 //
-//  PartsTableDataDelegate.m
+//  CategoryListView.m
 //  PortraitGenerator
 //
-//  Created by Watabe Takuya on 3/23/13.
+//  Created by Watabe Takuya on 5/5/13.
 //
 //
 
-#import "PartsTableDataDelegate.h"
-#import "PartsCategoryCellView.h"
+#import "CategoryListView.h"
 #import "Parts.h"
+#import "PartsCategoryCellView.h"
 
-@implementation PartsTableDataDelegate
+@interface CategoryListView()
+@end
+
+
+@implementation CategoryListView
+
+- (id)initWithFrame:(CGRect)frame
+{
+    self = [super initWithFrame:frame];
+    if (self) {
+        // Initialization code
+    }
+    return self;
+}
+
 - (NSInteger)numberOfSections
 {
     return 1;
@@ -23,7 +37,8 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [[[Parts dictionary] objectForKey:PartsKeyCategory] count];
+    int count = [[[Parts dictionary] objectForKey:PartsKeyCategory] count];
+    return count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -42,6 +57,11 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 45;
+    return CATEGORY_CELL_HEIGHT+2;
+}
+
+- (void)dealloc {
+    [_tableView release];
+    [super dealloc];
 }
 @end

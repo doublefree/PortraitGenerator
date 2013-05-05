@@ -10,11 +10,11 @@
 #import "Portrait.h"
 #import "FigureSet.h"
 #import "LoadViewController.h"
-#import "PartsTableDataDelegate.h"
 #import "Parts.h"
 #import "PartsListView.h"
 #import "SaveViewController.h"
 #import "TopLayer.h"
+#import "CategoryListView.h"
 
 int const TAG_MENU = 1;
 int const TAG_IMAGE_CONTROL = 2;
@@ -28,7 +28,11 @@ double const PADDING_MENU = 10.0f;
 double const PADDING_FRAME = 30.0f;
 
 int const ZINDEX_IMAGE_CONTROL = 1010;
-int const ZINDEX_FRAME = 1000;
+int const ZINDEX_BACKGROUND = -100;
+int const ZINDEX_FRAME = -10;
+
+int const PARTS_CATEGORY_HEIGHT = 50;
+int const PARTS_LIST_HEIGHT = 63;
 
 @interface PortraitLayer()
 @property (retain, nonatomic) NSMutableArray* nodeList;
@@ -40,9 +44,8 @@ int const ZINDEX_FRAME = 1000;
 @property (retain, nonatomic) CCMenuItem* saveMenu;
 @property (retain, nonatomic) NSString* loadedName;
 @property (retain, nonatomic) PartsListView* selectedPartsListView;
-@property (retain, nonatomic) CCLayerColor* background;
 @property (retain, nonatomic) CCSprite* frameSprite;
-@property (retain, nonatomic) UITableView* partsCategoryView;
+@property (retain, nonatomic) CategoryListView* categoryListView;
 @property (retain, nonatomic) NSString* name;
 @end
 
@@ -70,28 +73,21 @@ int const ZINDEX_FRAME = 1000;
 {
 	if( (self=[super init]) ) {
         CGSize size = [[CCDirector sharedDirector] winSize];
+        
         [[[CCDirector sharedDirector] touchDispatcher] addTargetedDelegate:self priority:0 swallowsTouches:YES];
         [self registerNotification];
         
-        self.background = [CCLayerColor layerWithColor:ccc4(204, 0, 102, 255)];
-        [self addChild:self.background z:-1];
+        CCSprite* background = [CCSprite spriteWithFile:@"background.png"];
+        background.position = CGPointMake(size.width/2, size.height/2);
+        [self addChild:background z:ZINDEX_BACKGROUND];
         
         self.nodeList = [[[NSMutableArray alloc] init] autorelease];
         self.frameSprite = [CCSprite spriteWithFile:@"portrait_area_rect.png"];
         self.figureSet = [FigureSet figureSetFromName:@""];
+        
         [self drawPortrait];
-        
-        self.partsCategoryView = [[UITableView alloc] init];
-        self.partsCategoryView.transform = CGAffineTransformMakeRotation(-M_PI / 2);
-        self.partsCategoryView.backgroundColor = [UIColor clearColor];
-        self.partsCategoryView.frame = CGRectMake(0, size.height - 45, size.width, 45);
-        PartsTableDataDelegate* partsDelegate = [[PartsTableDataDelegate alloc] init];
-        self.partsCategoryView.delegate = partsDelegate;
-        self.partsCategoryView.dataSource = partsDelegate;
-        self.partsCategoryView.bounces = NO;
-        self.partsCategoryView.separatorColor = [UIColor clearColor];
-        
         [self showControls];
+        [self showPortraitFrame];
     }
 	return self;
 }
@@ -297,7 +293,6 @@ int const ZINDEX_FRAME = 1000;
         } else {
             float frameHeight = self.frameSprite.contentSize.height;
             float offsetBottom = self.frameSprite.position.y - self.frameSprite.contentSize.height/2;
-            //figure.position = CGPointMake(size.width * [[config objectForKey:PartsKeyDataConfigX] doubleValue], size.height * [[config objectForKey:PartsKeyDataConfigY] doubleValue]);
             float x = size.width * [[config objectForKey:PartsKeyDataConfigX] doubleValue];
             float y = frameHeight * [[config objectForKey:PartsKeyDataConfigY] doubleValue] + offsetBottom;
             figure.position = CGPointMake(x, y);
@@ -324,9 +319,9 @@ int const ZINDEX_FRAME = 1000;
     controller = [[UIViewController alloc] initWithNibName:@"PartsListView" bundle:nil];
     PartsListView* partsListView  = (PartsListView*)controller.view;
     partsListView.category = category;
-    partsListView.frame = CGRectMake(0, size.height - 100, size.width, 50);
+    partsListView.frame = CGRectMake(0, size.height - (PARTS_CATEGORY_HEIGHT + PARTS_LIST_HEIGHT), size.width, PARTS_LIST_HEIGHT);
     partsListView.tableView.transform = CGAffineTransformMakeRotation(-M_PI / 2);
-    partsListView.tableView.frame = CGRectMake(50,1,size.width-52, 46);
+    partsListView.tableView.frame = CGRectMake(50, PARTS_LIST_HEIGHT - CATEGORY_CELL_HEIGHT - 1,size.width-52, CATEGORY_CELL_HEIGHT);
     partsListView.tableView.bounces = NO;
     partsListView.tableView.separatorColor = [UIColor clearColor];
     partsListView.tableView.delegate = partsListView;
@@ -676,19 +671,38 @@ int const ZINDEX_FRAME = 1000;
 
 - (void)showPartsCategoryView
 {
-    [[[CCDirector sharedDirector] view] addSubview:self.partsCategoryView];
+    CGSize size = [[CCDirector sharedDirector] winSize];
+    
+    UIViewController* controller;
+    controller = [[UIViewController alloc] initWithNibName:@"CategoryListView" bundle:nil];
+    CategoryListView* categoryListView  = (CategoryListView*)controller.view;
+    categoryListView.frame = CGRectMake(0, size.height-PARTS_CATEGORY_HEIGHT, size.width, PARTS_CATEGORY_HEIGHT);
+    
+    categoryListView.tableView.transform = CGAffineTransformMakeRotation(-M_PI / 2);
+    categoryListView.tableView.frame = CGRectMake(2,0,size.width-2, 49);
+    categoryListView.tableView.separatorColor = [UIColor clearColor];
+    categoryListView.tableView.delegate = categoryListView;
+    categoryListView.tableView.dataSource = categoryListView;
+    categoryListView.tableView.bounces = NO;
+    categoryListView.tableView.separatorColor = [UIColor clearColor];
+    categoryListView.tableView.backgroundColor = [UIColor clearColor];
+    categoryListView.tableView.showsVerticalScrollIndicator = NO;
+    
+    [[[CCDirector sharedDirector] view] addSubview:categoryListView];
+    [categoryListView.tableView reloadData];
+    
+    self.categoryListView = categoryListView;
 }
 
 - (void)removePartsCategoryView
 {
-    [self.partsCategoryView removeFromSuperview];
+    [self.categoryListView removeFromSuperview];
 }
 
 - (void)showControls
 {
     [self showImageControl];
     [self showMainControl];
-    [self showPortraitFrame];
     [self showPartsCategoryView];
 }
 
@@ -696,7 +710,7 @@ int const ZINDEX_FRAME = 1000;
 {
     [self removeImageControl];
     [self removeMainControl];
-    [self removePortraitFrame];
+    [self removePartsListView];
     [self removePartsCategoryView];
     [self removePartsListView];
 }

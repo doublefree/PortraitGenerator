@@ -13,6 +13,9 @@
 @property (retain, nonatomic) NSString* category;
 @end
 
+static const NSString* imageNameSelectedFormat = @"category_%@_selected";
+static const NSString* imageNameUnSelectedFormat = @"category_%@_unselected";
+
 @implementation PartsCategoryCellView
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
@@ -38,7 +41,9 @@
 -(void)set:(NSString*)category
 {
     self.category = category;
-    [self.button setTitle:category forState:UIControlStateNormal];
+    NSString* pathNormal = [[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:(NSString*)imageNameUnSelectedFormat, self.category] ofType:@"png"];
+    UIImage* imageNormal = [UIImage imageWithContentsOfFile:pathNormal];
+    [self.button setBackgroundImage:imageNormal forState:UIControlStateNormal];
 }
 - (IBAction)buttonPushed:(id)sender {
     [self buttonToSelected];
@@ -47,8 +52,9 @@
 
 - (void)buttonToSelected
 {
-    [[self.button layer] setBorderColor:[[UIColor blackColor] CGColor]];
-    [[self.button layer] setBorderWidth:3.0f];
+    NSString* pathSelected = [[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:(NSString*)imageNameSelectedFormat, self.category] ofType:@"png"];
+    UIImage* imageSelected = [UIImage imageWithContentsOfFile:pathSelected];
+    [self.button setBackgroundImage:imageSelected forState:UIControlStateNormal];
 }
 
 - (void)notifyToOtherCells
@@ -71,7 +77,9 @@
 {
     NSString* category = [[center userInfo] objectForKey:@"category"];
     if ([category length] != 0 && ![self.category isEqualToString:category]) {
-        [[self.button layer] setBorderWidth:0.0f];
+        NSString* pathNormal = [[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:(NSString*)imageNameUnSelectedFormat, self.category] ofType:@"png"];
+        UIImage* imageNormal = [UIImage imageWithContentsOfFile:pathNormal];
+        [self.button setBackgroundImage:imageNormal forState:UIControlStateNormal];
     }
 }
 

@@ -19,6 +19,7 @@ NSString* const NOTIFICATION_PARTS_BUTTON_PUSHED = @"notification_parts_button_p
 NSString* const NOTIFICATION_SELECTED_CATEGORY_CHANGED = @"notification_selected_category_changed";
 
 NSString* const GOOGLE_AD_ID = @"a1517b36c098dbe";
+int const CATEGORY_CELL_HEIGHT = 45;
 
 @implementation AppController
 

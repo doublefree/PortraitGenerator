@@ -56,7 +56,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 45;
+    return CATEGORY_CELL_HEIGHT;
 }
 
 - (void)dealloc {

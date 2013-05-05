@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AppDelegate.h"
 
 @interface PartsListView : UIView <UITableViewDataSource, UITableViewDelegate>
 @property (retain, nonatomic) NSString* category;
