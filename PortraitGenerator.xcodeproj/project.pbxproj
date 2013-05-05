@@ -94,6 +94,7 @@
 		B029D78017368BAA00E4379A /* itemselect_background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B029D77E17368BAA00E4379A /* itemselect_background@2x.png */; };
 		B029D7871736AAF200E4379A /* tutorial.html in Resources */ = {isa = PBXBuildFile; fileRef = B029D7841736AAF200E4379A /* tutorial.html */; };
 		B029D7891736B16800E4379A /* tutorial_1.png in Resources */ = {isa = PBXBuildFile; fileRef = B029D7881736B16800E4379A /* tutorial_1.png */; };
+		B029D78D1736B85B00E4379A /* libFlurry.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B029D78C1736B85B00E4379A /* libFlurry.a */; };
 		B054493416E1995D0028DD55 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B054493316E1995D0028DD55 /* QuartzCore.framework */; };
 		B054493616E1995D0028DD55 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B054493516E1995D0028DD55 /* OpenGLES.framework */; };
 		B054493816E1995D0028DD55 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B054493716E1995D0028DD55 /* OpenAL.framework */; };
@@ -601,6 +602,8 @@
 		B029D77E17368BAA00E4379A /* itemselect_background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "itemselect_background@2x.png"; sourceTree = "<group>"; };
 		B029D7841736AAF200E4379A /* tutorial.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = tutorial.html; sourceTree = "<group>"; };
 		B029D7881736B16800E4379A /* tutorial_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tutorial_1.png; sourceTree = "<group>"; };
+		B029D78B1736B85B00E4379A /* Flurry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Flurry.h; sourceTree = "<group>"; };
+		B029D78C1736B85B00E4379A /* libFlurry.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libFlurry.a; sourceTree = "<group>"; };
 		B054493016E1995D0028DD55 /* PortraitGenerator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PortraitGenerator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B054493316E1995D0028DD55 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		B054493516E1995D0028DD55 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -1163,6 +1166,7 @@
 				B054494016E1995D0028DD55 /* Foundation.framework in Frameworks */,
 				B054494416E1995D0028DD55 /* GameKit.framework in Frameworks */,
 				B013D2AB172B71D100657FC8 /* libGoogleAdMobAds.a in Frameworks */,
+				B029D78D1736B85B00E4379A /* libFlurry.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1517,6 +1521,16 @@
 			path = Resources/html;
 			sourceTree = "<group>";
 		};
+		B029D78A1736B85B00E4379A /* Flurry */ = {
+			isa = PBXGroup;
+			children = (
+				B029D78B1736B85B00E4379A /* Flurry.h */,
+				B029D78C1736B85B00E4379A /* libFlurry.a */,
+			);
+			name = Flurry;
+			path = libs/Flurry;
+			sourceTree = "<group>";
+		};
 		B054492716E1995D0028DD55 = {
 			isa = PBXGroup;
 			children = (
@@ -1596,6 +1610,7 @@
 		B054496016E1995D0028DD55 /* libs */ = {
 			isa = PBXGroup;
 			children = (
+				B029D78A1736B85B00E4379A /* Flurry */,
 				B013D215172B71D100657FC8 /* GoogleAdMobAdsSdkiOS-6.4.1 */,
 				6503E25E170053B100F13AFF /* InfColorPicker */,
 				B054496116E1995D0028DD55 /* cocos2d */,
@@ -2660,6 +2675,7 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/PortraitGenerator/libs/GoogleAdMobAdsSdkiOS-6.4.1/Add-ons/GoogleAnalyticsiOS_2.0beta4/Library\"",
 					"\"$(SRCROOT)/PortraitGenerator/libs/GoogleAdMobAdsSdkiOS-6.4.1\"",
+					"\"$(SRCROOT)/PortraitGenerator/libs/Flurry\"",
 				);
 				OTHER_LDFLAGS = (
 					"-lz",
@@ -2683,6 +2699,7 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/PortraitGenerator/libs/GoogleAdMobAdsSdkiOS-6.4.1/Add-ons/GoogleAnalyticsiOS_2.0beta4/Library\"",
 					"\"$(SRCROOT)/PortraitGenerator/libs/GoogleAdMobAdsSdkiOS-6.4.1\"",
+					"\"$(SRCROOT)/PortraitGenerator/libs/Flurry\"",
 				);
 				OTHER_LDFLAGS = (
 					"-lz",

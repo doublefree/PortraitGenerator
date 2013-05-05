@@ -97,6 +97,9 @@ int const CATEGORY_CELL_HEIGHT = 45;
 	
 	// make main window visible
 	[window_ makeKeyAndVisible];
+    
+    // Flurry
+    [Flurry startSession:@"J33G6JY6CY958N9Y9DX9"];
 	
 	return YES;
 }
