@@ -32,7 +32,11 @@
     
     [[self.view layer] setBorderColor:[[UIColor blackColor] CGColor]];
     [[self.view layer] setBorderWidth:2.0];
-	
+    
+    UIScrollView* webScrollView = [[self.webview subviews] lastObject];
+    if([webScrollView respondsToSelector:@selector(setScrollEnabled:)]){
+        [webScrollView setScrollEnabled:NO];
+    }
     [self.webview loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"tutorial" ofType:@"html"]isDirectory:NO]]];
 }
 

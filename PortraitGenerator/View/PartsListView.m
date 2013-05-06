@@ -79,5 +79,7 @@
 
 - (IBAction)closeButtonPushed:(id)sender {
     [self removeFromSuperview];
+    NSNotification* nc = [NSNotification notificationWithName:NOTIFICATION_DELETE_ALL_CONTROL_VIEW object:self userInfo:nil];
+    [[NSNotificationCenter defaultCenter] postNotification:nc];
 }
 @end
