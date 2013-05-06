@@ -8,8 +8,8 @@
 
 #import "Figure.h"
 
-int const FigureScaleMax = 2;
-int const FigureScaleMin = -2;
+int const FigureScaleMax = 8;
+int const FigureScaleMin = -8;
 int const FigureDistanceMax = 2;
 int const FigureDistanceMin = -2;
 int const FigureRotateDegree = 45;
