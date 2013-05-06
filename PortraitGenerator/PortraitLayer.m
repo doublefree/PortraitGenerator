@@ -67,19 +67,19 @@ NSString* const TUTORIAL_UD_KEY = @"portrait_layer_tutorial_key";
 	PortraitLayer *layer = [PortraitLayer node];
     layer.name = name;
     layer.figureSet = [FigureSet figureSetFromName:name];
-    [layer drawPortrait];
 	[scene addChild: layer];
+    [layer drawPortrait];
 	return scene;
 }
 
 -(id)init
 {
 	if( (self=[super init]) ) {
-        CGSize size = [[CCDirector sharedDirector] winSize];
-        
-        [[[CCDirector sharedDirector] touchDispatcher] addTargetedDelegate:self priority:0 swallowsTouches:YES];
         [self registerNotification];
         
+        [[[CCDirector sharedDirector] touchDispatcher] addTargetedDelegate:self priority:0 swallowsTouches:YES];
+        
+        CGSize size = [[CCDirector sharedDirector] winSize];
         CCSprite* background = [CCSprite spriteWithFile:@"background.png"];
         background.position = CGPointMake(size.width/2, size.height/2);
         [self addChild:background z:ZINDEX_BACKGROUND];

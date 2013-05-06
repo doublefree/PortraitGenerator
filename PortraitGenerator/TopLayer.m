@@ -10,6 +10,8 @@
 #import "PortraitLayer.h"
 #import "LoadViewController.h"
 
+const int TAG_TOP_MENU = 100;
+
 @implementation TopLayer
 +(CCScene *) scene
 {
@@ -55,7 +57,7 @@
 		[menu alignItemsVerticallyWithPadding:30];
 		[menu setPosition:ccp(size.width/2, (size.height + GAD_SIZE_320x50.height)/2)];
 		
-		[self addChild:menu z:10];
+		[self addChild:menu z:10 tag:TAG_TOP_MENU];
         
         // banner
         bannerView_ = [[GADBannerView alloc]
@@ -63,7 +65,6 @@
 
         bannerView_.adUnitID = GOOGLE_AD_ID;
         bannerView_.rootViewController = self;
-		
 		
         [self showBanner];
         
@@ -78,6 +79,7 @@
     NSString* name = [[center userInfo] objectForKey:@"name"];
     if ([name length] != 0) {
         [self removeBanner];
+        [self removeChildByTag:TAG_TOP_MENU cleanup:YES]; // workaround for iphone4
         [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[PortraitLayer sceneWithName:name]]];
     }
 }
