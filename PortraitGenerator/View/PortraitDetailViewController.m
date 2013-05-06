@@ -11,6 +11,7 @@
 
 const NSString* IMAGE_POST_URL = @"http://wiz-r.com/portrait/save.php";
 const NSString* SHOW_URL_FORMAT = @"http://wiz-r.com/portrait/show.php?id=%@";
+const NSString* IMAGE_URL_FORMAT = @"http://wiz-r.com/portrait/data/%@.png";
 
 @interface PortraitDetailViewController ()
 @property (retain, nonatomic) NSString* name;
@@ -20,6 +21,7 @@ const NSString* SHOW_URL_FORMAT = @"http://wiz-r.com/portrait/show.php?id=%@";
 - (IBAction)lineButtonPushed:(id)sender;
 - (IBAction)closeButtonPushed:(id)sender;
 - (IBAction)smsButtonPushed:(id)sender;
+- (IBAction)fbButtonPushed:(id)sender;
 @end
 
 @implementation PortraitDetailViewController
@@ -45,6 +47,9 @@ const NSString* SHOW_URL_FORMAT = @"http://wiz-r.com/portrait/show.php?id=%@";
     self.titleTextField.text = self.name;
     self.image = [UIImage imageWithData:[dictionary objectForKey:@"image"]];
     self.imageView.image = self.image;
+    
+    AppController *appDelegate = (AppController *)[[UIApplication sharedApplication] delegate];
+    [appDelegate openSessionWithAllowLoginUI:NO completion:nil];
 }
 
 - (void)didReceiveMemoryWarning
@@ -82,6 +87,63 @@ const NSString* SHOW_URL_FORMAT = @"http://wiz-r.com/portrait/show.php?id=%@";
     ABPeoplePickerNavigationController *picker = [[ABPeoplePickerNavigationController alloc] init];
     picker.peoplePickerDelegate = self;
     [self presentViewController:picker animated:YES completion:nil];
+}
+
+- (IBAction)fbButtonPushed:(id)sender {
+    if (FBSession.activeSession.isOpen) {
+        [self postToFB];
+    } else {
+        AppController *appDelegate = (AppController *)[[UIApplication sharedApplication] delegate];
+        [appDelegate openSessionWithAllowLoginUI:YES completion:^(FBSession* session, FBSessionState state, NSError* error){
+            if (FBSession.activeSession.isOpen) {
+                [self postToFB];
+            }
+        }];
+    }
+}
+
+- (void)postToFB
+{
+    if ([FBSession.activeSession.permissions indexOfObject:@"publish_actions"] == NSNotFound) {
+        // No permissions found in session, ask for it
+        [FBSession.activeSession
+         reauthorizeWithPublishPermissions: [NSArray arrayWithObject:@"publish_actions"]
+         defaultAudience:FBSessionDefaultAudienceFriends
+         completionHandler:^(FBSession *session, NSError *error) {
+             if (!error) {
+                 [self postToFB];
+             }
+         }];
+        return;
+    }
+    
+    NSString* message = @"My Portrait is here!!";
+    NSString* appDescription = @"Face Maker";
+    
+    NSString* imageUrlDefault = @"http://wiz-r.com/portrait/images/appicon.png";
+    NSString* imageId = [self uploadPngFile];
+    NSString* imageUrl = nil;
+    NSString* url = nil;
+    if (!imageId || [imageId isEqualToString:@"NG"]) {
+        imageUrl = imageUrlDefault;
+        url = @"http://bit.ly/17HA7If";
+    } else {
+        imageUrl = [NSString stringWithFormat:(NSString*)IMAGE_URL_FORMAT, imageId];
+        url = [NSString stringWithFormat:(NSString*)SHOW_URL_FORMAT, imageId];
+    }
+    
+    NSMutableDictionary* postParams = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
+                                       url, @"link",
+                                       imageUrl, @"picture",
+                                       message, @"name",
+                                       @"Face Maker :)", @"caption",
+                                       appDescription, @"description",
+                                       nil];
+    
+    [FBRequestConnection startWithGraphPath:@"me/feed" parameters:postParams HTTPMethod:@"POST"
+                          completionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
+                              ;;
+                          }];
 }
 
 - (void)messageComposeViewController:(MFMessageComposeViewController *)controller didFinishWithResult:(MessageComposeResult)result {

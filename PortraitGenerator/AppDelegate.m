@@ -18,6 +18,7 @@ NSString* const NOTIFICATION_PARTS_CATEGORY_BUTTON_PUSHED = @"notification_parts
 NSString* const NOTIFICATION_PARTS_BUTTON_PUSHED = @"notification_parts_button_pushed";
 NSString* const NOTIFICATION_SELECTED_CATEGORY_CHANGED = @"notification_selected_category_changed";
 NSString* const NOTIFICATION_DELETE_ALL_CONTROL_VIEW = @"notification_delete_all_control_view";
+NSString* const NOTIFICATION_FB_SESSION_CHANGED = @"notification_fb_session_changed";
 
 NSString* const GOOGLE_AD_ID = @"a1517b36c098dbe";
 int const CATEGORY_CELL_HEIGHT = 45;
@@ -124,6 +125,7 @@ int const CATEGORY_CELL_HEIGHT = 45;
 {
 	if( [navController_ visibleViewController] == director_ )
 		[director_ resume];
+    [FBSession.activeSession handleDidBecomeActive];
 }
 
 -(void) applicationDidEnterBackground:(UIApplication*)application
@@ -141,7 +143,74 @@ int const CATEGORY_CELL_HEIGHT = 45;
 // application will be killed
 - (void)applicationWillTerminate:(UIApplication *)application
 {
+    [FBSession.activeSession close];
 	CC_DIRECTOR_END();
+}
+
+- (void)sessionStateChanged:(FBSession *)session
+                      state:(FBSessionState) state
+                      error:(NSError *)error
+{
+    switch (state) {
+        case FBSessionStateOpen:
+            if (!error) {
+                NSLog(@"User session found");
+                [Flurry logEvent:@"FB_Login"];
+            }
+            break;
+        case FBSessionStateClosed:
+            NSLog(@"User session closed");
+            [Flurry logEvent:@"FB_Logout"];
+            break;
+        case FBSessionStateClosedLoginFailed:
+            [FBSession.activeSession closeAndClearTokenInformation];
+            break;
+        default:
+            break;
+    }
+    
+    [[NSNotificationCenter defaultCenter]
+     postNotificationName:NOTIFICATION_FB_SESSION_CHANGED
+     object:session];
+    
+    if (error) {
+        UIAlertView *alertView = [[UIAlertView alloc]
+                                  initWithTitle:@"Error"
+                                  message:error.localizedDescription
+                                  delegate:nil
+                                  cancelButtonTitle:@"OK"
+                                  otherButtonTitles:nil];
+        [alertView show];
+    }
+}
+
+/*
+ * Opens a Facebook session and optionally shows the login UX.
+ */
+- (BOOL)openSessionWithAllowLoginUI:(BOOL)allowLoginUI completion:(void (^)(FBSession* session, FBSessionState state, NSError* error))completion {
+    NSArray *permissions = [[NSArray alloc] initWithObjects:
+                            @"email",
+                            @"user_likes",
+                            //@"publish_actions",
+                            nil];
+    return [FBSession openActiveSessionWithPublishPermissions:permissions defaultAudience:FBSessionDefaultAudienceEveryone allowLoginUI:allowLoginUI completionHandler:^(FBSession *session2, FBSessionState state2, NSError *error2) {
+        [self sessionStateChanged:session2 state:state2 error:error2];
+        if (completion) {
+            completion(session2, state2, error2);
+        }
+    }];
+}
+
+- (void) closeSession {
+    [FBSession.activeSession closeAndClearTokenInformation];
+}
+
+- (BOOL)application:(UIApplication *)application
+            openURL:(NSURL *)url
+  sourceApplication:(NSString *)sourceApplication
+         annotation:(id)annotation {
+    // attempt to extract a token from the url
+    return [FBSession.activeSession handleOpenURL:url];
 }
 
 // purge memory

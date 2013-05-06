@@ -224,6 +224,14 @@
 		B0544AD616E199AD0028DD55 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B0544AD116E199AD0028DD55 /* Default@2x.png */; };
 		B0544AD916E199FF0028DD55 /* PortraitLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = B0544AD816E199FF0028DD55 /* PortraitLayer.m */; };
 		B0627C8E172B6B7D0088CB76 /* TopLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = B0627C8D172B6B7D0088CB76 /* TopLayer.m */; };
+		B069D3E51737CFA40078DE39 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B069D3E41737CFA40078DE39 /* FacebookSDK.framework */; };
+		B069D3E71737D0390078DE39 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B069D3E61737D0390078DE39 /* Social.framework */; };
+		B069D3E91737D0AE0078DE39 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B069D3E81737D0AE0078DE39 /* Accounts.framework */; };
+		B069D3EB1737D0B80078DE39 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B069D3EA1737D0B80078DE39 /* Security.framework */; };
+		B069D3ED1737D0D60078DE39 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B069D3EC1737D0D60078DE39 /* libsqlite3.dylib */; };
+		B069D3EF1737D3F50078DE39 /* icon_57.png in Resources */ = {isa = PBXBuildFile; fileRef = B069D3EE1737D3F50078DE39 /* icon_57.png */; };
+		B069D3F11737D3F70078DE39 /* icon_114.png in Resources */ = {isa = PBXBuildFile; fileRef = B069D3F01737D3F70078DE39 /* icon_114.png */; };
+		B069D3F31737D7970078DE39 /* facebooktutton.png in Resources */ = {isa = PBXBuildFile; fileRef = B069D3F21737D7970078DE39 /* facebooktutton.png */; };
 		B0B3C50316E2F7C30053512D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B0B3C50516E2F7C30053512D /* Localizable.strings */; };
 		B0BC3F9B16FDF1DD00F86D79 /* PartsCategoryCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = B0BC3F9A16FDF1DD00F86D79 /* PartsCategoryCellView.m */; };
 		B0BC3F9F16FDF22A00F86D79 /* PartsCategoryCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0BC3F9E16FDF22A00F86D79 /* PartsCategoryCellView.xib */; };
@@ -910,6 +918,14 @@
 		B0544AD816E199FF0028DD55 /* PortraitLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PortraitLayer.m; sourceTree = "<group>"; };
 		B0627C8C172B6B7D0088CB76 /* TopLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopLayer.h; sourceTree = "<group>"; };
 		B0627C8D172B6B7D0088CB76 /* TopLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopLayer.m; sourceTree = "<group>"; };
+		B069D3E41737CFA40078DE39 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = PortraitGenerator/libs/FacebookSDK.framework; sourceTree = "<group>"; };
+		B069D3E61737D0390078DE39 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		B069D3E81737D0AE0078DE39 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
+		B069D3EA1737D0B80078DE39 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		B069D3EC1737D0D60078DE39 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		B069D3EE1737D3F50078DE39 /* icon_57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_57.png; sourceTree = "<group>"; };
+		B069D3F01737D3F70078DE39 /* icon_114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_114.png; sourceTree = "<group>"; };
+		B069D3F21737D7970078DE39 /* facebooktutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = facebooktutton.png; sourceTree = "<group>"; };
 		B0B3C50416E2F7C30053512D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		B0B3C50616E2F83A0053512D /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		B0BC3F9916FDF1DD00F86D79 /* PartsCategoryCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PartsCategoryCellView.h; path = View/PartsCategoryCellView.h; sourceTree = "<group>"; };
@@ -1239,10 +1255,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B069D3ED1737D0D60078DE39 /* libsqlite3.dylib in Frameworks */,
+				B013D2B7172B736400657FC8 /* AdSupport.framework in Frameworks */,
+				B069D3EB1737D0B80078DE39 /* Security.framework in Frameworks */,
+				B069D3E91737D0AE0078DE39 /* Accounts.framework in Frameworks */,
+				B054494216E1995D0028DD55 /* CoreGraphics.framework in Frameworks */,
+				B069D3E71737D0390078DE39 /* Social.framework in Frameworks */,
 				B0C1DA11173793B70051864D /* AddressBookUI.framework in Frameworks */,
 				B0C1DA101737937C0051864D /* AddressBook.framework in Frameworks */,
-				B013D2B7172B736400657FC8 /* AdSupport.framework in Frameworks */,
-				B054494216E1995D0028DD55 /* CoreGraphics.framework in Frameworks */,
 				B013D2B5172B734C00657FC8 /* SystemConfiguration.framework in Frameworks */,
 				B013D2B3172B733F00657FC8 /* MessageUI.framework in Frameworks */,
 				B013D2B1172B733000657FC8 /* StoreKit.framework in Frameworks */,
@@ -1256,6 +1276,7 @@
 				B054494416E1995D0028DD55 /* GameKit.framework in Frameworks */,
 				B013D2AB172B71D100657FC8 /* libGoogleAdMobAds.a in Frameworks */,
 				B029D78D1736B85B00E4379A /* libFlurry.a in Frameworks */,
+				B069D3E51737CFA40078DE39 /* FacebookSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1664,6 +1685,12 @@
 		B054492716E1995D0028DD55 = {
 			isa = PBXGroup;
 			children = (
+				B069D3F01737D3F70078DE39 /* icon_114.png */,
+				B069D3EE1737D3F50078DE39 /* icon_57.png */,
+				B069D3EC1737D0D60078DE39 /* libsqlite3.dylib */,
+				B069D3EA1737D0B80078DE39 /* Security.framework */,
+				B069D3E81737D0AE0078DE39 /* Accounts.framework */,
+				B069D3E61737D0390078DE39 /* Social.framework */,
 				B054494516E1995D0028DD55 /* PortraitGenerator */,
 				B054493216E1995D0028DD55 /* Frameworks */,
 				B054493116E1995D0028DD55 /* Products */,
@@ -1681,6 +1708,7 @@
 		B054493216E1995D0028DD55 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B069D3E41737CFA40078DE39 /* FacebookSDK.framework */,
 				B0C1DA0F1737937C0051864D /* AddressBook.framework */,
 				B0C1DA0D173792A50051864D /* AddressBookUI.framework */,
 				B013D2B6172B736400657FC8 /* AdSupport.framework */,
@@ -2100,6 +2128,7 @@
 			children = (
 				B0C1DA12173799130051864D /* smsbutton.png */,
 				B013D2DE172CA12100657FC8 /* linebutton_40x40.png */,
+				B069D3F21737D7970078DE39 /* facebooktutton.png */,
 				B013D2C4172BBAE400657FC8 /* portrait_area_rect-hd.png */,
 				B013D2C5172BBAE400657FC8 /* portrait_area_rect.png */,
 				B0544ACF16E199AD0028DD55 /* Default-568h@2x.png */,
@@ -2634,6 +2663,9 @@
 				B0C1DE791737A8B50051864D /* righteyebrow004_line.png in Resources */,
 				B0C1DE7A1737A8B50051864D /* righteyebrow005_line-hd.png in Resources */,
 				B0C1DE7B1737A8B50051864D /* righteyebrow005_line.png in Resources */,
+				B069D3EF1737D3F50078DE39 /* icon_57.png in Resources */,
+				B069D3F11737D3F70078DE39 /* icon_114.png in Resources */,
+				B069D3F31737D7970078DE39 /* facebooktutton.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2840,6 +2872,10 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/PortraitGenerator/libs\"",
+				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = PortraitGenerator/Prefix.pch;
@@ -2865,6 +2901,10 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/PortraitGenerator/libs\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = PortraitGenerator/Prefix.pch;
 				HEADER_SEARCH_PATHS = "\"PortraitGenerator/libs/kazmath/include\"";
