@@ -1,30 +1,43 @@
 {
-    "category" : ["face", "eye", "eyebrow","fronthair"],
+    "category" : ["accessory","mole","eyebrow","eye","nose","mouth","fronthair","face","ear","backhair"],
     "data" : {
         "eyebrow" : {
             "config" : {
                 "x" : 0.5,
                 "y" : 0.55,
-                "tag" : 103,
+                "tag" : 108,
                 "zindex" : 18,
                 "couple" : true,
-                "distance" : 0.15,
+                "distance" : 0.3,
                 "allow_scale" : true,
                 "allow_rotate" : true,
                 "allow_move" : true,
-                "allow_color" : false
+                "allow_color" : false,
+                "fixed" : true
             },
             "parts" : {
                 "eb001" : {
-                    "base_path" : "eyebrow001.png"
-                }
+                    "base_path" : "righteyebrow001_line.png",
+                },
+                "eb002" : {
+                    "base_path" : "righteyebrow002_line.png",
+                },
+                "eb003" : {
+                    "base_path" : "righteyebrow003_line.png",
+                },
+                "eb004" : {
+                    "base_path" : "righteyebrow004_line.png",
+                },
+                "eb005" : {
+                    "base_path" : "righteyebrow005_line.png",
+                },
             }
         },
         "eye" : {
             "config" : {
                 "x" : 0.5,
                 "y" : 0.5,
-                "tag" : 104,
+                "tag" : 107,
                 "zindex" : 17,
                 "couple" : true,
                 "distance" : 0.35,
@@ -76,11 +89,61 @@
                 }
             }
         },
+        "mouth" : {
+            "config" : {
+                "x" : 0.5,
+                "y" : 0.5,
+                "tag" : 105,
+                "zindex" : 15,
+                "allow_scale" : true,
+                "allow_rotate" : false,
+                "allow_move" : false,
+                "allow_color" : true
+            },
+            "parts" : {
+                "m001" : {
+                    "base_path" : "mouth001_color.png",
+                    "frame_path" : "mouth001_line.png"
+                },
+                "m002" : {
+                    "base_path" : "mouth002_color.png",
+                    "frame_path" : "mouth002_line.png"
+                },
+                "m003" : {
+                    "base_path" : "mouth003_color.png",
+                    "frame_path" : "mouth003_line.png"
+                },
+                "m004" : {
+                    "base_path" : "mouth004_color.png",
+                    "frame_path" : "mouth004_line.png"
+                },
+                "m005" : {
+                    "base_path" : "mouth005_color.png",
+                    "frame_path" : "mouth005_line.png"
+                },
+                "m006" : {
+                    "base_path" : "mouth006_color.png",
+                    "frame_path" : "mouth006_line.png"
+                },
+                "m007" : {
+                    "base_path" : "mouth007_color.png",
+                    "frame_path" : "mouth007_line.png"
+                },
+                "m008" : {
+                    "base_path" : "mouth008_color.png",
+                    "frame_path" : "mouth008_line.png"
+                },
+                "m010" : {
+                    "base_path" : "mouth010_color.png",
+                    "frame_path" : "mouth010_line.png"
+                },
+            }
+        },
         "face" : {
             "config" : {
                 "x" : 0.5,
                 "y" : 0.5,
-                "tag" : 108,
+                "tag" : 103,
                 "zindex" : 13,
                 "allow_scale" : true,
                 "allow_rotate" : false,
@@ -110,11 +173,89 @@
                 }
             }
         },
+        "ear" : {
+            "config" : {
+                "x" : 0.5,
+                "y" : 0.5,
+                "tag" : 102,
+                "zindex" : 12,
+                "allow_scale" : true,
+                "allow_rotate" : false,
+                "allow_move" : false,
+                "allow_color" : true
+            },
+            "parts" : {
+                "er001" : {
+                    "base_path" : "ear001_color.png",
+                    "frame_path" : "ear001_line.png"
+                },
+                "er002" : {
+                    "base_path" : "ear002_color.png",
+                    "frame_path" : "ear002_line.png"
+                },
+                "er003" : {
+                    "base_path" : "ear003_color.png",
+                    "frame_path" : "ear003_line.png"
+                },
+                "er004" : {
+                    "base_path" : "ear004_color.png",
+                    "frame_path" : "ear004_line.png"
+                },
+                "er005" : {
+                    "base_path" : "ear005_color.png",
+                    "frame_path" : "ear005_line.png"
+                }
+            }
+        },
+        "nose" : {
+            "config" : {
+                "x" : 0.5,
+                "y" : 0.5,
+                "tag" : 106,
+                "zindex" : 16,
+                "allow_scale" : true,
+                "allow_rotate" : false,
+                "allow_move" : false,
+                "allow_color" : true
+            },
+            "parts" : {
+                "n001" : {
+                    "base_path" : "nose001_line.png",
+                },
+                "n002" : {
+                    "base_path" : "nose002_line.png",
+                },
+                "n003" : {
+                    "base_path" : "nose003_line.png",
+                },
+                "n004" : {
+                    "base_path" : "nose004_line.png",
+                },
+                "n005" : {
+                    "base_path" : "nose005_line.png",
+                },
+                "n006" : {
+                    "base_path" : "nose006_line.png",
+                },
+                "n007" : {
+                    "base_path" : "nose007_line.png",
+                },
+                "n008" : {
+                    "base_path" : "nose008_line.png",
+                },
+                "n009" : {
+                    "base_path" : "nose009_line.png",
+                },
+                "n010" : {
+                    "base_path" : "nose010_line.png",
+                },
+            }
+        },
         "fronthair" : {
             "config" : {
                 "x" : 0.5,
                 "y" : 0.5,
-                "tag" : 107,
+                "tag" : 104,
                 "zindex" : 14,
                 "allow_scale" : true,
                 "allow_rotate" : false,
@@ -141,8 +282,42 @@
                 "fh005" : {
                     "base_path" : "fronthair005_color.png",
                     "frame_path" : "fronthair005_line.png"
-                }
+                },
             }
-        }
+        },
+        "backthair" : {
+            "config" : {
+                "x" : 0.5,
+                "y" : 0.5,
+                "tag" : 101,
+                "zindex" : 11,
+                "allow_scale" : true,
+                "allow_rotate" : false,
+                "allow_move" : false,
+                "allow_color" : true
+            },
+            "parts" : {
+                "bh001" : {
+                    "base_path" : "backhair001_color.png",
+                    "frame_path" : "backhair001_line.png"
+                },
+                "bh002" : {
+                    "base_path" : "backhair002_color.png",
+                    "frame_path" : "backhair002_line.png"
+                },
+                "bh003" : {
+                    "base_path" : "backhair003_color.png",
+                    "frame_path" : "backhair003_line.png"
+                },
+                "bh004" : {
+                    "base_path" : "backhair004_color.png",
+                    "frame_path" : "backhair004_line.png"
+                },
+                "bh005" : {
+                    "base_path" : "backhair005_color.png",
+                    "frame_path" : "backhair005_line.png"
+                },
+            }
+        },
     }
 }
