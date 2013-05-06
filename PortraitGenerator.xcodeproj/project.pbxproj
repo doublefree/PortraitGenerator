@@ -95,6 +95,8 @@
 		B029D7871736AAF200E4379A /* tutorial.html in Resources */ = {isa = PBXBuildFile; fileRef = B029D7841736AAF200E4379A /* tutorial.html */; };
 		B029D7891736B16800E4379A /* tutorial_1.png in Resources */ = {isa = PBXBuildFile; fileRef = B029D7881736B16800E4379A /* tutorial_1.png */; };
 		B029D78D1736B85B00E4379A /* libFlurry.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B029D78C1736B85B00E4379A /* libFlurry.a */; };
+		B02CA7021737214E003E988C /* TutorialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B02CA7011737214E003E988C /* TutorialViewController.m */; };
+		B02CA70417372160003E988C /* TutorialViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B02CA70317372160003E988C /* TutorialViewController.xib */; };
 		B054493416E1995D0028DD55 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B054493316E1995D0028DD55 /* QuartzCore.framework */; };
 		B054493616E1995D0028DD55 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B054493516E1995D0028DD55 /* OpenGLES.framework */; };
 		B054493816E1995D0028DD55 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B054493716E1995D0028DD55 /* OpenAL.framework */; };
@@ -604,6 +606,9 @@
 		B029D7881736B16800E4379A /* tutorial_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tutorial_1.png; sourceTree = "<group>"; };
 		B029D78B1736B85B00E4379A /* Flurry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Flurry.h; sourceTree = "<group>"; };
 		B029D78C1736B85B00E4379A /* libFlurry.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libFlurry.a; sourceTree = "<group>"; };
+		B02CA7001737214E003E988C /* TutorialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TutorialViewController.h; path = View/TutorialViewController.h; sourceTree = "<group>"; };
+		B02CA7011737214E003E988C /* TutorialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TutorialViewController.m; path = View/TutorialViewController.m; sourceTree = "<group>"; };
+		B02CA70317372160003E988C /* TutorialViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TutorialViewController.xib; path = View/TutorialViewController.xib; sourceTree = "<group>"; };
 		B054493016E1995D0028DD55 /* PortraitGenerator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PortraitGenerator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B054493316E1995D0028DD55 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		B054493516E1995D0028DD55 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -1507,6 +1512,9 @@
 				B0DFF5451735F3D9003D44D1 /* CategoryListView.h */,
 				B0DFF5461735F3DA003D44D1 /* CategoryListView.m */,
 				B0DFF5481735F3FE003D44D1 /* CategoryListView.xib */,
+				B02CA7001737214E003E988C /* TutorialViewController.h */,
+				B02CA7011737214E003E988C /* TutorialViewController.m */,
+				B02CA70317372160003E988C /* TutorialViewController.xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -2461,6 +2469,7 @@
 				B029D78017368BAA00E4379A /* itemselect_background@2x.png in Resources */,
 				B029D7871736AAF200E4379A /* tutorial.html in Resources */,
 				B029D7891736B16800E4379A /* tutorial_1.png in Resources */,
+				B02CA70417372160003E988C /* TutorialViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2603,6 +2612,7 @@
 				B013D2D6172BFB9E00657FC8 /* SaveViewController.m in Sources */,
 				B013D2DD172CA00300657FC8 /* PortraitDetailViewController.m in Sources */,
 				B0DFF5471735F3DA003D44D1 /* CategoryListView.m in Sources */,
+				B02CA7021737214E003E988C /* TutorialViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

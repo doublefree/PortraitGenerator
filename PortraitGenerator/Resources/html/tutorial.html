@@ -3,7 +3,7 @@
 <head>
 <title>Swipe 2</title>
 <meta http-equiv="X-UA-Compatible" content="IE=8">
-<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'/> 
+<meta name='viewport' content='width=initial-scale=1.0, maximum-scale=1.0'/> 
 <style>
 html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, del, dfn, em, img, ins, kbd, q, samp, small, strong, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, table, tbody, tfoot, thead, tr, th, td, article, aside, footer, header, nav, section {
   margin:0;
@@ -119,32 +119,30 @@ html, body {
 
 </head>
 <body>
-<div id='mySwipe' style='max-width:500px;margin:0 auto' class='swipe'>
-  <div class='swipe-wrap'>
-    <div><img src="./tutorial_1.png"></div>
-    <div><b>2</b></div>
-    <div><b>3</b></div>
-    <div><b>4</b></div>
+<div id='mySwipe' style='max-width:300px;margin:0 auto' class='swipe'>
+  <div class='swipe-wrap' align=center>
+    <div><img src="./tutorial_1.png" style="padding:10px"></div>
+    <div><img src="./tutorial_1.png" style="padding:10px"></div>
+    <div><img src="./tutorial_1.png" style="padding:10px"></div>
+    <div><img src="./tutorial_1.png" style="padding:10px"></div>
   </div>
 </div>
 
 
-
+<!--
 <div style='text-align:center;padding-top:20px;'>
   <button onclick='mySwipe.prev()'>prev</button> 
   <button onclick='mySwipe.next()'>next</button>
 </div>
-
-    <nav>
-
+-->
+<nav>
     <ul id='position'>
       <li class="on"></li>
       <li></li>
       <li></li>
       <li></li>
     </ul>
-
-  </nav>
+</nav>
 
 
 

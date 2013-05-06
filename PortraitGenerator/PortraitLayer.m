@@ -15,6 +15,7 @@
 #import "SaveViewController.h"
 #import "TopLayer.h"
 #import "CategoryListView.h"
+#import "TutorialViewController.h"
 
 int const TAG_MENU = 1;
 int const TAG_IMAGE_CONTROL = 2;
@@ -33,6 +34,8 @@ int const ZINDEX_FRAME = -10;
 
 int const PARTS_CATEGORY_HEIGHT = 50;
 int const PARTS_LIST_HEIGHT = 63;
+
+NSString* const TUTORIAL_UD_KEY = @"portrait_layer_tutorial_key";
 
 @interface PortraitLayer()
 @property (retain, nonatomic) NSMutableArray* nodeList;
@@ -88,13 +91,7 @@ int const PARTS_LIST_HEIGHT = 63;
         [self drawPortrait];
         [self showControls];
         [self showPortraitFrame];
-        
-        /* tutorial
-        UIWebView *wv = [[UIWebView alloc] init];
-        wv.frame = CGRectMake(0, 0, size.width, size.height);
-        [wv loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"tutorial" ofType:@"html"]isDirectory:NO]]];
-        [[[CCDirector sharedDirector] view] addSubview:wv];
-        */
+        [self showTutorial];
     }
 	return self;
 }
@@ -674,6 +671,20 @@ int const PARTS_LIST_HEIGHT = 63;
 - (void)removePortraitFrame
 {
     [self removeChildByTag:TAG_FRAME cleanup:YES];
+}
+
+- (void)showTutorial
+{
+    NSUserDefaults* ud = [NSUserDefaults standardUserDefaults];
+    BOOL b = [ud boolForKey:TUTORIAL_UD_KEY];
+    if (!b) {
+        [ud setBool:YES forKey:TUTORIAL_UD_KEY];
+        [ud synchronize];
+        
+        TutorialViewController* tutorialViewController = [[TutorialViewController alloc] initWithNibName:@"TutorialViewController" bundle:nil];
+        UIView* view = [[CCDirector sharedDirector] view];
+        [view addSubview:tutorialViewController.view];
+    }
 }
 
 - (void)showPartsCategoryView
