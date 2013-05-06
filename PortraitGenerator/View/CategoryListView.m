@@ -42,16 +42,13 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    PartsCategoryCellView *cell = [tableView dequeueReusableCellWithIdentifier:@"PartsCategoryCell"];
-    if (cell == nil) {
-        UIViewController* controller;
-        controller = [[UIViewController alloc] initWithNibName:@"PartsCategoryCellView" bundle:nil];
-        cell = (PartsCategoryCellView*)controller.view;
-        cell.contentView.transform = CGAffineTransformMakeRotation(M_PI / 2);
-        NSString* category = [[[Parts dictionary] objectForKey:PartsKeyCategory] objectAtIndex:indexPath.row];
-        [cell set:category];
-        [cell registerNotification];
-    }
+    UIViewController* controller;
+    controller = [[UIViewController alloc] initWithNibName:@"PartsCategoryCellView" bundle:nil];
+    PartsCategoryCellView* cell = (PartsCategoryCellView*)controller.view;
+    cell.contentView.transform = CGAffineTransformMakeRotation(M_PI / 2);
+    NSString* category = [[[Parts dictionary] objectForKey:PartsKeyCategory] objectAtIndex:indexPath.row];
+    [cell set:category];
+    [cell registerNotification];
     return cell;
 }
 
