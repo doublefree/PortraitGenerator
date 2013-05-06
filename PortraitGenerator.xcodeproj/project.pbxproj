@@ -475,6 +475,9 @@
 		B0C06A68172D4A9000093765 /* righteyebrow004_line.png in Resources */ = {isa = PBXBuildFile; fileRef = B0C06974172D4A9000093765 /* righteyebrow004_line.png */; };
 		B0C06A69172D4A9000093765 /* righteyebrow005_line-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = B0C06975172D4A9000093765 /* righteyebrow005_line-hd.png */; };
 		B0C06A6A172D4A9000093765 /* righteyebrow005_line.png in Resources */ = {isa = PBXBuildFile; fileRef = B0C06976172D4A9000093765 /* righteyebrow005_line.png */; };
+		B0C1DA101737937C0051864D /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0C1DA0F1737937C0051864D /* AddressBook.framework */; };
+		B0C1DA11173793B70051864D /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0C1DA0D173792A50051864D /* AddressBookUI.framework */; };
+		B0C1DA13173799130051864D /* smsbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = B0C1DA12173799130051864D /* smsbutton.png */; };
 		B0C42BE2171AA1A500565C2D /* btn_move_apart-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = B0C42BD8171AA1A500565C2D /* btn_move_apart-hd.png */; };
 		B0C42BE3171AA1A500565C2D /* btn_move_apart.png in Resources */ = {isa = PBXBuildFile; fileRef = B0C42BD9171AA1A500565C2D /* btn_move_apart.png */; };
 		B0C42BE4171AA1A500565C2D /* btn_move_close-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = B0C42BDA171AA1A500565C2D /* btn_move_close-hd.png */; };
@@ -1125,6 +1128,9 @@
 		B0C06974172D4A9000093765 /* righteyebrow004_line.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = righteyebrow004_line.png; sourceTree = "<group>"; };
 		B0C06975172D4A9000093765 /* righteyebrow005_line-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "righteyebrow005_line-hd.png"; sourceTree = "<group>"; };
 		B0C06976172D4A9000093765 /* righteyebrow005_line.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = righteyebrow005_line.png; sourceTree = "<group>"; };
+		B0C1DA0D173792A50051864D /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
+		B0C1DA0F1737937C0051864D /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
+		B0C1DA12173799130051864D /* smsbutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = smsbutton.png; sourceTree = "<group>"; };
 		B0C42BD8171AA1A500565C2D /* btn_move_apart-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_move_apart-hd.png"; sourceTree = "<group>"; };
 		B0C42BD9171AA1A500565C2D /* btn_move_apart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_move_apart.png; sourceTree = "<group>"; };
 		B0C42BDA171AA1A500565C2D /* btn_move_close-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_move_close-hd.png"; sourceTree = "<group>"; };
@@ -1157,6 +1163,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B0C1DA11173793B70051864D /* AddressBookUI.framework in Frameworks */,
+				B0C1DA101737937C0051864D /* AddressBook.framework in Frameworks */,
 				B013D2B7172B736400657FC8 /* AdSupport.framework in Frameworks */,
 				B054494216E1995D0028DD55 /* CoreGraphics.framework in Frameworks */,
 				B013D2B5172B734C00657FC8 /* SystemConfiguration.framework in Frameworks */,
@@ -1559,6 +1567,8 @@
 		B054493216E1995D0028DD55 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B0C1DA0F1737937C0051864D /* AddressBook.framework */,
+				B0C1DA0D173792A50051864D /* AddressBookUI.framework */,
 				B013D2B6172B736400657FC8 /* AdSupport.framework */,
 				B013D2B4172B734C00657FC8 /* SystemConfiguration.framework */,
 				B013D2B2172B733F00657FC8 /* MessageUI.framework */,
@@ -1974,6 +1984,7 @@
 		B0544ACE16E199AD0028DD55 /* general */ = {
 			isa = PBXGroup;
 			children = (
+				B0C1DA12173799130051864D /* smsbutton.png */,
 				B013D2DE172CA12100657FC8 /* linebutton_40x40.png */,
 				B013D2C4172BBAE400657FC8 /* portrait_area_rect-hd.png */,
 				B013D2C5172BBAE400657FC8 /* portrait_area_rect.png */,
@@ -2470,6 +2481,7 @@
 				B029D7871736AAF200E4379A /* tutorial.html in Resources */,
 				B029D7891736B16800E4379A /* tutorial_1.png in Resources */,
 				B02CA70417372160003E988C /* TutorialViewController.xib in Resources */,
+				B0C1DA13173799130051864D /* smsbutton.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
