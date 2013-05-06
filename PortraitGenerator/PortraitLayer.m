@@ -333,10 +333,12 @@ NSString* const TUTORIAL_UD_KEY = @"portrait_layer_tutorial_key";
     partsListView.tableView.backgroundColor = [UIColor clearColor];
     partsListView.tableView.showsVerticalScrollIndicator = NO;
     
+    NSNotificationCenter* nc = [NSNotificationCenter defaultCenter];
+    [nc addObserver:partsListView selector:@selector(categorySelected:) name:NOTIFICATION_PARTS_CATEGORY_BUTTON_PUSHED object:nil];
+    [nc addObserver:partsListView selector:@selector(respondToDeleteView:) name:NOTIFICATION_DELETE_ALL_CONTROL_VIEW object:nil];
+    
     [[[CCDirector sharedDirector] view] addSubview:partsListView];
     [partsListView.tableView reloadData];
-    
-    self.selectedPartsListView = partsListView;
 }
 
 - (void) registerNotification
@@ -728,9 +730,11 @@ NSString* const TUTORIAL_UD_KEY = @"portrait_layer_tutorial_key";
 {
     [self removeImageControl];
     [self removeMainControl];
-    [self removePartsListView];
     [self removePartsCategoryView];
     [self removePartsListView];
+    
+    NSNotification* nc = [NSNotification notificationWithName:NOTIFICATION_DELETE_ALL_CONTROL_VIEW object:self userInfo:nil];
+    [[NSNotificationCenter defaultCenter] postNotification:nc];
 }
 
 - (void)notifySelectedCategoryChanged
@@ -742,6 +746,8 @@ NSString* const TUTORIAL_UD_KEY = @"portrait_layer_tutorial_key";
 
 - (void) dealloc
 {
+    NSNotificationCenter* nc = [NSNotificationCenter defaultCenter];
+    [nc removeObserver:self];
 	[super dealloc];
 }
 @end

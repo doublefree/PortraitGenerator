@@ -61,8 +61,22 @@
 
 - (void)dealloc {
     [_tableView release];
+    NSNotificationCenter* nc = [NSNotificationCenter defaultCenter];
+    [nc removeObserver:self];
     [super dealloc];
 }
+
+- (void) categorySelected:(NSNotification*)center{
+    NSString* category = [[center userInfo] objectForKey:@"category"];
+    if ([category length] != 0 && [category isEqualToString:self.category]) {
+        [self removeFromSuperview];
+    }
+}
+
+- (void) respondToDeleteView:(NSNotification*)center{
+    [self removeFromSuperview];
+}
+
 - (IBAction)closeButtonPushed:(id)sender {
     [self removeFromSuperview];
 }
