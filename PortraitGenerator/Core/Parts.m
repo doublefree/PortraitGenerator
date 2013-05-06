@@ -25,6 +25,11 @@ NSString* const PartsKeyDataConfigFixed = @"fixed";
 NSString* const PartsKeyDataParts = @"parts";
 NSString* const PartsKeyDataPartsBaseFilePath = @"base_path";
 NSString* const PartsKeyDataPartsFrameFilePath = @"frame_path";
+NSString* const PartsKeyDataPartsColored = @"colored";
+NSString* const PartsKeyDataPartsColorRed = @"red";
+NSString* const PartsKeyDataPartsColorGreen = @"green";
+NSString* const PartsKeyDataPartsColorBlue = @"blue";
+
 
 @implementation Parts
 +(NSArray*) category {

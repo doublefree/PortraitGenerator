@@ -24,6 +24,10 @@ extern NSString* const PartsKeyDataConfigFixed;
 extern NSString* const PartsKeyDataParts;
 extern NSString* const PartsKeyDataPartsBaseFilePath;
 extern NSString* const PartsKeyDataPartsFrameFilePath;
+extern NSString* const PartsKeyDataPartsColored;
+extern NSString* const PartsKeyDataPartsColorRed;
+extern NSString* const PartsKeyDataPartsColorGreen;
+extern NSString* const PartsKeyDataPartsColorBlue;
 
 @interface Parts : NSObject
 @property (retain, nonatomic) NSString* path;
