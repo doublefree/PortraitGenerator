@@ -143,7 +143,6 @@ static void HSVFromUIColor( UIColor* color, float* h, float* s, float* v )
 
 - (void) viewDidUnload
 {
-    [self setCancelButtonPushed:nil];
 	[ super viewDidUnload ];
 	
 	// Release any retained subviews of the main view.

@@ -12,6 +12,10 @@
 
 const int TAG_TOP_MENU = 100;
 
+@interface TopLayer()
+@property (retain,nonatomic) LoadViewController* loadViewController;
+@end
+
 @implementation TopLayer
 +(CCScene *) scene
 {
@@ -46,10 +50,19 @@ const int TAG_TOP_MENU = 100;
         spriteGallarySelected.opacity = 0x7f;
         
 		CCMenuItem* itemGallary = [CCMenuItemImage itemWithNormalSprite:spriteGallary selectedSprite:spriteGallarySelected block:^(id sender) {
-			LoadViewController* loadViewController = [[LoadViewController alloc] initWithNibName:@"LoadViewController" bundle:nil];
-            AppController *app = (AppController*) [[UIApplication sharedApplication] delegate];
+            UIView* view = [[CCDirector sharedDirector] view];
+			self.loadViewController = [[LoadViewController alloc] initWithNibName:@"LoadViewController" bundle:nil];
             
-            [app.navController presentModalViewController: loadViewController animated:YES];
+            [UIView beginAnimations:nil context:NULL];
+            [UIView setAnimationDuration:0.7];
+            [UIView setAnimationTransition:UIViewAnimationTransitionCurlUp forView:view cache:YES];
+            
+            [view addSubview:self.loadViewController.view];
+            [UIView commitAnimations];
+            /*
+            AppController *app = (AppController*) [[UIApplication sharedApplication] delegate];
+            [app.navController presentModalViewController: self.loadViewController animated:YES];
+             */
 		}];
         
         CCMenu *menu = [CCMenu menuWithItems:itemGenerate, itemGallary, nil];
@@ -78,9 +91,13 @@ const int TAG_TOP_MENU = 100;
 - (void) loadEventReceived:(NSNotification*)center{
     NSString* name = [[center userInfo] objectForKey:@"name"];
     if ([name length] != 0) {
+        //[self.loadViewController dismissModalViewControllerAnimated:YES];
+        [self.loadViewController.view removeFromSuperview];
+        
         [self removeBanner];
         [self removeChildByTag:TAG_TOP_MENU cleanup:YES]; // workaround for iphone4
-        [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[PortraitLayer sceneWithName:name]]];
+        CCScene* scene = [PortraitLayer sceneWithName:name];
+        [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:scene]];
     }
 }
 

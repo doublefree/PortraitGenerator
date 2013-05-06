@@ -51,7 +51,7 @@ int const AlertTagDeletePortrait = 1;
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-    return @"Setting";
+    return nil;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -82,7 +82,11 @@ int const AlertTagDeletePortrait = 1;
 }
 
 - (IBAction)closeButtonPushed:(id)sender {
-    [self dismissModalViewControllerAnimated:YES];
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationDuration:0.7];
+    [UIView setAnimationTransition:UIViewAnimationTransitionCurlDown forView:self.view.window.rootViewController.view cache:YES];
+    [self.view removeFromSuperview];
+    [UIView commitAnimations];
 }
 
 -(void)loadButtonPushed:(NSNotification*)center{
@@ -93,7 +97,6 @@ int const AlertTagDeletePortrait = 1;
         NSNotification* nc = [NSNotification notificationWithName:NOTIFICATION_LOAD_WITH_NAME object:self userInfo:dictionary];
         [[NSNotificationCenter defaultCenter] postNotification:nc];
     }
-    [self dismissModalViewControllerAnimated:YES];
 }
 
 -(void)deleteButtonPushed:(NSNotification*)center{
