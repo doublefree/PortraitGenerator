@@ -248,7 +248,7 @@
                 },
                 "n010" : {
                     "base_path" : "nose010_line.png",
-                },
+                }
             }
         },
         "fronthair" : {
@@ -282,10 +282,10 @@
                 "fh005" : {
                     "base_path" : "fronthair005_color.png",
                     "frame_path" : "fronthair005_line.png"
-                },
+                }
             }
         },
-        "backthair" : {
+        "backhair" : {
             "config" : {
                 "x" : 0.5,
                 "y" : 0.5,
@@ -316,8 +316,8 @@
                 "bh005" : {
                     "base_path" : "backhair005_color.png",
                     "frame_path" : "backhair005_line.png"
-                },
+                }
             }
-        },
+        }
     }
 }
