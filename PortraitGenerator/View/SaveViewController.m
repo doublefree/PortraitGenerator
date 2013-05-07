@@ -18,6 +18,8 @@
 @property (retain, nonatomic) FigureSet* figureSet;
 @property (retain, nonatomic) NSString* name;
 @property (retain, nonatomic) IBOutlet UITextField *textField;
+@property (retain, nonatomic) IBOutlet UIButton *saveButton;
+@property (retain, nonatomic) IBOutlet UIButton *cancelButton;
 @end
 
 @implementation SaveViewController
@@ -44,6 +46,8 @@
     [super viewDidLoad];
 	self.imageView.image = self.image;
     self.textField.placeholder = NSLocalizedString(@"save_text_placeholder", @"Please Input the Name of Portrait");
+    //self.saveButton.titleLabel.text = NSLocalizedString(@"save_button_text", @"Save");
+    //self.cancelButton.titleLabel.text = NSLocalizedString(@"save_cancel_button_text", @"Cancel");
     if (self.name) {
         self.textField.text = self.name;
     }
@@ -99,12 +103,16 @@
 - (void)dealloc {
     [_imageView release];
     [_textField release];
+    [_saveButton release];
+    [_cancelButton release];
     [super dealloc];
 }
 
 - (void)viewDidUnload {
     [self setImageView:nil];
     [self setTextField:nil];
+    [self setSaveButton:nil];
+    [self setCancelButton:nil];
     [super viewDidUnload];
 }
 @end
