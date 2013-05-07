@@ -43,6 +43,7 @@
 {
     [super viewDidLoad];
 	self.imageView.image = self.image;
+    self.textField.placeholder = NSLocalizedString(@"save_text_placeholder", @"Please Input the Name of Portrait");
     if (self.name) {
         self.textField.text = self.name;
     }
