@@ -599,8 +599,8 @@
 		6503E26A170053B100F13AFF /* InfHSBSupport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfHSBSupport.m; sourceTree = "<group>"; };
 		6503E26B170053B100F13AFF /* InfSourceColorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfSourceColorView.h; sourceTree = "<group>"; };
 		6503E26C170053B100F13AFF /* InfSourceColorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfSourceColorView.m; sourceTree = "<group>"; };
-		651A15E11739E1A900BE70EB /* en */ = {isa = PBXFileReference; lastKnownFileType = file; name = en; path = en.lproj/SaveViewController.xib; sourceTree = "<group>"; };
-		651A15E31739E1AF00BE70EB /* ja */ = {isa = PBXFileReference; lastKnownFileType = file; name = ja; path = ja.lproj/SaveViewController.xib; sourceTree = "<group>"; };
+		651A15E11739E1A900BE70EB /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/SaveViewController.xib; sourceTree = "<group>"; };
+		651A15E31739E1AF00BE70EB /* ja */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ja; path = ja.lproj/SaveViewController.xib; sourceTree = "<group>"; };
 		6521D3A417392D1200E1E652 /* accessory001_color.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = accessory001_color.png; sourceTree = "<group>"; };
 		6521D3A517392D1200E1E652 /* accessory001_color-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "accessory001_color-hd.png"; sourceTree = "<group>"; };
 		6521D3A617392D1200E1E652 /* accessory001_line.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = accessory001_line.png; sourceTree = "<group>"; };
@@ -1780,10 +1780,6 @@
 			children = (
 				B069D3F01737D3F70078DE39 /* icon_114.png */,
 				B069D3EE1737D3F50078DE39 /* icon_57.png */,
-				B069D3EC1737D0D60078DE39 /* libsqlite3.dylib */,
-				B069D3EA1737D0B80078DE39 /* Security.framework */,
-				B069D3E81737D0AE0078DE39 /* Accounts.framework */,
-				B069D3E61737D0390078DE39 /* Social.framework */,
 				B054494516E1995D0028DD55 /* PortraitGenerator */,
 				B054493216E1995D0028DD55 /* Frameworks */,
 				B054493116E1995D0028DD55 /* Products */,
@@ -1801,6 +1797,10 @@
 		B054493216E1995D0028DD55 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B069D3EC1737D0D60078DE39 /* libsqlite3.dylib */,
+				B069D3EA1737D0B80078DE39 /* Security.framework */,
+				B069D3E81737D0AE0078DE39 /* Accounts.framework */,
+				B069D3E61737D0390078DE39 /* Social.framework */,
 				B069D3E41737CFA40078DE39 /* FacebookSDK.framework */,
 				B0C1DA0F1737937C0051864D /* AddressBook.framework */,
 				B0C1DA0D173792A50051864D /* AddressBookUI.framework */,
