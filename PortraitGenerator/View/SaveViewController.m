@@ -86,7 +86,7 @@
     NSArray* nameList = [portraitList allKeys];
     for(NSString* portraitName in nameList){
         if ([name isEqualToString:portraitName]) {
-            NSString* title = NSLocalizedString(@"save_error_dialog_title", @"Error");
+            NSString* title = NSLocalizedString(@"save_overwite_dialog_title", @"Error");
             NSString* message = NSLocalizedString(@"save_dialog_message_duplicate_portrait", @"Please input title");
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title message:message delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
             [alert show];

@@ -43,6 +43,19 @@ const NSString* IMAGE_URL_FORMAT = @"http://wiz-r.com/portrait/data/%@.png";
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    // banner
+    CGRect r = [[UIScreen mainScreen] bounds];
+    float height = r.size.height;
+    bannerView_ = [[GADBannerView alloc] initWithFrame:CGRectMake(0.0, height - GAD_SIZE_320x50.height, GAD_SIZE_320x50.width, GAD_SIZE_320x50.height)];
+    
+    bannerView_.adUnitID = GOOGLE_AD_ID;
+    bannerView_.rootViewController = self;
+    
+    [self.view addSubview:bannerView_];
+    [bannerView_ loadRequest:[GADRequest request]];
+    
+    // init data
 	NSDictionary* dictionary = [[Portrait list] objectForKey:self.name];
     self.titleTextField.text = self.name;
     self.image = [UIImage imageWithData:[dictionary objectForKey:@"image"]];

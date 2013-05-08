@@ -23,8 +23,8 @@ int const TAG_MAIN_CONTROL = 3;
 int const TAG_FRAME = 4;
 
 double const SCALE_PARAM = 0.05;
-double const DISTANCE_PARAM = 0.2;
-double const PADDING_MENU_ITEM = 2.5f;
+double const DISTANCE_PARAM = 0.05;
+double const PADDING_MENU_ITEM = 0.0f;
 double const PADDING_MENU = 10.0f;
 double const PADDING_FRAME = 30.0f;
 

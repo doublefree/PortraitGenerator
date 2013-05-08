@@ -10,8 +10,8 @@
 
 int const FigureScaleMax = 8;
 int const FigureScaleMin = -8;
-int const FigureDistanceMax = 2;
-int const FigureDistanceMin = -2;
+int const FigureDistanceMax = 8;
+int const FigureDistanceMin = -8;
 int const FigureRotateDegree = 45;
 
 @implementation Figure
