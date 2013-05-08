@@ -453,7 +453,7 @@ NSString* const TUTORIAL_UD_KEY = @"portrait_layer_tutorial_key";
             height = height + PADDING_MENU * (count - 1);
             double x = size.width - (width/2 + PADDING_MENU_ITEM);
             double hightUsed = 0.0f;
-            double yTop = size.height/2 + height/2;
+            double yTop = self.frameSprite.position.y + height/2;
             
             if ([[config objectForKey:PartsKeyDataConfigAllowColor] boolValue]) {
                 double partsHeight = menuColorChange.contentSize.height;
