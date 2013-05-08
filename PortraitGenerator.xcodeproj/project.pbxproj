@@ -14,6 +14,7 @@
 		6503E271170053B100F13AFF /* InfColorSquarePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 6503E268170053B100F13AFF /* InfColorSquarePicker.m */; };
 		6503E272170053B100F13AFF /* InfHSBSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = 6503E26A170053B100F13AFF /* InfHSBSupport.m */; };
 		6503E273170053B100F13AFF /* InfSourceColorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6503E26C170053B100F13AFF /* InfSourceColorView.m */; };
+		651A15E01739E1A900BE70EB /* SaveViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 651A15E21739E1A900BE70EB /* SaveViewController.xib */; };
 		6521D4D617392D1300E1E652 /* accessory001_color.png in Resources */ = {isa = PBXBuildFile; fileRef = 6521D3A417392D1200E1E652 /* accessory001_color.png */; };
 		6521D4D717392D1300E1E652 /* accessory001_color-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 6521D3A517392D1200E1E652 /* accessory001_color-hd.png */; };
 		6521D4D817392D1300E1E652 /* accessory001_line.png in Resources */ = {isa = PBXBuildFile; fileRef = 6521D3A617392D1200E1E652 /* accessory001_line.png */; };
@@ -365,7 +366,6 @@
 		B013D2C6172BBAE400657FC8 /* portrait_area_rect-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = B013D2C4172BBAE400657FC8 /* portrait_area_rect-hd.png */; };
 		B013D2C7172BBAE400657FC8 /* portrait_area_rect.png in Resources */ = {isa = PBXBuildFile; fileRef = B013D2C5172BBAE400657FC8 /* portrait_area_rect.png */; };
 		B013D2D6172BFB9E00657FC8 /* SaveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B013D2D5172BFB9D00657FC8 /* SaveViewController.m */; };
-		B013D2D8172BFBBC00657FC8 /* SaveViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B013D2D7172BFBBC00657FC8 /* SaveViewController.xib */; };
 		B013D2DA172C9FE800657FC8 /* PortraitDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B013D2D9172C9FE800657FC8 /* PortraitDetailViewController.xib */; };
 		B013D2DD172CA00300657FC8 /* PortraitDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B013D2DC172CA00300657FC8 /* PortraitDetailViewController.m */; };
 		B029D7511736864500E4379A /* category_nose_unselected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B029D72D1736864500E4379A /* category_nose_unselected@2x.png */; };
@@ -599,6 +599,8 @@
 		6503E26A170053B100F13AFF /* InfHSBSupport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfHSBSupport.m; sourceTree = "<group>"; };
 		6503E26B170053B100F13AFF /* InfSourceColorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfSourceColorView.h; sourceTree = "<group>"; };
 		6503E26C170053B100F13AFF /* InfSourceColorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfSourceColorView.m; sourceTree = "<group>"; };
+		651A15E11739E1A900BE70EB /* en */ = {isa = PBXFileReference; lastKnownFileType = file; name = en; path = en.lproj/SaveViewController.xib; sourceTree = "<group>"; };
+		651A15E31739E1AF00BE70EB /* ja */ = {isa = PBXFileReference; lastKnownFileType = file; name = ja; path = ja.lproj/SaveViewController.xib; sourceTree = "<group>"; };
 		6521D3A417392D1200E1E652 /* accessory001_color.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = accessory001_color.png; sourceTree = "<group>"; };
 		6521D3A517392D1200E1E652 /* accessory001_color-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "accessory001_color-hd.png"; sourceTree = "<group>"; };
 		6521D3A617392D1200E1E652 /* accessory001_line.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = accessory001_line.png; sourceTree = "<group>"; };
@@ -957,7 +959,6 @@
 		B013D2C5172BBAE400657FC8 /* portrait_area_rect.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = portrait_area_rect.png; sourceTree = "<group>"; };
 		B013D2D4172BFB9D00657FC8 /* SaveViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SaveViewController.h; path = View/SaveViewController.h; sourceTree = "<group>"; };
 		B013D2D5172BFB9D00657FC8 /* SaveViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SaveViewController.m; path = View/SaveViewController.m; sourceTree = "<group>"; };
-		B013D2D7172BFBBC00657FC8 /* SaveViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SaveViewController.xib; path = View/SaveViewController.xib; sourceTree = "<group>"; };
 		B013D2D9172C9FE800657FC8 /* PortraitDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PortraitDetailViewController.xib; path = View/PortraitDetailViewController.xib; sourceTree = "<group>"; };
 		B013D2DB172CA00300657FC8 /* PortraitDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PortraitDetailViewController.h; path = View/PortraitDetailViewController.h; sourceTree = "<group>"; };
 		B013D2DC172CA00300657FC8 /* PortraitDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PortraitDetailViewController.m; path = View/PortraitDetailViewController.m; sourceTree = "<group>"; };
@@ -1740,7 +1741,7 @@
 				B0BC3FAE16FEF40100F86D79 /* PartsCellView.xib */,
 				B013D2D4172BFB9D00657FC8 /* SaveViewController.h */,
 				B013D2D5172BFB9D00657FC8 /* SaveViewController.m */,
-				B013D2D7172BFBBC00657FC8 /* SaveViewController.xib */,
+				651A15E21739E1A900BE70EB /* SaveViewController.xib */,
 				B013D2DB172CA00300657FC8 /* PortraitDetailViewController.h */,
 				B013D2DC172CA00300657FC8 /* PortraitDetailViewController.m */,
 				B013D2D9172C9FE800657FC8 /* PortraitDetailViewController.xib */,
@@ -2423,7 +2424,7 @@
 				B013D2C0172B7F3300657FC8 /* btn_save.png in Resources */,
 				B013D2C6172BBAE400657FC8 /* portrait_area_rect-hd.png in Resources */,
 				B013D2C7172BBAE400657FC8 /* portrait_area_rect.png in Resources */,
-				B013D2D8172BFBBC00657FC8 /* SaveViewController.xib in Resources */,
+				651A15E01739E1A900BE70EB /* SaveViewController.xib in Resources */,
 				B013D2DA172C9FE800657FC8 /* PortraitDetailViewController.xib in Resources */,
 				B0DFF53617353AB4003D44D1 /* background-hd.png in Resources */,
 				B0DFF53717353AB4003D44D1 /* background.png in Resources */,
@@ -2951,6 +2952,16 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		651A15E21739E1A900BE70EB /* SaveViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				651A15E11739E1A900BE70EB /* en */,
+				651A15E31739E1AF00BE70EB /* ja */,
+			);
+			name = SaveViewController.xib;
+			path = View;
+			sourceTree = "<group>";
+		};
 		B0B3C50516E2F7C30053512D /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
