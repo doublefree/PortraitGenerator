@@ -383,11 +383,11 @@ NSString* const TUTORIAL_UD_KEY = @"portrait_layer_tutorial_key";
     selectedColorChange.opacity = 0x7f;
     
     // menu item
-    CCMenuItemSprite *menuRotateRight = [CCMenuItemSprite itemWithNormalSprite:normalRotateRight selectedSprite:selectedRotateRight block:^(id sender) {
-        [self rotateRightSeletedFigure];
-    }];
     CCMenuItemSprite *menuRotateLeft = [CCMenuItemSprite itemWithNormalSprite:normalRotateLeft selectedSprite:selectedRotateLeft block:^(id sender) {
         [self rotateLeftSeletedFigure];
+    }];
+    CCMenuItemSprite *menuRotateRight = [CCMenuItemSprite itemWithNormalSprite:normalRotateRight selectedSprite:selectedRotateRight block:^(id sender) {
+        [self rotateRightSeletedFigure];
     }];
     CCMenuItemSprite *menuMoveClose = [CCMenuItemSprite itemWithNormalSprite:normalMoveClose selectedSprite:selectedMoveClose block:^(id sender) {
         [self moveCloseSeletedFigure];
@@ -407,7 +407,7 @@ NSString* const TUTORIAL_UD_KEY = @"portrait_layer_tutorial_key";
     }];
     
     // menu
-    CCMenu* menuRotate = [CCMenu menuWithItems:menuRotateRight, menuRotateLeft, nil];
+    CCMenu* menuRotate = [CCMenu menuWithItems:menuRotateLeft, menuRotateRight, nil];
     [menuRotate alignItemsVerticallyWithPadding:PADDING_MENU_ITEM];
     CCMenu* menuMove = [CCMenu menuWithItems:menuMoveApart, menuMoveClose, nil];
     [menuMove alignItemsVerticallyWithPadding:PADDING_MENU_ITEM];
