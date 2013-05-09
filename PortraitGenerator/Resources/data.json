@@ -148,7 +148,11 @@
                 "allow_scale" : true,
                 "allow_rotate" : false,
                 "allow_move" : false,
-                "allow_color" : true
+                "allow_color" : true,
+                "colored" : true,
+                "red" : 100,
+                "green" : 100,
+                "blue" : 100
             },
             "parts" : {
                 "f001" : {

@@ -290,11 +290,11 @@ NSString* const TUTORIAL_UD_KEY = @"portrait_layer_tutorial_key";
         figure.base_path = [parts objectForKey:PartsKeyDataPartsBaseFilePath];
         figure.frame_path = [parts objectForKey:PartsKeyDataPartsFrameFilePath];
         figure.isCouple = [[config objectForKey:PartsKeyDataConfigCouple] boolValue];
-        figure.isColored = [[parts objectForKey:PartsKeyDataPartsColored] boolValue];
+        figure.isColored = [[config objectForKey:PartsKeyDataConfigColored] boolValue];
         if (figure.isColored) {
-            figure.red = [[parts objectForKey:PartsKeyDataPartsColorRed] floatValue];
-            figure.green = [[parts objectForKey:PartsKeyDataPartsColorGreen] floatValue];
-            figure.blue = [[parts objectForKey:PartsKeyDataPartsColorBlue] floatValue];
+            figure.red = [[config objectForKey:PartsKeyDataConfigColorRed] floatValue];
+            figure.green = [[config objectForKey:PartsKeyDataConfigColorGreen] floatValue];
+            figure.blue = [[config objectForKey:PartsKeyDataConfigColorBlue] floatValue];
         }
         
         Figure* oldFigure = [self.figureSet figureWithCategory:self.selectedCategory];

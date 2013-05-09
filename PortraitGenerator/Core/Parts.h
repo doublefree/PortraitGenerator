@@ -21,13 +21,13 @@ extern NSString* const PartsKeyDataConfigAllowRotate;
 extern NSString* const PartsKeyDataConfigAllowMove;
 extern NSString* const PartsKeyDataConfigAllowColor;
 extern NSString* const PartsKeyDataConfigFixed;
+extern NSString* const PartsKeyDataConfigColored;
+extern NSString* const PartsKeyDataConfigColorRed;
+extern NSString* const PartsKeyDataConfigColorGreen;
+extern NSString* const PartsKeyDataConfigColorBlue;
 extern NSString* const PartsKeyDataParts;
 extern NSString* const PartsKeyDataPartsBaseFilePath;
 extern NSString* const PartsKeyDataPartsFrameFilePath;
-extern NSString* const PartsKeyDataPartsColored;
-extern NSString* const PartsKeyDataPartsColorRed;
-extern NSString* const PartsKeyDataPartsColorGreen;
-extern NSString* const PartsKeyDataPartsColorBlue;
 
 @interface Parts : NSObject
 @property (retain, nonatomic) NSString* path;

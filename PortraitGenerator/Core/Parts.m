@@ -22,13 +22,13 @@ NSString* const PartsKeyDataConfigAllowRotate = @"allow_rotate";
 NSString* const PartsKeyDataConfigAllowMove = @"allow_move";
 NSString* const PartsKeyDataConfigAllowColor = @"allow_color";
 NSString* const PartsKeyDataConfigFixed = @"fixed";
+NSString* const PartsKeyDataConfigColored = @"colored";
+NSString* const PartsKeyDataConfigColorRed = @"red";
+NSString* const PartsKeyDataConfigColorGreen = @"green";
+NSString* const PartsKeyDataConfigColorBlue = @"blue";
 NSString* const PartsKeyDataParts = @"parts";
 NSString* const PartsKeyDataPartsBaseFilePath = @"base_path";
 NSString* const PartsKeyDataPartsFrameFilePath = @"frame_path";
-NSString* const PartsKeyDataPartsColored = @"colored";
-NSString* const PartsKeyDataPartsColorRed = @"red";
-NSString* const PartsKeyDataPartsColorGreen = @"green";
-NSString* const PartsKeyDataPartsColorBlue = @"blue";
 
 
 @implementation Parts
