@@ -76,6 +76,17 @@ int const AlertTagDeletePortrait = 1;
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSMutableDictionary* portraitList = [Portrait list];
+    NSArray* nameList = [portraitList allKeys];
+    NSString* name = [nameList objectAtIndex:indexPath.row];
+    
+    NSDictionary* dictionary = [NSDictionary dictionaryWithObject:name forKey:@"name"];
+    NSNotification* nc = [NSNotification notificationWithName:NOTIFICATION_LOAD_BUTTON_PUSHED object:self userInfo:dictionary];
+    [[NSNotificationCenter defaultCenter] postNotification:nc];
+}
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return [PortraitCellView cellHeight];
