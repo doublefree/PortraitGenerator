@@ -417,6 +417,8 @@
 		B02CA7021737214E003E988C /* TutorialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B02CA7011737214E003E988C /* TutorialViewController.m */; };
 		B02CA70417372160003E988C /* TutorialViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B02CA70317372160003E988C /* TutorialViewController.xib */; };
 		B034C4E6173F055800ADE5AE /* background3204x480.png in Resources */ = {isa = PBXBuildFile; fileRef = B034C4E5173F055800ADE5AE /* background3204x480.png */; };
+		B034C4ED173F23A800ADE5AE /* btn_gallary_delete.png in Resources */ = {isa = PBXBuildFile; fileRef = B034C4EB173F23A800ADE5AE /* btn_gallary_delete.png */; };
+		B034C4EE173F23A800ADE5AE /* btn_gallary_delete@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B034C4EC173F23A800ADE5AE /* btn_gallary_delete@2x.png */; };
 		B054493416E1995D0028DD55 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B054493316E1995D0028DD55 /* QuartzCore.framework */; };
 		B054493616E1995D0028DD55 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B054493516E1995D0028DD55 /* OpenGLES.framework */; };
 		B054493816E1995D0028DD55 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B054493716E1995D0028DD55 /* OpenAL.framework */; };
@@ -1010,6 +1012,8 @@
 		B02CA7011737214E003E988C /* TutorialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TutorialViewController.m; path = View/TutorialViewController.m; sourceTree = "<group>"; };
 		B02CA70317372160003E988C /* TutorialViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TutorialViewController.xib; path = View/TutorialViewController.xib; sourceTree = "<group>"; };
 		B034C4E5173F055800ADE5AE /* background3204x480.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background3204x480.png; sourceTree = "<group>"; };
+		B034C4EB173F23A800ADE5AE /* btn_gallary_delete.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_gallary_delete.png; sourceTree = "<group>"; };
+		B034C4EC173F23A800ADE5AE /* btn_gallary_delete@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_gallary_delete@2x.png"; sourceTree = "<group>"; };
 		B054493016E1995D0028DD55 /* PortraitGenerator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PortraitGenerator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B054493316E1995D0028DD55 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		B054493516E1995D0028DD55 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -2225,6 +2229,8 @@
 		B0BC3FB016FF2A3600F86D79 /* button */ = {
 			isa = PBXGroup;
 			children = (
+				B034C4EB173F23A800ADE5AE /* btn_gallary_delete.png */,
+				B034C4EC173F23A800ADE5AE /* btn_gallary_delete@2x.png */,
 				6544DA171739425B009C8F91 /* btn_save_cancel.png */,
 				6544DA181739425B009C8F91 /* btn_save_cancel@2x.png */,
 				6544DA191739425B009C8F91 /* btn_save_ok.png */,
@@ -2788,6 +2794,8 @@
 				6544DA2A1739454A009C8F91 /* icon_sms@2x.png in Resources */,
 				655EE5C1173A849F007CEC73 /* InfoPlist.strings in Resources */,
 				B034C4E6173F055800ADE5AE /* background3204x480.png in Resources */,
+				B034C4ED173F23A800ADE5AE /* btn_gallary_delete.png in Resources */,
+				B034C4EE173F23A800ADE5AE /* btn_gallary_delete@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
