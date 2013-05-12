@@ -48,7 +48,11 @@
         cell = (PartsCellView*)controller.view;
         NSArray* allKeys = [[[Parts partsForCategory:self.category] allKeys] sortedArrayUsingComparator:^(id obj1, id obj2){return [obj1 compare:obj2];}];
         NSString* key = [allKeys objectAtIndex:indexPath.row];
-        [cell setData:[[Parts partsForCategory:self.category] objectForKey:key]];
+        NSDictionary* dictionary = [Parts partsForCategory:self.category];
+        NSMutableDictionary* data = [NSMutableDictionary dictionary];
+        [data setDictionary:[dictionary objectForKey:key]];
+        [data setObject:self.category forKey:@"category"];
+        [cell setData:data];
         cell.contentView.transform = CGAffineTransformMakeRotation(M_PI / 2);
     }
     return cell;

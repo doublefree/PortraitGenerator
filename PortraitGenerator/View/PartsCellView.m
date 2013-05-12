@@ -50,6 +50,19 @@
     NSString* basePath = [parts objectForKey:PartsKeyDataPartsBaseFilePath];
     CCSprite* sprite = [CCSprite spriteWithFile:basePath];
     sprite.anchorPoint  = CGPointZero;
+    
+    NSString* category = [parts objectForKey:@"category"];
+    if ([category length] > 0) {
+        NSDictionary* config = [Parts configForCategory:category];
+        BOOL isColored = [[config objectForKey:PartsKeyDataConfigColored] boolValue];
+        if (isColored) {
+            float red = [[config objectForKey:PartsKeyDataConfigColorRed] floatValue];
+            float green = [[config objectForKey:PartsKeyDataConfigColorGreen] floatValue];
+            float blue = [[config objectForKey:PartsKeyDataConfigColorBlue] floatValue];
+            sprite.color = ccc3(red, green, blue);
+        }
+    }
+    
     [node addChild:sprite];
     NSString* framePath = [parts objectForKey:PartsKeyDataPartsFrameFilePath];
     if ([framePath length] > 0) {
