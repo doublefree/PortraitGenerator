@@ -12,8 +12,7 @@
                 "allow_scale" : true,
                 "allow_rotate" : true,
                 "allow_move" : true,
-                "allow_color" : false,
-                "fixed" : true
+                "allow_color" : false
             },
             "parts" : {
                 "eb001" : {
