@@ -279,6 +279,15 @@ NSString* const TUTORIAL_UD_KEY = @"portrait_layer_tutorial_key";
     }
 }
 
+- (void) partsDeleteSelected:(NSNotification*)center{
+    NSString* category = [[center userInfo] objectForKey:@"category"];
+    if ([category length] != 0) {
+        [self.figureSet removeWithKey:category];
+        [self drawPortrait];
+    }
+}
+
+
 - (void) partsSelected:(NSNotification*)center{
     NSDictionary* parts = [[center userInfo] objectForKey:@"parts"];
     if (parts) {
@@ -323,6 +332,11 @@ NSString* const TUTORIAL_UD_KEY = @"portrait_layer_tutorial_key";
 
 - (void) showPartsListView:(NSString*) category
 {
+    /*
+    NSDictionary* dictionary = [NSDictionary dictionaryWithObject:category forKey:@"category"];
+    [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_PARTS_CATEGORY_BUTTON_PUSHED object:self userInfo:dictionary];
+    */
+    
     CGSize size = [[CCDirector sharedDirector] winSize];
     
     UIViewController* controller;
@@ -352,6 +366,7 @@ NSString* const TUTORIAL_UD_KEY = @"portrait_layer_tutorial_key";
     NSNotificationCenter* nc = [NSNotificationCenter defaultCenter];
     [nc addObserver:self selector:@selector(partsCategorySelected:) name:NOTIFICATION_PARTS_CATEGORY_BUTTON_PUSHED object:nil];
     [nc addObserver:self selector:@selector(partsSelected:) name:NOTIFICATION_PARTS_BUTTON_PUSHED object:nil];
+    [nc addObserver:self selector:@selector(partsDeleteSelected:) name:NOTIFICATION_PARTS_DELETE_BUTTON_PUSHED object:nil];
 }
 
 - (void) showImageControl

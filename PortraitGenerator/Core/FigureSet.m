@@ -22,8 +22,14 @@ NSString *const FigureSetPrefix = @"com.wiz-r.portrait.figureset";
     return self;
 }
 
--(void) add:(Figure*)figure {
+-(void) add:(Figure*)figure
+{
     [self.dictionary setObject:figure forKey:[figure key]];
+}
+
+-(void) removeWithKey:(NSString*)key
+{
+    [self.dictionary removeObjectForKey:key];
 }
 
 -(Figure*) figureWithCategory:(NSString *)category {

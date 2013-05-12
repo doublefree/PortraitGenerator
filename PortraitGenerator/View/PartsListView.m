@@ -68,7 +68,7 @@
 
 - (void) categorySelected:(NSNotification*)center{
     NSString* category = [[center userInfo] objectForKey:@"category"];
-    if ([category length] != 0 && [category isEqualToString:self.category]) {
+    if ([category length] != 0 && ![category isEqualToString:self.category]) {
         [self removeFromSuperview];
     }
 }
@@ -78,8 +78,8 @@
 }
 
 - (IBAction)closeButtonPushed:(id)sender {
-    [self removeFromSuperview];
-    NSNotification* nc = [NSNotification notificationWithName:NOTIFICATION_DELETE_ALL_CONTROL_VIEW object:self userInfo:nil];
-    [[NSNotificationCenter defaultCenter] postNotification:nc];
+    NSDictionary* dictionary = [NSDictionary dictionaryWithObject:self.category forKey:@"category"];
+    NSNotification* ncDel = [NSNotification notificationWithName:NOTIFICATION_PARTS_DELETE_BUTTON_PUSHED object:self userInfo:dictionary];
+    [[NSNotificationCenter defaultCenter] postNotification:ncDel];
 }
 @end
