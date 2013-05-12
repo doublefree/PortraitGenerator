@@ -148,11 +148,7 @@
                 "allow_scale" : true,
                 "allow_rotate" : false,
                 "allow_move" : false,
-                "allow_color" : true,
-                "colored" : true,
-                "red" : 100,
-                "green" : 100,
-                "blue" : 100
+                "allow_color" : true
             },
             "parts" : {
                 "f001" : {
@@ -177,6 +173,49 @@
                 }
             }
         },
+        "mole" : {
+            "config" : {
+                "x" : 0.5,
+                "y" : 0.5,
+                "tag" : 103,
+                "zindex" : 13,
+                "allow_scale" : true,
+                "allow_rotate" : false,
+                "allow_move" : false,
+                "allow_color" : true
+            },
+            "parts" : {
+                "ml001" : {
+                    "base_path" : "mole_line.png"
+                }
+            }
+        },
+        "accessory" : {
+            "config" : {
+                "x" : 0.5,
+                "y" : 0.5,
+                "tag" : 102,
+                "zindex" : 12,
+                "allow_scale" : true,
+                "allow_rotate" : false,
+                "allow_move" : false,
+                "allow_color" : true
+            },
+            "parts" : {
+                "ac001" : {
+                    "base_path" : "accessory001_color.png",
+                    "frame_path" : "accessory001_line.png"
+                },
+                "ac002" : {
+                    "base_path" : "accessory002_color.png",
+                    "frame_path" : "accessory002_line.png"
+                },
+                "ac003" : {
+                    "base_path" : "accessory003_color.png",
+                    "frame_path" : "accessory003_line.png"
+                }
+            }
+        },
         "ear" : {
             "config" : {
                 "x" : 0.5,
@@ -190,24 +229,16 @@
             },
             "parts" : {
                 "er001" : {
-                    "base_path" : "ear001_color.png",
-                    "frame_path" : "ear001_line.png"
+                    "base_path" : "leftear001_color.png",
+                    "frame_path" : "leftear001_line.png"
                 },
                 "er002" : {
-                    "base_path" : "ear002_color.png",
-                    "frame_path" : "ear002_line.png"
+                    "base_path" : "leftear002_color.png",
+                    "frame_path" : "leftear002_line.png"
                 },
                 "er003" : {
-                    "base_path" : "ear003_color.png",
-                    "frame_path" : "ear003_line.png"
-                },
-                "er004" : {
-                    "base_path" : "ear004_color.png",
-                    "frame_path" : "ear004_line.png"
-                },
-                "er005" : {
-                    "base_path" : "ear005_color.png",
-                    "frame_path" : "ear005_line.png"
+                    "base_path" : "leftear003_color.png",
+                    "frame_path" : "leftear003_line.png"
                 }
             }
         },
