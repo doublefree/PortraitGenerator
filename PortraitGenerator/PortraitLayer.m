@@ -532,10 +532,10 @@ NSString* const TUTORIAL_UD_KEY = @"portrait_layer_tutorial_key";
     CGSize size = [[CCDirector sharedDirector] winSize];
     
     CCMenu* menu = [CCMenu menuWithItems:menuBack, menuSave, nil];
-    [menu alignItemsHorizontallyWithPadding:20];
+    [menu alignItemsHorizontallyWithPadding:80];
     
     float height = menuSave.contentSize.height;
-    menu.position = CGPointMake(size.width/2, size.height - height / 3 * 2);
+    menu.position = CGPointMake(size.width/2, size.height - height / 3 * 2 - 6);
     
     [self addChild:menu];
 }
