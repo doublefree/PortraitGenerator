@@ -1,5 +1,5 @@
 {
-    "category" : ["mole","eyebrow","eye","nose","mouth","fronthair","face","ear","backhair","accessory"],
+    "category" : ["face","ear","eye","eyebrow","nose","mouth","fronthair","backhair","mole","accessory"],
     "data" : {
         "eyebrow" : {
             "config" : {
@@ -44,7 +44,11 @@
                 "allow_scale" : true,
                 "allow_rotate" : true,
                 "allow_move" : true,
-                "allow_color" : true
+                "allow_color" : true,
+                "colored" : true,
+                "red" : 36,
+                "green" : 3,
+                "blue" : 8
             },
             "parts" : {
                 "e001" : {
@@ -98,7 +102,11 @@
                 "allow_scale" : true,
                 "allow_rotate" : false,
                 "allow_move" : false,
-                "allow_color" : true
+                "allow_color" : true,
+                "colored" : true,
+                "red" : 237,
+                "green" : 135,
+                "blue" : 99
             },
             "parts" : {
                 "m001" : {
@@ -148,7 +156,11 @@
                 "allow_scale" : true,
                 "allow_rotate" : false,
                 "allow_move" : false,
-                "allow_color" : true
+                "allow_color" : true,
+                "colored" : true,
+                "red" : 248,
+                "green" : 194,
+                "blue" : 118
             },
             "parts" : {
                 "f001" : {
@@ -199,7 +211,11 @@
                 "allow_scale" : true,
                 "allow_rotate" : false,
                 "allow_move" : false,
-                "allow_color" : true
+                "allow_color" : true,
+                "colored" : true,
+                "red" : 235,
+                "green" : 135,
+                "blue" : 181
             },
             "parts" : {
                 "ac001" : {
@@ -225,7 +241,11 @@
                 "allow_scale" : true,
                 "allow_rotate" : false,
                 "allow_move" : false,
-                "allow_color" : true
+                "allow_color" : true,
+                "colored" : true,
+                "red" : 248,
+                "green" : 194,
+                "blue" : 118
             },
             "parts" : {
                 "er001" : {
@@ -295,7 +315,11 @@
                 "allow_scale" : true,
                 "allow_rotate" : false,
                 "allow_move" : false,
-                "allow_color" : true
+                "allow_color" : true,
+                "colored" : true,
+                "red" : 86,
+                "green" : 43,
+                "blue" : 6
             },
             "parts" : {
                 "fh001" : {
@@ -329,7 +353,11 @@
                 "allow_scale" : true,
                 "allow_rotate" : false,
                 "allow_move" : false,
-                "allow_color" : true
+                "allow_color" : true,
+                "colored" : true,
+                "red" : 86,
+                "green" : 43,
+                "blue" : 6
             },
             "parts" : {
                 "bh001" : {
