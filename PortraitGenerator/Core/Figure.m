@@ -31,7 +31,7 @@ int const FigureRotateDegree = 45;
             [NSNumber numberWithInteger:self.distance], @"distance",
             [NSNumber numberWithInteger:self.rotate], @"rotate",
             NSStringFromCGPoint(self.position), @"position",
-            [NSNumber numberWithBool:self.isCouple], @"isColored",
+            [NSNumber numberWithBool:self.isColored], @"isColored",
             [NSNumber numberWithInt:self.red], @"red",
             [NSNumber numberWithInt:self.green], @"green",
             [NSNumber numberWithInt:self.blue], @"blue",
