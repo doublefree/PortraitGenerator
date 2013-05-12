@@ -4,7 +4,7 @@
         "eyebrow" : {
             "config" : {
                 "x" : 0.5,
-                "y" : 0.55,
+                "y" : 0.5,
                 "tag" : 108,
                 "zindex" : 18,
                 "couple" : true,
@@ -35,7 +35,7 @@
         "eye" : {
             "config" : {
                 "x" : 0.5,
-                "y" : 0.5,
+                "y" : 0.4,
                 "tag" : 107,
                 "zindex" : 17,
                 "couple" : true,
@@ -95,7 +95,7 @@
         "mouth" : {
             "config" : {
                 "x" : 0.5,
-                "y" : 0.5,
+                "y" : 0.2,
                 "tag" : 105,
                 "zindex" : 15,
                 "allow_scale" : true,
@@ -234,11 +234,11 @@
         "ear" : {
             "config" : {
                 "x" : 0.5,
-                "y" : 0.5,
+                "y" : 0.3,
                 "tag" : 111,
                 "zindex" : 12,
                 "couple" : true,
-                "distance" : 0.55,
+                "distance" : 0.5,
                 "allow_scale" : true,
                 "allow_rotate" : false,
                 "allow_move" : true,
@@ -250,23 +250,23 @@
             },
             "parts" : {
                 "er001" : {
-                    "base_path" : "leftear001_color.png",
-                    "frame_path" : "leftear001_line.png"
+                    "base_path" : "rightear001_color.png",
+                    "frame_path" : "rightear001_line.png"
                 },
                 "er002" : {
-                    "base_path" : "leftear002_color.png",
-                    "frame_path" : "leftear002_line.png"
+                    "base_path" : "rightear002_color.png",
+                    "frame_path" : "rightear002_line.png"
                 },
                 "er003" : {
-                    "base_path" : "leftear003_color.png",
-                    "frame_path" : "leftear003_line.png"
+                    "base_path" : "rightear003_color.png",
+                    "frame_path" : "rightear003_line.png"
                 }
             }
         },
         "nose" : {
             "config" : {
                 "x" : 0.5,
-                "y" : 0.5,
+                "y" : 0.35,
                 "tag" : 106,
                 "zindex" : 16,
                 "allow_scale" : true,
@@ -310,7 +310,7 @@
         "fronthair" : {
             "config" : {
                 "x" : 0.5,
-                "y" : 0.5,
+                "y" : 0.45,
                 "tag" : 104,
                 "zindex" : 14,
                 "allow_scale" : true,
@@ -348,7 +348,7 @@
         "backhair" : {
             "config" : {
                 "x" : 0.5,
-                "y" : 0.5,
+                "y" : 0.45,
                 "tag" : 101,
                 "zindex" : 11,
                 "allow_scale" : true,
