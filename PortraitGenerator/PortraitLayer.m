@@ -249,7 +249,7 @@ NSString* const TUTORIAL_UD_KEY = @"portrait_layer_tutorial_key";
                 base.scaleY = scale;
                 [node addChild:base z:-1];
                 
-                if (figure.frame_path) {
+                if ([figure.frame_path length] > 0) {
                     CCSprite* frame = [CCSprite spriteWithFile:figure.frame_path];
                     frame.scaleX = base.scaleX;
                     frame.scaleY = base.scaleY;
