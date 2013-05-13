@@ -64,6 +64,7 @@
     }
     
     [node addChild:sprite];
+    
     NSString* framePath = [parts objectForKey:PartsKeyDataPartsFrameFilePath];
     if ([framePath length] > 0) {
         CCSprite* frameSprite = [CCSprite spriteWithFile:framePath];
@@ -81,8 +82,10 @@
     [renderer end];
     
     UIImage* image = [renderer getUIImage];
+    
     [self.button setImage:image forState:UIControlStateNormal];
-    //[self.button setBackgroundImage:image forState:UIControlStateNormal];
+    self.button.imageView.contentMode = UIViewContentModeScaleAspectFit;
+
 }
 
 - (void)dealloc {
