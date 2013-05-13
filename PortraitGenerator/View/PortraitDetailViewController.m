@@ -22,6 +22,7 @@ const NSString* IMAGE_URL_FORMAT = @"http://wiz-r.com/portrait/data/%@.png";
 - (IBAction)closeButtonPushed:(id)sender;
 - (IBAction)smsButtonPushed:(id)sender;
 - (IBAction)fbButtonPushed:(id)sender;
+- (IBAction)photoButtonPushed:(id)sender;
 @end
 
 @implementation PortraitDetailViewController
@@ -112,6 +113,28 @@ const NSString* IMAGE_URL_FORMAT = @"http://wiz-r.com/portrait/data/%@.png";
                 [self postToFB];
             }
         }];
+    }
+}
+
+- (IBAction)photoButtonPushed:(id)sender {
+    UIAlertView *alertView = [[UIAlertView alloc]
+                              initWithTitle:NSLocalizedString(@"save_to_photo_library_title", "Confirm")
+                              message:NSLocalizedString(@"save_to_photo_library_message", @"Save to Photo Library")
+                              delegate:self
+                              cancelButtonTitle:@"OK"
+                              otherButtonTitles:nil];
+    [alertView show];
+}
+
+-(void)alertView:(UIAlertView*)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    UIImageWriteToSavedPhotosAlbum(self.image, self, @selector(image:didFinishSavingWithError:contextInfo:), NULL);
+}
+
+- (void)image:(UIImage*)image didFinishSavingWithError:(NSError*)error contextInfo:(void*)contextInfo {
+    if(!error){
+        NSLog(@"no error");
+    } else {
+        NSLog(@"error");
     }
 }
 

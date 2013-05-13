@@ -69,7 +69,6 @@
 }
 
 - (IBAction)okButtonPushed:(id)sender {
-    UIImageWriteToSavedPhotosAlbum(self.image, self, @selector(image:didFinishSavingWithError:contextInfo:), NULL );
     NSString* name = self.textField.text;
     
     if ([name length] <= 0) {
@@ -137,14 +136,6 @@
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [textField resignFirstResponder];
     return YES;
-}
-
-- (void)image:(UIImage*)image didFinishSavingWithError:(NSError*)error contextInfo:(void*)contextInfo {
-    if(!error){
-        NSLog(@"no error");
-    } else {
-        NSLog(@"error");
-    }
 }
 
 - (void)dealloc {
