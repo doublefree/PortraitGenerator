@@ -33,6 +33,7 @@
 		657E83AD1738C7F500244951 /* btn_save@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 657E83AB1738C7F500244951 /* btn_save@2x.png */; };
 		65C297841740ED0200B4F1E9 /* icon_photo.png in Resources */ = {isa = PBXBuildFile; fileRef = 65C297831740ED0200B4F1E9 /* icon_photo.png */; };
 		65C2979217410A9C00B4F1E9 /* PortraitDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65C2979417410A9C00B4F1E9 /* PortraitDetailViewController.xib */; };
+		65C2979617410CE000B4F1E9 /* PortraitCellView.xib in Sources */ = {isa = PBXBuildFile; fileRef = 65C2979817410CE000B4F1E9 /* PortraitCellView.xib */; };
 		65FB295B170129BB006BBAA8 /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = 65FB295A170129BB006BBAA8 /* data.json */; };
 		65FB296517013E15006BBAA8 /* Figure.h in Sources */ = {isa = PBXBuildFile; fileRef = 65FB295F17013DDE006BBAA8 /* Figure.h */; };
 		65FB296617013E15006BBAA8 /* Figure.m in Sources */ = {isa = PBXBuildFile; fileRef = 65FB296017013DDE006BBAA8 /* Figure.m */; };
@@ -46,7 +47,6 @@
 		65FB296E17013E26006BBAA8 /* LoadViewController.xib in Sources */ = {isa = PBXBuildFile; fileRef = 65FB295E17013DB1006BBAA8 /* LoadViewController.xib */; };
 		65FB297217013EF3006BBAA8 /* PortraitCellView.h in Sources */ = {isa = PBXBuildFile; fileRef = 65FB296F17013EDC006BBAA8 /* PortraitCellView.h */; };
 		65FB297317013EF3006BBAA8 /* PortraitCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 65FB297017013EDD006BBAA8 /* PortraitCellView.m */; };
-		65FB297417013EF3006BBAA8 /* PortraitCellView.xib in Sources */ = {isa = PBXBuildFile; fileRef = 65FB297117013EDD006BBAA8 /* PortraitCellView.xib */; };
 		65FB297617013F03006BBAA8 /* PartsListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65FB297517013F03006BBAA8 /* PartsListView.xib */; };
 		65FB297717013F1E006BBAA8 /* PartsListView.xib in Sources */ = {isa = PBXBuildFile; fileRef = 65FB297517013F03006BBAA8 /* PartsListView.xib */; };
 		B013D2AB172B71D100657FC8 /* libGoogleAdMobAds.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B013D27A172B71D100657FC8 /* libGoogleAdMobAds.a */; };
@@ -619,8 +619,10 @@
 		657E83AB1738C7F500244951 /* btn_save@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_save@2x.png"; sourceTree = "<group>"; };
 		65C297821740EC1700B4F1E9 /* icon_photo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_photo@2x.png"; sourceTree = "<group>"; };
 		65C297831740ED0200B4F1E9 /* icon_photo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_photo.png; sourceTree = "<group>"; };
-		65C2979317410A9C00B4F1E9 /* en */ = {isa = PBXFileReference; lastKnownFileType = file; name = en; path = en.lproj/PortraitDetailViewController.xib; sourceTree = "<group>"; };
-		65C2979517410AA200B4F1E9 /* ja */ = {isa = PBXFileReference; lastKnownFileType = file; name = ja; path = ja.lproj/PortraitDetailViewController.xib; sourceTree = "<group>"; };
+		65C2979317410A9C00B4F1E9 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/PortraitDetailViewController.xib; sourceTree = "<group>"; };
+		65C2979517410AA200B4F1E9 /* ja */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ja; path = ja.lproj/PortraitDetailViewController.xib; sourceTree = "<group>"; };
+		65C2979717410CE000B4F1E9 /* en */ = {isa = PBXFileReference; lastKnownFileType = file; name = en; path = en.lproj/PortraitCellView.xib; sourceTree = "<group>"; };
+		65C2979917410CE400B4F1E9 /* ja */ = {isa = PBXFileReference; lastKnownFileType = file; name = ja; path = ja.lproj/PortraitCellView.xib; sourceTree = "<group>"; };
 		65FB295A170129BB006BBAA8 /* data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = data.json; path = Resources/data.json; sourceTree = "<group>"; };
 		65FB295C17013DB1006BBAA8 /* LoadViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = LoadViewController.h; path = View/LoadViewController.h; sourceTree = "<group>"; };
 		65FB295D17013DB1006BBAA8 /* LoadViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = LoadViewController.m; path = View/LoadViewController.m; sourceTree = "<group>"; };
@@ -633,7 +635,6 @@
 		65FB296417013DDF006BBAA8 /* Portrait.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = Portrait.m; path = Core/Portrait.m; sourceTree = "<group>"; };
 		65FB296F17013EDC006BBAA8 /* PortraitCellView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PortraitCellView.h; path = View/PortraitCellView.h; sourceTree = "<group>"; };
 		65FB297017013EDD006BBAA8 /* PortraitCellView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = PortraitCellView.m; path = View/PortraitCellView.m; sourceTree = "<group>"; };
-		65FB297117013EDD006BBAA8 /* PortraitCellView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = PortraitCellView.xib; path = View/PortraitCellView.xib; sourceTree = "<group>"; };
 		65FB297517013F03006BBAA8 /* PartsListView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PartsListView.xib; path = View/PartsListView.xib; sourceTree = "<group>"; };
 		B013D271172B71D100657FC8 /* GADAdMobExtras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADAdMobExtras.h; sourceTree = "<group>"; };
 		B013D272172B71D100657FC8 /* GADAdNetworkExtras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADAdNetworkExtras.h; sourceTree = "<group>"; };
@@ -1727,7 +1728,7 @@
 			children = (
 				65FB296F17013EDC006BBAA8 /* PortraitCellView.h */,
 				65FB297017013EDD006BBAA8 /* PortraitCellView.m */,
-				65FB297117013EDD006BBAA8 /* PortraitCellView.xib */,
+				65C2979817410CE000B4F1E9 /* PortraitCellView.xib */,
 				65FB295C17013DB1006BBAA8 /* LoadViewController.h */,
 				65FB295D17013DB1006BBAA8 /* LoadViewController.m */,
 				65FB295E17013DB1006BBAA8 /* LoadViewController.xib */,
@@ -2817,7 +2818,7 @@
 				65FB297717013F1E006BBAA8 /* PartsListView.xib in Sources */,
 				65FB297217013EF3006BBAA8 /* PortraitCellView.h in Sources */,
 				65FB297317013EF3006BBAA8 /* PortraitCellView.m in Sources */,
-				65FB297417013EF3006BBAA8 /* PortraitCellView.xib in Sources */,
+				65C2979617410CE000B4F1E9 /* PortraitCellView.xib in Sources */,
 				65FB296C17013E26006BBAA8 /* LoadViewController.h in Sources */,
 				65FB296D17013E26006BBAA8 /* LoadViewController.m in Sources */,
 				65FB296E17013E26006BBAA8 /* LoadViewController.xib in Sources */,
@@ -2978,6 +2979,16 @@
 				65C2979517410AA200B4F1E9 /* ja */,
 			);
 			name = PortraitDetailViewController.xib;
+			path = View;
+			sourceTree = "<group>";
+		};
+		65C2979817410CE000B4F1E9 /* PortraitCellView.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				65C2979717410CE000B4F1E9 /* en */,
+				65C2979917410CE400B4F1E9 /* ja */,
+			);
+			name = PortraitCellView.xib;
 			path = View;
 			sourceTree = "<group>";
 		};
