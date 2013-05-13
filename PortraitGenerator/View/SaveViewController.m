@@ -51,9 +51,7 @@
     if ([self.name length] > 0) {
         self.textField.text = self.name;
     } else {
-        NSDateFormatter* refDateFormattter = [[NSDateFormatter alloc] init];
-        [refDateFormattter setDateFormat:@"yyyy-MM-dd"];
-        self.textField.text = [refDateFormattter stringFromDate:[NSDate date]];
+        ;
     }
     self.textField.delegate = self;
 }
@@ -72,11 +70,9 @@
     NSString* name = self.textField.text;
     
     if ([name length] <= 0) {
-        NSString* title = NSLocalizedString(@"save_error_dialog_title", @"Error");
-        NSString* message = NSLocalizedString(@"save_error_dialog_message_input_title", @"Please input title");
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title message:message delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
-        [alert show];
-        return;
+        NSDateFormatter* refDateFormattter = [[NSDateFormatter alloc] init];
+        [refDateFormattter setDateFormat:@"yyyy-MM-dd"];
+        name = [refDateFormattter stringFromDate:[NSDate date]];
     }
     
     self.name = name;
