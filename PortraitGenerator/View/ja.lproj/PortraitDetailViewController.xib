@@ -40,7 +40,7 @@
 					<object class="IBUIImageView" id="131408857">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrameSize">{320, 554}</string>
+						<string key="NSFrameSize">{320, 568}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="497382591"/>
@@ -515,7 +515,7 @@
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
 		<dictionary class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
-			<string key="background.png">{320, 480}</string>
+			<string key="background.png">{320, 512}</string>
 			<string key="btn_save_cancel.png">{300, 35}</string>
 			<string key="icon_fb.png">{45, 45}</string>
 			<string key="icon_line.png">{45, 45}</string>

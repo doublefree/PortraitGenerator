@@ -401,7 +401,7 @@
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
 		<dictionary class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
-			<string key="background.png">{320, 480}</string>
+			<string key="background.png">{320, 512}</string>
 			<string key="btn_save_cancel.png">{300, 35}</string>
 			<string key="btn_save_ok.png">{300, 35}</string>
 		</dictionary>
