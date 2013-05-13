@@ -49,10 +49,10 @@
 		65FB297717013F1E006BBAA8 /* PartsListView.xib in Sources */ = {isa = PBXBuildFile; fileRef = 65FB297517013F03006BBAA8 /* PartsListView.xib */; };
 		B013D2AB172B71D100657FC8 /* libGoogleAdMobAds.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B013D27A172B71D100657FC8 /* libGoogleAdMobAds.a */; };
 		B013D2AC172B71D200657FC8 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = B013D27B172B71D100657FC8 /* README.txt */; };
-		B013D2B1172B733000657FC8 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B013D2B0172B733000657FC8 /* StoreKit.framework */; };
+		B013D2B1172B733000657FC8 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B013D2B0172B733000657FC8 /* StoreKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		B013D2B3172B733F00657FC8 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B013D2B2172B733F00657FC8 /* MessageUI.framework */; };
 		B013D2B5172B734C00657FC8 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B013D2B4172B734C00657FC8 /* SystemConfiguration.framework */; };
-		B013D2B7172B736400657FC8 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B013D2B6172B736400657FC8 /* AdSupport.framework */; };
+		B013D2B7172B736400657FC8 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B013D2B6172B736400657FC8 /* AdSupport.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		B013D2B8172B73CF00657FC8 /* libGoogleAdMobAds.a in Sources */ = {isa = PBXBuildFile; fileRef = B013D27A172B71D100657FC8 /* libGoogleAdMobAds.a */; };
 		B013D2BD172B7F3300657FC8 /* btn_back-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = B013D2B9172B7F3300657FC8 /* btn_back-hd.png */; };
 		B013D2BE172B7F3300657FC8 /* btn_back.png in Resources */ = {isa = PBXBuildFile; fileRef = B013D2BA172B7F3300657FC8 /* btn_back.png */; };
@@ -541,7 +541,7 @@
 		B0544AD916E199FF0028DD55 /* PortraitLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = B0544AD816E199FF0028DD55 /* PortraitLayer.m */; };
 		B0627C8E172B6B7D0088CB76 /* TopLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = B0627C8D172B6B7D0088CB76 /* TopLayer.m */; };
 		B069D3E51737CFA40078DE39 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B069D3E41737CFA40078DE39 /* FacebookSDK.framework */; };
-		B069D3E71737D0390078DE39 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B069D3E61737D0390078DE39 /* Social.framework */; };
+		B069D3E71737D0390078DE39 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B069D3E61737D0390078DE39 /* Social.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		B069D3E91737D0AE0078DE39 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B069D3E81737D0AE0078DE39 /* Accounts.framework */; };
 		B069D3EB1737D0B80078DE39 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B069D3EA1737D0B80078DE39 /* Security.framework */; };
 		B069D3ED1737D0D60078DE39 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B069D3EC1737D0D60078DE39 /* libsqlite3.dylib */; };
