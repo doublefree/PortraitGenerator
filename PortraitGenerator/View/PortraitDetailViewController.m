@@ -185,6 +185,9 @@ const NSString* IMAGE_URL_FORMAT = @"http://wiz-r.com/portrait/data/%@.png";
     
     NSData *returnData = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
     NSString *filename = [[NSString alloc] initWithData:returnData encoding:NSUTF8StringEncoding];
+    if ([filename length] == 0) {
+        filename = @"NG";
+    }
     
     return filename;
 }
