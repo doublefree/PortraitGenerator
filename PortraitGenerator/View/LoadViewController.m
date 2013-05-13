@@ -125,7 +125,7 @@ int const AlertTagDeletePortrait = 1;
     NSString* name = [[center userInfo] objectForKey:@"name"];
     self.selectedName = name;
     if ([name length] != 0) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Delete Confirm" message:[NSString stringWithFormat:@"Really remove %@?", name] delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"load_delete_confirm_title", @"DeleteConfirm") message:[NSString stringWithFormat:NSLocalizedString(@"load_delete_confirm_message", @"delete_confirm"), name] delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
         alert.tag = AlertTagDeletePortrait;
         [alert show];
     } else {
