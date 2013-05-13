@@ -8,6 +8,7 @@
 
 #import "PortraitDetailViewController.h"
 #import "Portrait.h"
+#import "TopLayer.h"
 
 const NSString* IMAGE_POST_URL = @"http://wiz-r.com/portrait/save.php";
 const NSString* SHOW_URL_FORMAT = @"http://wiz-r.com/portrait/show.php?id=%@";
@@ -90,11 +91,8 @@ const NSString* IMAGE_URL_FORMAT = @"http://wiz-r.com/portrait/data/%@.png";
 }
 
 - (IBAction)closeButtonPushed:(id)sender {
-    [UIView beginAnimations:nil context:NULL];
-    [UIView setAnimationDuration:0.7];
-    [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromRight forView:self.view.window.rootViewController.view cache:YES];
     [self.view removeFromSuperview];
-    [UIView commitAnimations];
+    [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[TopLayer scene]]];
 }
 
 - (IBAction)smsButtonPushed:(id)sender {
