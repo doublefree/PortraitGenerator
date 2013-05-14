@@ -68,7 +68,7 @@ const int TAG_TOP_MENU = 100;
         
         CCMenu *menu = [CCMenu menuWithItems:itemGallary, itemGenerate, nil];
 		
-		[menu alignItemsHorizontallyWithPadding:10];
+		[menu alignItemsHorizontallyWithPadding:7];
 		[menu setPosition:ccp(size.width/2, GAD_SIZE_320x50.height + itemGallary.contentSize.height/2 + 30)];
 		
 		[self addChild:menu z:10 tag:TAG_TOP_MENU];
