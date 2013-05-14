@@ -35,6 +35,11 @@ const int TAG_TOP_MENU = 100;
         background.position = CGPointMake(size.width/2, size.height/2);
         [self addChild:background z:0];
         
+        // logo
+        CCSprite* logo = [CCSprite spriteWithFile:@"logo.png"];
+        logo.position = CGPointMake(size.width/2, size.height/2 + 70);
+        [self addChild:logo z:1];
+        
         // menu
         CCSprite* spriteGenerate = [CCSprite spriteWithFile:@"makenewface_button.png"];
         CCSprite* spriteGenerateSelected = [CCSprite spriteWithFile:@"makenewface_button.png"];
@@ -59,16 +64,12 @@ const int TAG_TOP_MENU = 100;
             
             [view addSubview:self.loadViewController.view];
             [UIView commitAnimations];
-            /*
-            AppController *app = (AppController*) [[UIApplication sharedApplication] delegate];
-            [app.navController presentModalViewController: self.loadViewController animated:YES];
-             */
 		}];
         
-        CCMenu *menu = [CCMenu menuWithItems:itemGenerate, itemGallary, nil];
+        CCMenu *menu = [CCMenu menuWithItems:itemGallary, itemGenerate, nil];
 		
-		[menu alignItemsVerticallyWithPadding:30];
-		[menu setPosition:ccp(size.width/2, (size.height + GAD_SIZE_320x50.height)/2)];
+		[menu alignItemsHorizontallyWithPadding:10];
+		[menu setPosition:ccp(size.width/2, GAD_SIZE_320x50.height + itemGallary.contentSize.height/2 + 30)];
 		
 		[self addChild:menu z:10 tag:TAG_TOP_MENU];
         

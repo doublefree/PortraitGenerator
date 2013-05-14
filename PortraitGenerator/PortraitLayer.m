@@ -30,6 +30,7 @@ double const PADDING_FRAME = 30.0f;
 
 int const ZINDEX_IMAGE_CONTROL = 1010;
 int const ZINDEX_BACKGROUND = -100;
+int const ZINDEX_HEADER = -50;
 int const ZINDEX_FRAME = -10;
 
 int const PARTS_CATEGORY_HEIGHT = 50;
@@ -80,9 +81,14 @@ NSString* const TUTORIAL_UD_KEY = @"portrait_layer_tutorial_key";
         [[[CCDirector sharedDirector] touchDispatcher] addTargetedDelegate:self priority:0 swallowsTouches:YES];
         
         CGSize size = [[CCDirector sharedDirector] winSize];
+        
         CCSprite* background = [CCSprite spriteWithFile:@"background.png"];
         background.position = CGPointMake(size.width/2, size.height/2);
         [self addChild:background z:ZINDEX_BACKGROUND];
+        
+        CCSprite* header = [CCSprite spriteWithFile:@"header.png"];
+        header.position = CGPointMake(size.width/2, size.height - header.contentSize.height/2);
+        [self addChild:header z:ZINDEX_HEADER];
         
         self.nodeList = [[[NSMutableArray alloc] init] autorelease];
         self.frameSprite = [CCSprite spriteWithFile:@"portrait_area_rect.png"];
@@ -537,10 +543,10 @@ NSString* const TUTORIAL_UD_KEY = @"portrait_layer_tutorial_key";
     CGSize size = [[CCDirector sharedDirector] winSize];
     
     CCMenu* menu = [CCMenu menuWithItems:menuBack, menuSave, nil];
-    [menu alignItemsHorizontallyWithPadding:80];
+    [menu alignItemsHorizontallyWithPadding:120];
     
     float height = menuSave.contentSize.height;
-    menu.position = CGPointMake(size.width/2, size.height - height / 3 * 2 - 6);
+    menu.position = CGPointMake(size.width/2, size.height - height / 3 * 2 - 11);
     
     [self addChild:menu];
 }
