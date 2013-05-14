@@ -114,11 +114,11 @@
 						<object class="NSAttributedString" key="IBUINormalAttributedTitle">
 							<string key="NSString">保存</string>
 							<dictionary key="NSAttributes">
-								<object class="NSColor" key="NSColor">
+								<object class="NSColor" key="NSColor" id="855101343">
 									<int key="NSColorSpace">1</int>
 									<bytes key="NSRGB">MSAxIDEAA</bytes>
 								</object>
-								<object class="NSFont" key="NSFont">
+								<object class="NSFont" key="NSFont" id="642422658">
 									<string key="NSName">HiraKakuProN-W6</string>
 									<double key="NSSize">15</double>
 									<int key="NSfFlags">16</int>
@@ -158,11 +158,8 @@
 						<object class="NSAttributedString" key="IBUINormalAttributedTitle">
 							<string key="NSString">キャンセル</string>
 							<dictionary key="NSAttributes">
-								<object class="NSFont" key="NSFont">
-									<string key="NSName">HiraKakuProN-W3</string>
-									<double key="NSSize">15</double>
-									<int key="NSfFlags">16</int>
-								</object>
+								<reference key="NSColor" ref="855101343"/>
+								<reference key="NSFont" ref="642422658"/>
 								<object class="NSMutableParagraphStyle" key="NSParagraphStyle">
 									<int key="NSAlignment">4</int>
 									<nil key="NSTabStops"/>
