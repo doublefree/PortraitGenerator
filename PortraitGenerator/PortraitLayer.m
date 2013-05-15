@@ -653,6 +653,8 @@ NSString* const TUTORIAL_UD_KEY = @"portrait_layer_tutorial_key";
 
 - (void)launchSaveDialog
 {
+    [self removeControls];
+    
     UIImage* image = [self croppedPortraitImage];
     SaveViewController* saveViewController = [[SaveViewController alloc] initWithNibName:@"SaveViewController" bundle:nil image:image figureSet:self.figureSet name:self.name];
     UIView* view = [[CCDirector sharedDirector] view];
