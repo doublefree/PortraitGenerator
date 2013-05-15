@@ -62,28 +62,27 @@ int const AlertTagDeletePortrait = 1;
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSMutableDictionary* portraitList = [Portrait list];
     NSArray* nameList = [portraitList allKeys];
-    PortraitCellView *cell = [self.tableView dequeueReusableCellWithIdentifier:@"PortraitCell"];
-    if (cell == nil) {
-        UIViewController* controller;
-        controller = [[UIViewController alloc] initWithNibName:@"PortraitCellView" bundle:nil];
-        cell = (PortraitCellView*)controller.view;
-        
-        NSString* name = [nameList objectAtIndex:indexPath.row];
-        cell.nameLabel.text = name;
-        NSDictionary* dictionary = [portraitList objectForKey:name];
-        NSData* data = [dictionary objectForKey:@"image"];
-        cell.image.image = [UIImage imageWithData:data];
-        
-        UISwipeGestureRecognizer* gestureRight = [[UISwipeGestureRecognizer alloc]
-         initWithTarget:cell action:@selector(didSwipeCell:)];
-        gestureRight.direction = UISwipeGestureRecognizerDirectionRight;
-        [cell addGestureRecognizer:gestureRight];
-        
-        UISwipeGestureRecognizer* gestureLeft = [[UISwipeGestureRecognizer alloc]
-                                             initWithTarget:cell action:@selector(didSwipeCell:)];
-        gestureLeft.direction = UISwipeGestureRecognizerDirectionLeft;
-        [cell addGestureRecognizer:gestureLeft];
-    }
+    UIViewController* controller;
+    
+    controller = [[UIViewController alloc] initWithNibName:@"PortraitCellView" bundle:nil];
+    PortraitCellView* cell = (PortraitCellView*)controller.view;
+    
+    NSString* name = [nameList objectAtIndex:indexPath.row];
+    cell.nameLabel.text = name;
+    NSDictionary* dictionary = [portraitList objectForKey:name];
+    NSData* data = [dictionary objectForKey:@"image"];
+    cell.image.image = [UIImage imageWithData:data];
+    
+    UISwipeGestureRecognizer* gestureRight = [[UISwipeGestureRecognizer alloc]
+     initWithTarget:cell action:@selector(didSwipeCell:)];
+    gestureRight.direction = UISwipeGestureRecognizerDirectionRight;
+    [cell addGestureRecognizer:gestureRight];
+    
+    UISwipeGestureRecognizer* gestureLeft = [[UISwipeGestureRecognizer alloc]
+                                         initWithTarget:cell action:@selector(didSwipeCell:)];
+    gestureLeft.direction = UISwipeGestureRecognizerDirectionLeft;
+    [cell addGestureRecognizer:gestureLeft];
+
     return cell;
 }
 
