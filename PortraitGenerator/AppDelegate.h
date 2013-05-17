@@ -12,6 +12,7 @@
 #import "GADBannerView.h"
 #import "Flurry.h"
 #import <FacebookSDK/FacebookSDK.h>
+#import "PlayHavenSDK.h"
 
 extern NSString* const NOTIFICATION_LOAD_BUTTON_PUSHED;
 extern NSString* const NOTIFICATION_DELETE_BUTTON_PUSHED;

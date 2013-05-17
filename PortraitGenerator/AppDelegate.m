@@ -101,6 +101,10 @@ int const CATEGORY_CELL_HEIGHT = 45;
 	// make main window visible
 	[window_ makeKeyAndVisible];
     
+    // Playheven
+    PHPublisherOpenRequest *request = [PHPublisherOpenRequest requestForApp:@"8f45efa2b3e94924a6311e621b21c486" secret:@"fad6c3f37faa47cca36eb194f38ede23"];
+    
+    [request send];
     // Flurry
     [Flurry startSession:@"J33G6JY6CY958N9Y9DX9"];
 	
