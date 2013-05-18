@@ -463,6 +463,9 @@
 		B034C750173F327500ADE5AE /* righteyebrow004_line.png in Resources */ = {isa = PBXBuildFile; fileRef = B034C61E173F327500ADE5AE /* righteyebrow004_line.png */; };
 		B034C751173F327500ADE5AE /* righteyebrow005_line-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = B034C61F173F327500ADE5AE /* righteyebrow005_line-hd.png */; };
 		B034C752173F327500ADE5AE /* righteyebrow005_line.png in Resources */ = {isa = PBXBuildFile; fileRef = B034C620173F327500ADE5AE /* righteyebrow005_line.png */; };
+		B03613CC1747AD03005D6AE8 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B03613CB1747AD03005D6AE8 /* Parse.framework */; };
+		B03613CE1747AD3C005D6AE8 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B03613CD1747AD3C005D6AE8 /* CoreLocation.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		B03613D01747AD55005D6AE8 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B03613CF1747AD55005D6AE8 /* MobileCoreServices.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		B054493416E1995D0028DD55 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B054493316E1995D0028DD55 /* QuartzCore.framework */; };
 		B054493616E1995D0028DD55 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B054493516E1995D0028DD55 /* OpenGLES.framework */; };
 		B054493816E1995D0028DD55 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B054493716E1995D0028DD55 /* OpenAL.framework */; };
@@ -1135,6 +1138,9 @@
 		B034C61E173F327500ADE5AE /* righteyebrow004_line.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = righteyebrow004_line.png; sourceTree = "<group>"; };
 		B034C61F173F327500ADE5AE /* righteyebrow005_line-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "righteyebrow005_line-hd.png"; sourceTree = "<group>"; };
 		B034C620173F327500ADE5AE /* righteyebrow005_line.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = righteyebrow005_line.png; sourceTree = "<group>"; };
+		B03613CB1747AD03005D6AE8 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = PortraitGenerator/libs/Parse.framework; sourceTree = "<group>"; };
+		B03613CD1747AD3C005D6AE8 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		B03613CF1747AD55005D6AE8 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		B054493016E1995D0028DD55 /* PortraitGenerator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PortraitGenerator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B054493316E1995D0028DD55 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		B054493516E1995D0028DD55 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -1442,6 +1448,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B03613D01747AD55005D6AE8 /* MobileCoreServices.framework in Frameworks */,
+				B03613CE1747AD3C005D6AE8 /* CoreLocation.framework in Frameworks */,
 				65CEBCD91746171400DE0BA1 /* CFNetwork.framework in Frameworks */,
 				B069D3ED1737D0D60078DE39 /* libsqlite3.dylib in Frameworks */,
 				B013D2B7172B736400657FC8 /* AdSupport.framework in Frameworks */,
@@ -1465,6 +1473,7 @@
 				B013D2AB172B71D100657FC8 /* libGoogleAdMobAds.a in Frameworks */,
 				B029D78D1736B85B00E4379A /* libFlurry.a in Frameworks */,
 				B069D3E51737CFA40078DE39 /* FacebookSDK.framework in Frameworks */,
+				B03613CC1747AD03005D6AE8 /* Parse.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1994,7 +2003,6 @@
 		B054492716E1995D0028DD55 = {
 			isa = PBXGroup;
 			children = (
-				65CEBCD81746171400DE0BA1 /* CFNetwork.framework */,
 				B069D3F01737D3F70078DE39 /* icon_114.png */,
 				B069D3EE1737D3F50078DE39 /* icon_57.png */,
 				B054494516E1995D0028DD55 /* PortraitGenerator */,
@@ -2014,6 +2022,10 @@
 		B054493216E1995D0028DD55 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B03613CF1747AD55005D6AE8 /* MobileCoreServices.framework */,
+				B03613CD1747AD3C005D6AE8 /* CoreLocation.framework */,
+				65CEBCD81746171400DE0BA1 /* CFNetwork.framework */,
+				B03613CB1747AD03005D6AE8 /* Parse.framework */,
 				B069D3EC1737D0D60078DE39 /* libsqlite3.dylib */,
 				B069D3EA1737D0B80078DE39 /* Security.framework */,
 				B069D3E81737D0AE0078DE39 /* Accounts.framework */,
@@ -3316,6 +3328,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Takuya Watabe (2MVE6Y8AB7)";
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3337,6 +3350,7 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "696417B4-D770-47EB-B54D-7CFB2638D95D";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;

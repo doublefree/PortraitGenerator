@@ -38,8 +38,22 @@
 	<string>APPL</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLName</key>
+			<string>com.wiz-r.PortraitGenerator</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>wiz-r-portrait</string>
+				<string>fb304937069639480</string>
+			</array>
+		</dict>
+	</array>
 	<key>CFBundleVersion</key>
-	<string>1.0</string>
+	<string>1.1</string>
+	<key>FacebookAppID</key>
+	<string>304937069639480</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>UIPrerenderedIcon</key>
@@ -56,20 +70,6 @@
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
-	</array>
-	<key>FacebookAppID</key>
-	<string>304937069639480</string>
-	<key>CFBundleURLTypes</key>
-	<array>
-		<dict>
-			<key>CFBundleURLSchemes</key>
-			<array>
-				<string>wiz-r-portrait</string>
-				<string>fb304937069639480</string>
-			</array>
-			<key>CFBundleURLName</key>
-			<string>com.wiz-r.PortraitGenerator</string>
-		</dict>
 	</array>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>

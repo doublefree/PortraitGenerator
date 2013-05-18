@@ -10,6 +10,9 @@
 
 #import "AppDelegate.h"
 #import "TopLayer.h"
+#import "PlayHavenSDK.h"
+#import "Flurry.h"
+#import <Parse/Parse.h>
 
 NSString* const NOTIFICATION_LOAD_BUTTON_PUSHED = @"notification_load_button_pushed";
 NSString* const NOTIFICATION_DELETE_BUTTON_PUSHED = @"notification_delete_button_pushed";
@@ -103,12 +106,40 @@ int const CATEGORY_CELL_HEIGHT = 45;
     
     // Playheven
     PHPublisherOpenRequest *request = [PHPublisherOpenRequest requestForApp:@"8f45efa2b3e94924a6311e621b21c486" secret:@"fad6c3f37faa47cca36eb194f38ede23"];
-    
     [request send];
+    
+    // Parse
+    [Parse setApplicationId:@"1A8gGuVAajpvO9HHuzIlNjjixkjU2hb8iXqXDMK6" clientKey:@"USlPII5fnt2HQW4LNjqr0jAQOMNkj25AjgKvkfBV"];
+    [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+    [application registerForRemoteNotificationTypes:UIRemoteNotificationTypeBadge|
+     UIRemoteNotificationTypeAlert|
+     UIRemoteNotificationTypeSound];
+    
     // Flurry
     [Flurry startSession:@"J33G6JY6CY958N9Y9DX9"];
 	
 	return YES;
+}
+
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
+{
+    // Store the deviceToken in the current installation and save it to Parse.
+    PFInstallation *currentInstallation = [PFInstallation currentInstallation];
+    [currentInstallation setDeviceTokenFromData:deviceToken];
+    [currentInstallation saveInBackground];
+}
+
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
+    [PFPush handlePush:userInfo];
+}
+
+- (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error
+{
+    if ([error code] == 3010) {
+        NSLog(@"Push notifications don't work in the simulator!");
+    } else {
+        NSLog(@"didFailToRegisterForRemoteNotificationsWithError: %@", error);
+    }
 }
 
 // Supported orientations: Landscape. Customize it for your own needs
